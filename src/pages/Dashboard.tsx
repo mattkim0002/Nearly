@@ -19,6 +19,58 @@ const CATEGORIES = [
   { name: "Jewelry", icon: "💎", color: "from-yellow-500 to-amber-500" },
 ];
 
+const NAVIGATION_ITEMS = [
+  { 
+    name: 'Browse Pros', 
+    path: '/browse', 
+    icon: '👥',
+    keywords: ['browse', 'pros', 'makers', 'professionals', 'find', 'search', 'map', 'map view'],
+    description: 'Find local pros and view them on a map'
+  },
+  { 
+    name: 'Browse Jobs', 
+    path: '/browse-jobs', 
+    icon: '💼',
+    keywords: ['browse', 'jobs', 'work', 'projects', 'find', 'search'],
+    description: 'Find available jobs in your area'
+  },
+  { 
+    name: 'Post a Job', 
+    path: '/post-job', 
+    icon: '➕',
+    keywords: ['post', 'create', 'new', 'job', 'project', 'hire'],
+    description: 'Post a new job and get proposals'
+  },
+  { 
+    name: 'My Jobs', 
+    path: '/my-jobs', 
+    icon: '📋',
+    keywords: ['my', 'jobs', 'orders', 'projects'],
+    description: 'View your posted jobs and orders'
+  },
+  { 
+    name: 'My Projects', 
+    path: '/my-projects', 
+    icon: '🛠️',
+    keywords: ['my', 'projects', 'work', 'active'],
+    description: 'View your active projects'
+  },
+  { 
+    name: 'Profile', 
+    path: '/profile', 
+    icon: '👤',
+    keywords: ['profile', 'account', 'settings', 'edit'],
+    description: 'Edit your profile and settings'
+  },
+  { 
+    name: 'Messages', 
+    path: '/messages', 
+    icon: '💬',
+    keywords: ['messages', 'chat', 'inbox', 'conversations'],
+    description: 'View your messages and conversations'
+  },
+];
+
 export default function Dashboard({ user, onSignOut }: DashboardProps) {
   const navigate = useNavigate();
   const userName = user?.user_metadata?.name || 'User';
@@ -68,7 +120,16 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
     setShowSearchResults(true);
 
     try {
-      // Search jobs
+      const searchTerm = query.toLowerCase();
+      
+      // Search navigation items first
+      const navResults = NAVIGATION_ITEMS.filter(item => 
+        item.name.toLowerCase().includes(searchTerm) ||
+        item.keywords.some(keyword => keyword.includes(searchTerm)) ||
+        item.description.toLowerCase().includes(searchTerm)
+      );
+
+      // Search jobs from database
       const { data: jobs, error } = await supabase
         .from('jobs')
         .select('*')
@@ -77,7 +138,14 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
         .limit(10);
 
       if (error) throw error;
-      setSearchResults(jobs || []);
+      
+      // Combine results - navigation items first, then jobs
+      const combinedResults = [
+        ...navResults.map(item => ({ ...item, type: 'navigation' })),
+        ...(jobs || []).map(job => ({ ...job, type: 'job' }))
+      ];
+      
+      setSearchResults(combinedResults);
     } catch (error) {
       console.error('Search error:', error);
       setSearchResults([]);
@@ -143,30 +211,55 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
                       </div>
                     ) : (
                       <div className="p-4">
-                        <p className="text-sm text-slate-500 mb-3 px-2">Found {searchResults.length} jobs</p>
-                        {searchResults.map((job) => (
-                          <div
-                            key={job.id}
-                            onClick={() => {
-                              navigate(`/jobs/${job.id}`);
-                              setShowSearchResults(false);
-                              setSearchQuery('');
-                            }}
-                            className="p-4 hover:bg-sky-50 rounded-xl cursor-pointer transition mb-2"
-                          >
-                            <div className="flex items-start justify-between">
-                              <div className="flex-1">
-                                <h4 className="font-bold text-slate-900 mb-1">{job.title}</h4>
-                                <p className="text-sm text-slate-600 line-clamp-2 mb-2">{job.description}</p>
-                                <div className="flex items-center gap-2 flex-wrap">
-                                  <span className="px-2 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-semibold">
-                                    {job.category}
-                                  </span>
-                                  <span className="text-sm text-slate-500">{job.location}</span>
+                        <p className="text-sm text-slate-500 mb-3 px-2">
+                          Found {searchResults.length} result{searchResults.length !== 1 ? 's' : ''}
+                        </p>
+                        {searchResults.map((result: any, index: number) => (
+                          <div key={index}>
+                            {result.type === 'navigation' ? (
+                              // Navigation Item Result
+                              <div
+                                onClick={() => {
+                                  navigate(result.path);
+                                  setShowSearchResults(false);
+                                  setSearchQuery('');
+                                }}
+                                className="p-4 hover:bg-sky-50 rounded-xl cursor-pointer transition mb-2 flex items-start gap-3"
+                              >
+                                <div className="text-3xl">{result.icon}</div>
+                                <div className="flex-1">
+                                  <h4 className="font-bold text-slate-900 mb-1">{result.name}</h4>
+                                  <p className="text-sm text-slate-600">{result.description}</p>
+                                </div>
+                                <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </div>
+                            ) : (
+                              // Job Result
+                              <div
+                                onClick={() => {
+                                  navigate(`/jobs/${result.id}`);
+                                  setShowSearchResults(false);
+                                  setSearchQuery('');
+                                }}
+                                className="p-4 hover:bg-sky-50 rounded-xl cursor-pointer transition mb-2"
+                              >
+                                <div className="flex items-start justify-between">
+                                  <div className="flex-1">
+                                    <h4 className="font-bold text-slate-900 mb-1">{result.title}</h4>
+                                    <p className="text-sm text-slate-600 line-clamp-2 mb-2">{result.description}</p>
+                                    <div className="flex items-center gap-2 flex-wrap">
+                                      <span className="px-2 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-semibold">
+                                        {result.category}
+                                      </span>
+                                      <span className="text-sm text-slate-500">{result.location}</span>
+                                    </div>
+                                  </div>
+                                  <span className="font-bold text-sky-600 ml-4">${result.budget}</span>
                                 </div>
                               </div>
-                              <span className="font-bold text-sky-600 ml-4">${job.budget}</span>
-                            </div>
+                            )}
                           </div>
                         ))}
                       </div>

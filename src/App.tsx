@@ -17,6 +17,8 @@ import ListsPage from './pages/ListPage';
 import JobDetail from './pages/JobDetail';
 import MyProposals from './pages/MyProposals';
 import MyProjects from './pages/MyProjects';
+import ProfileEdit from './pages/ProfileEdit';
+
 
 function AppContent() {
   const [user, setUser] = useState<any>(null);
@@ -59,24 +61,25 @@ function AppContent() {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<Home user={user} onSignOut={handleSignOut} />} />
-      <Route path="/auth" element={<AuthPage />} />
-      <Route path="/profile" element={<Profile user={user} onSignOut={handleSignOut} />} />
-      <Route path="/pricing" element={<PricingPage user={user} onSignOut={handleSignOut} />} />
-      <Route path="/browse" element={<Browse user={user} onSignOut={handleSignOut} />} />
-      <Route path="/dashboard" element={<Dashboard user={user} onSignOut={handleSignOut} />} />
-      <Route path="/post-job" element={<PostJob user={user} onSignOut={handleSignOut} />} />
-      <Route path="/my-jobs" element={<MyJobs user={user} onSignOut={handleSignOut} />} />
-      <Route path="/browse-jobs" element={<BrowseJobs user={user} onSignOut={handleSignOut} />} />
-      <Route path="/category/:category" element={<CategoryPage user={user} onSignOut={handleSignOut} />} />
-      <Route path="/pro/:id" element={<ProProfile user={user} onSignOut={handleSignOut} />} />
-      <Route path="/messages" element={<Messages user={user} onSignOut={handleSignOut} />} />
-      <Route path="/lists" element={<ListsPage user={user} onSignOut={handleSignOut} />} />
-      <Route path="/job/:id" element={<JobDetail user={user} onSignOut={handleSignOut} />} />
-      <Route path="/my-proposals" element={<MyProposals user={user} onSignOut={handleSignOut} />} />
-      <Route path="/my-projects" element={<MyProjects user={user} onSignOut={handleSignOut} />} />
-    </Routes>
+   <Routes>
+  <Route path="/" element={<Home user={user} onSignOut={handleSignOut} />} />
+  <Route path="/auth" element={<AuthPage />} />
+  <Route path="/profile" element={<Profile user={user} onSignOut={handleSignOut} />} />
+  <Route path="/profile/edit" element={<ProfileEdit user={user} onSignOut={handleSignOut} />} />
+  <Route path="/pricing" element={<PricingPage user={user} onSignOut={handleSignOut} />} />
+  <Route path="/browse" element={<Browse user={user} onSignOut={handleSignOut} />} />
+  <Route path="/dashboard" element={<Dashboard user={user} onSignOut={handleSignOut} />} />
+  <Route path="/post-job" element={<PostJob user={user} onSignOut={handleSignOut} />} />
+  <Route path="/my-jobs" element={<MyJobs user={user} onSignOut={handleSignOut} />} />
+  <Route path="/browse-jobs" element={<BrowseJobs user={user} onSignOut={handleSignOut} />} />
+  <Route path="/category/:category" element={<CategoryPage user={user} onSignOut={handleSignOut} />} />
+  <Route path="/pro/:id" element={<ProProfile user={user} onSignOut={handleSignOut} />} />
+  <Route path="/messages" element={<Messages user={user} onSignOut={handleSignOut} />} />
+  <Route path="/lists" element={<ListsPage user={user} onSignOut={handleSignOut} />} />
+  <Route path="/job/:id" element={<JobDetail user={user} onSignOut={handleSignOut} />} />
+  <Route path="/my-proposals" element={<MyProposals user={user} onSignOut={handleSignOut} />} />
+  <Route path="/my-projects" element={<MyProjects user={user} onSignOut={handleSignOut} />} />
+</Routes>
   );
 }
 
