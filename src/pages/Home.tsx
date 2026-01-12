@@ -153,7 +153,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
     <div className="h-10 w-10 rounded-xl bg-white shadow-md border border-sky-200 flex items-center justify-center">
       <span className="text-sky-600 font-bold text-xl">●</span>
     </div>
-    <span className="font-bold text-slate-900 text-xl">Bluedot</span>
+    <span className="font-bold text-slate-900 text-xl">Nearly</span>
   </div>
   
   <nav className="flex items-center gap-8 text-sm font-medium flex-1">
@@ -532,7 +532,7 @@ Browse Pros
               <div className="h-8 w-8 rounded-lg bg-sky-600 flex items-center justify-center">
                 <span className="text-white font-bold">●</span>
               </div>
-              <span className="font-semibold text-slate-900">Bluedot</span>
+              <span className="font-semibold text-slate-900">Nearly</span>
             </div>
             
             <div className="flex gap-8 text-sm text-slate-600">
@@ -542,7 +542,7 @@ Browse Pros
               <a href="#" className="hover:text-sky-600">Contact</a>
             </div>
             
-            <p className="text-sm text-slate-500">© 2024 Bluedot. All rights reserved.</p>
+            <p className="text-sm text-slate-500">© 2024 Nearly. All rights reserved.</p>
           </div>
         </footer>
 

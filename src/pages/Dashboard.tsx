@@ -54,7 +54,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
               <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
-              <span className="font-bold text-slate-900 text-xl hidden sm:block">Bluedot</span>
+              <span className="font-bold text-slate-900 text-xl hidden sm:block">nearly</span>
             </div>
 
             {/* Search Bar - Center */}
@@ -256,7 +256,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
         {/* Welcome Section */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
-            Welcome to Bluedot, {userName} 👋
+            Welcome to nearly, {userName} 👋
           </h1>
           <p className="text-lg text-slate-600">
             {isCustomer 
@@ -291,7 +291,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
                 <span className="text-xl">📱</span>
               </div>
               <div>
-                <h3 className="font-bold text-slate-900 text-sm mb-1">Download the Bluedot app</h3>
+                <h3 className="font-bold text-slate-900 text-sm mb-1">Download the nearly app</h3>
                 <p className="text-xs text-slate-600">Stay productive, anywhere you go.</p>
               </div>
             </div>
@@ -407,7 +407,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
         {/* Explore Popular Categories - Fiverr Style */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-slate-900">Explore popular categories on Bluedot</h2>
+            <h2 className="text-2xl font-bold text-slate-900">Explore popular categories on Nearly</h2>
             <button 
               onClick={() => navigate('/browse')}
               className="text-sky-600 font-semibold hover:underline flex items-center gap-1"
@@ -481,7 +481,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
 
         {/* Get Inspired Section - Portfolio Showcase */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">Get inspired by work done on Bluedot</h2>
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">Get inspired by work done on Nearly</h2>
           
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5">
             {/* Large vertical card - Woodworking dining table */}

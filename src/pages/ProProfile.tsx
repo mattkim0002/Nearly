@@ -223,7 +223,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
     setIsFavorited(newFavorited);
     
     // Save to localStorage
-    const favorites = JSON.parse(localStorage.getItem('bluedot_favorites') || '[]');
+    const favorites = JSON.parse(localStorage.getItem('nearly_favorites') || '[]');
     
     if (newFavorited) {
       // Add to favorites as a "seller"
@@ -243,13 +243,13 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
         addedAt: new Date().toISOString()
       };
       favorites.push(newFavorite);
-      localStorage.setItem('bluedot_favorites', JSON.stringify(favorites));
+      localStorage.setItem('nearly_favorites', JSON.stringify(favorites));
       console.log('Added to favorites:', newFavorite);
       alert('Added to your favorites list!');
     } else {
       // Remove from favorites
       const updated = favorites.filter((f: any) => f.id !== provider.id);
-      localStorage.setItem('bluedot_favorites', JSON.stringify(updated));
+      localStorage.setItem('nearly_favorites', JSON.stringify(updated));
       console.log('Removed from favorites');
       alert('Removed from favorites');
     }
@@ -258,7 +258,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
   // Check if already favorited on load
   useEffect(() => {
     if (user && provider) {
-      const favorites = JSON.parse(localStorage.getItem('bluedot_favorites') || '[]');
+      const favorites = JSON.parse(localStorage.getItem('nearly_favorites') || '[]');
       const isFav = favorites.some((f: any) => f.id === provider.id);
       setIsFavorited(isFav);
       console.log('Checking if favorited:', provider.name, isFav);
@@ -275,7 +275,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
               <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
-              <span className="font-bold text-slate-900 text-xl">Bluedot</span>
+              <span className="font-bold text-slate-900 text-xl">Nearly</span>
             </div>
             <div className="flex items-center gap-4">
               {user ? (

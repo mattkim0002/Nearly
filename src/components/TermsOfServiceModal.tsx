@@ -19,22 +19,22 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto p-8">
           <div className="prose max-w-none">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Welcome to Bluedot</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-4">Welcome to Nearly</h3>
             
             <p className="text-slate-600 mb-4">
-              By using Bluedot, you agree to the following terms:
+              By using Nearly, you agree to the following terms:
             </p>
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">1. User Conduct</h4>
             <p className="text-slate-600 mb-4">
-              You agree to use Bluedot professionally and respectfully. Harassment, fraud, or misrepresentation 
+              You agree to use Nearly professionally and respectfully. Harassment, fraud, or misrepresentation 
               will result in account termination.
             </p>
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">2. Payments & Escrow</h4>
             <p className="text-slate-600 mb-4">
               All payments are held in escrow until job completion. Customers must approve work before payment 
-              is released to pros. Bluedot charges a 10% platform fee on all transactions.
+              is released to pros. Nearly charges a 10% platform fee on all transactions.
             </p>
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">3. Job Quality</h4>
@@ -66,7 +66,7 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
               The following are strictly prohibited:
             </p>
             <ul className="list-disc pl-6 text-slate-600 mb-4">
-              <li>Taking payments outside of Bluedot</li>
+              <li>Taking payments outside of Nearly</li>
               <li>Sharing contact information to bypass fees</li>
               <li>Posting fake reviews or ratings</li>
               <li>Harassing or threatening other users</li>
@@ -81,18 +81,18 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">9. Termination</h4>
             <p className="text-slate-600 mb-4">
-              Bluedot reserves the right to suspend or terminate accounts that violate these terms.
+              Nearly reserves the right to suspend or terminate accounts that violate these terms.
             </p>
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">10. Changes to Terms</h4>
             <p className="text-slate-600 mb-4">
-              We may update these terms occasionally. Continued use of Bluedot constitutes acceptance of 
+              We may update these terms occasionally. Continued use of Nearly constitutes acceptance of 
               updated terms.
             </p>
 
             <div className="bg-sky-50 border border-sky-200 rounded-xl p-4 mt-6">
               <p className="text-sm text-sky-900">
-                <strong>Questions?</strong> Contact us at support@bluedot.com
+                <strong>Questions?</strong> Contact us at support@nearly.com
               </p>
             </div>
           </div>

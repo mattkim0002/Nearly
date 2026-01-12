@@ -25,12 +25,12 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
   // Load favorites and lists on mount
   useEffect(() => {
     console.log('Loading favorites...');
-    const loadedFavorites = JSON.parse(localStorage.getItem('bluedot_favorites') || '[]');
+    const loadedFavorites = JSON.parse(localStorage.getItem('nearly_favorites') || '[]');
     console.log('Loaded favorites:', loadedFavorites);
     setFavorites(loadedFavorites);
     
     // Load saved lists
-    const savedLists = JSON.parse(localStorage.getItem('bluedot_lists') || '[]');
+    const savedLists = JSON.parse(localStorage.getItem('nearly_lists') || '[]');
     
     // Count by type
     const gigs = loadedFavorites.filter((f: any) => f.type === 'gig').length;
@@ -77,7 +77,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
       setLists([lists[0], ...updatedLists]); // Keep "My favorites" first
       
       // Save to localStorage (excluding My favorites which is auto-generated)
-      localStorage.setItem('bluedot_lists', JSON.stringify(updatedLists));
+      localStorage.setItem('nearly_lists', JSON.stringify(updatedLists));
       
       setNewListName('');
       setShowCreateModal(false);
@@ -87,7 +87,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
   const handleRemoveFavorite = (itemId: number) => {
     const updated = favorites.filter((f: any) => f.id !== itemId);
     setFavorites(updated);
-    localStorage.setItem('bluedot_favorites', JSON.stringify(updated));
+    localStorage.setItem('nearly_favorites', JSON.stringify(updated));
     
     // Update the counts
     const gigs = updated.filter((f: any) => f.type === 'gig').length;
@@ -137,7 +137,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
               <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
-              <span className="font-bold text-slate-900 text-xl">Bluedot</span>
+              <span className="font-bold text-slate-900 text-xl">Nearly</span>
             </div>
 
             <div className="flex items-center gap-4">

@@ -59,14 +59,14 @@ export default function Auth() {
           <div className="h-12 w-12 rounded-xl bg-sky-600 flex items-center justify-center">
             <span className="text-white font-bold text-2xl">●</span>
           </div>
-          <span className="font-bold text-slate-900 text-2xl">Bluedot</span>
+          <span className="font-bold text-slate-900 text-2xl">Nearly</span>
         </div>
 
         <h2 className="text-3xl font-bold text-slate-900 mb-2 text-center">
           {isSignUp ? 'Create Account' : 'Welcome Back'}
         </h2>
         <p className="text-slate-600 text-center mb-8">
-          {isSignUp ? 'Join the Bluedot community' : 'Sign in to your account'}
+          {isSignUp ? 'Join the Nearly community' : 'Sign in to your account'}
         </p>
 
         {message && (
