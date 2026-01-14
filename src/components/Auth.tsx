@@ -19,21 +19,40 @@ export default function Auth() {
 
     try {
       if (isSignUp) {
-        // Sign up
-        const { data, error } = await supabase.auth.signUp({
+        // Step 1: Sign up the user
+        const { data: authData, error: authError } = await supabase.auth.signUp({
           email,
           password,
           options: {
             data: {
-              name,
+              full_name: name,
               user_type: userType,
             },
           },
         });
 
-        if (error) throw error;
-        
-        setMessage('Success! Check your email to verify your account.');
+        if (authError) throw authError;
+
+        // Step 2: Manually create profile (bypass trigger)
+        if (authData.user) {
+          const { error: profileError } = await supabase
+            .from('profiles')
+            .insert({
+              id: authData.user.id,
+              full_name: name,
+              user_type: userType,
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+            });
+
+          if (profileError) {
+            console.error('Profile creation error:', profileError);
+            // User is created but profile failed - they can still login and create profile later
+            setMessage('Account created! Profile setup pending. You can still login.');
+          } else {
+            setMessage('Success! Check your email to verify your account.');
+          }
+        }
       } else {
         // Login
         const { error } = await supabase.auth.signInWithPassword({
@@ -71,7 +90,7 @@ export default function Auth() {
 
         {message && (
           <div className={`mb-6 p-4 rounded-xl ${
-            message.includes('Success') || message.includes('successfully')
+            message.includes('Success') || message.includes('successfully') || message.includes('created')
               ? 'bg-green-100 text-green-800'
               : 'bg-red-100 text-red-800'
           }`}>
