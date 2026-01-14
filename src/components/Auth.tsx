@@ -1,16 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
 type UserType = 'customer' | 'pro';
 
 export default function Auth() {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [searchParams] = useSearchParams();
+  const mode = searchParams.get('mode'); // Get ?mode=signup from URL
+  
+  const [isSignUp, setIsSignUp] = useState(mode === 'signup'); // Default to signup if mode=signup
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [userType, setUserType] = useState<UserType>('customer');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+
+  // Update isSignUp when URL changes
+  useEffect(() => {
+    if (mode === 'signup') {
+      setIsSignUp(true);
+    }
+  }, [mode]);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +58,6 @@ export default function Auth() {
 
           if (profileError) {
             console.error('Profile creation error:', profileError);
-            // User is created but profile failed - they can still login and create profile later
             setMessage('Account created! Profile setup pending. You can still login.');
           } else {
             setMessage('Success! Check your email to verify your account.');
