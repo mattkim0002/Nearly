@@ -1,27 +1,18 @@
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
 type UserType = 'customer' | 'pro';
 
 export default function Auth() {
-  const [searchParams] = useSearchParams();
-  const mode = searchParams.get('mode'); // Get ?mode=signup from URL
-  
-  const [isSignUp, setIsSignUp] = useState(mode === 'signup'); // Default to signup if mode=signup
+  const location = useLocation();
+  const [isSignUp, setIsSignUp] = useState(location.state?.mode === 'signup');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [userType, setUserType] = useState<UserType>('customer');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-
-  // Update isSignUp when URL changes
-  useEffect(() => {
-    if (mode === 'signup') {
-      setIsSignUp(true);
-    }
-  }, [mode]);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +21,6 @@ export default function Auth() {
 
     try {
       if (isSignUp) {
-        // Step 1: Sign up the user
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email,
           password,
@@ -44,7 +34,6 @@ export default function Auth() {
 
         if (authError) throw authError;
 
-        // Step 2: Manually create profile (bypass trigger)
         if (authData.user) {
           const { error: profileError } = await supabase
             .from('profiles')
@@ -64,7 +53,6 @@ export default function Auth() {
           }
         }
       } else {
-        // Login
         const { error } = await supabase.auth.signInWithPassword({
           email,
           password,

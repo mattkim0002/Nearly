@@ -126,7 +126,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
   const handlePostJob = (e: React.FormEvent) => {
     e.preventDefault();
     if (!user) {
-      navigate('/auth?mode=signup');
+      navigate('/auth', { state: { mode: 'signup' } });
       return;
     }
     alert('Job posted! (This is a demo)');
@@ -134,7 +134,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
 
   const handleViewProfile = () => {
     if (!user) {
-      navigate('/auth?mode=signup');
+      navigate('/auth', { state: { mode: 'signup' } });
     } else {
       alert('Profile view coming soon!');
     }
@@ -200,7 +200,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
           Explore all services →
         </button>
         <button 
-          onClick={() => navigate('/auth?mode=signup')}
+          onClick={() => navigate('/auth', { state: { mode: 'signup' } })}
           className="text-emerald-600 hover:text-emerald-700 font-semibold"
         >
           Post a job →
@@ -243,7 +243,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
       </ul>
       <div className="mt-4 pt-4 border-t border-slate-200">
         <button 
-          onClick={() => navigate('/auth?mode=signup')}
+          onClick={() => navigate('/auth', { state: { mode: 'signup' } })}
           className="w-full text-left px-4 py-2 text-emerald-600 hover:bg-emerald-50 rounded-lg transition font-semibold"
         >
           Sign up as a Pro →
@@ -271,7 +271,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
         Log In
       </button>
       <button
-        onClick={() => navigate('/auth?mode=signup')}
+        onClick={() => navigate('/auth', { state: { mode: 'signup' } })}
         className="px-5 py-2.5 rounded-full bg-sky-600 text-white hover:bg-sky-700 transition shadow-lg"
       >
         Sign Up
