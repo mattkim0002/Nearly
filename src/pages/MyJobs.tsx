@@ -8,103 +8,71 @@ interface MyJobsProps {
   onSignOut: () => void;
 }
 
+interface Job {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  budget: string;
+  location: string;
+  zip_code: string;
+  status: string;
+  created_at: string;
+}
+
 export default function MyJobs({ user, onSignOut }: MyJobsProps) {
   const navigate = useNavigate();
-  const [jobs, setJobs] = useState<any[]>([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState('all');
-  
-  const userType = user?.user_metadata?.user_type || 'customer';
-  const isPro = userType === 'pro';
+  const [filter, setFilter] = useState<'all' | 'open' | 'closed'>('all');
+
+  // Redirect if not logged in
+  if (!user) {
+    navigate('/auth');
+    return null;
+  }
+
+  // Redirect if user is a pro
+  if (user.user_metadata?.user_type === 'pro') {
+    navigate('/browse-jobs');
+    return null;
+  }
 
   useEffect(() => {
-    loadJobs();
-  }, [user.id, isPro]);
+    fetchJobs();
+  }, [user]);
 
-  const loadJobs = async () => {
+  const fetchJobs = async () => {
     try {
       setLoading(true);
-      
-      let query = supabase.from('jobs').select('*');
-      
-      // Different query based on user type
-      if (isPro) {
-        // For pros: show jobs they're working on
-        query = query.eq('accepted_pro_id', user.id);
-      } else {
-        // For customers: show jobs they posted
-        query = query.eq('customer_id', user.id);
-      }
-      
-      query = query.order('created_at', { ascending: false });
-
-      const { data, error } = await query;
+      const { data, error } = await supabase
+        .from('jobs')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
 
       if (error) throw error;
       setJobs(data || []);
     } catch (error) {
-      console.error('Error loading jobs:', error);
+      console.error('Error fetching jobs:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  const cancelJob = async (jobId: string) => {
-    if (!confirm('Are you sure you want to cancel this job?')) return;
+  const filteredJobs = jobs.filter(job => {
+    if (filter === 'all') return true;
+    return job.status === filter;
+  });
 
-    try {
-      const { error } = await supabase
-        .from('jobs')
-        .update({ status: 'cancelled' })
-        .eq('id', jobId);
-
-      if (error) throw error;
-      
-      alert('Job cancelled successfully');
-      loadJobs();
-    } catch (error) {
-      console.error('Error cancelling job:', error);
-      alert('Error cancelling job');
-    }
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    });
   };
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'open': return 'bg-emerald-100 text-emerald-700 border-emerald-300';
-      case 'in_progress': return 'bg-amber-100 text-amber-700 border-amber-300';
-      case 'delivered': return 'bg-blue-100 text-blue-700 border-blue-300';
-      case 'completed': return 'bg-purple-100 text-purple-700 border-purple-300';
-      case 'cancelled': return 'bg-slate-100 text-slate-700 border-slate-300';
-      default: return 'bg-slate-100 text-slate-700 border-slate-300';
-    }
-  };
-
-  const getStatusText = (status: string) => {
-    return status.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
-  };
-
-  const filteredJobs = filter === 'all' 
-    ? jobs 
-    : jobs.filter(job => job.status === filter);
-
-  const counts = {
-    all: jobs.length,
-    open: jobs.filter(j => j.status === 'open').length,
-    in_progress: jobs.filter(j => j.status === 'in_progress').length,
-    delivered: jobs.filter(j => j.status === 'delivered').length,
-    completed: jobs.filter(j => j.status === 'completed').length,
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-slate-600">Loading jobs...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
@@ -116,8 +84,9 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
               <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
-              <span className="font-bold text-slate-900 text-xl">Nearly</span>
+              <span className="font-bold text-slate-900 text-xl">Bluedot</span>
             </div>
+
             <div className="flex items-center gap-4">
               <ProfileDropdown user={user} onSignOut={onSignOut} />
             </div>
@@ -127,168 +96,170 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">
-            {isPro ? 'My Active Jobs' : 'My Jobs'}
-          </h1>
-          <p className="text-slate-600">
-            {isPro 
-              ? 'Jobs you\'re currently working on'
-              : 'Manage all your posted jobs in one place'
-            }
-          </p>
-        </div>
-
-        {/* Stats Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-          <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6">
-            <p className="text-slate-600 text-sm mb-2">Total Jobs</p>
-            <p className="text-4xl font-bold text-slate-900">{counts.all}</p>
+        
+        {/* Header Section */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-4xl font-bold text-slate-900 mb-2">My Jobs</h1>
+            <p className="text-slate-600">Manage and track your posted jobs</p>
           </div>
-          {!isPro && (
-            <div className="bg-white rounded-2xl shadow-md border-2 border-emerald-200 p-6">
-              <p className="text-slate-600 text-sm mb-2">Open</p>
-              <p className="text-4xl font-bold text-emerald-600">{counts.open}</p>
-            </div>
-          )}
-          <div className="bg-white rounded-2xl shadow-md border-2 border-amber-200 p-6">
-            <p className="text-slate-600 text-sm mb-2">In Progress</p>
-            <p className="text-4xl font-bold text-amber-600">{counts.in_progress}</p>
-          </div>
-          <div className="bg-white rounded-2xl shadow-md border-2 border-blue-200 p-6">
-            <p className="text-slate-600 text-sm mb-2">Delivered</p>
-            <p className="text-4xl font-bold text-blue-600">{counts.delivered}</p>
-          </div>
-          <div className="bg-white rounded-2xl shadow-md border-2 border-purple-200 p-6">
-            <p className="text-slate-600 text-sm mb-2">Completed</p>
-            <p className="text-4xl font-bold text-purple-600">{counts.completed}</p>
-          </div>
+          
+          <button
+            onClick={() => navigate('/post-job')}
+            className="px-6 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition shadow-lg"
+          >
+            + Post New Job
+          </button>
         </div>
 
         {/* Filter Tabs */}
-        <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 mb-6">
-          <div className="flex overflow-x-auto">
-            <button
-              onClick={() => setFilter('all')}
-              className={`px-6 py-4 font-semibold whitespace-nowrap border-b-4 transition ${
-                filter === 'all' 
-                  ? 'border-sky-600 text-sky-600' 
-                  : 'border-transparent text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              All ({counts.all})
-            </button>
-            {!isPro && (
-              <button
-                onClick={() => setFilter('open')}
-                className={`px-6 py-4 font-semibold whitespace-nowrap border-b-4 transition ${
-                  filter === 'open' 
-                    ? 'border-sky-600 text-sky-600' 
-                    : 'border-transparent text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                Open ({counts.open})
-              </button>
-            )}
-            <button
-              onClick={() => setFilter('in_progress')}
-              className={`px-6 py-4 font-semibold whitespace-nowrap border-b-4 transition ${
-                filter === 'in_progress' 
-                  ? 'border-sky-600 text-sky-600' 
-                  : 'border-transparent text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              In Progress ({counts.in_progress})
-            </button>
-            <button
-              onClick={() => setFilter('delivered')}
-              className={`px-6 py-4 font-semibold whitespace-nowrap border-b-4 transition ${
-                filter === 'delivered' 
-                  ? 'border-sky-600 text-sky-600' 
-                  : 'border-transparent text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Delivered ({counts.delivered})
-            </button>
-            <button
-              onClick={() => setFilter('completed')}
-              className={`px-6 py-4 font-semibold whitespace-nowrap border-b-4 transition ${
-                filter === 'completed' 
-                  ? 'border-sky-600 text-sky-600' 
-                  : 'border-transparent text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Completed ({counts.completed})
-            </button>
-          </div>
+        <div className="flex gap-2 mb-8 bg-white rounded-xl p-1 border-2 border-slate-200 w-fit">
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-6 py-2 rounded-lg font-medium transition ${
+              filter === 'all'
+                ? 'bg-sky-600 text-white'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            All Jobs ({jobs.length})
+          </button>
+          <button
+            onClick={() => setFilter('open')}
+            className={`px-6 py-2 rounded-lg font-medium transition ${
+              filter === 'open'
+                ? 'bg-sky-600 text-white'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            Open ({jobs.filter(j => j.status === 'open').length})
+          </button>
+          <button
+            onClick={() => setFilter('closed')}
+            className={`px-6 py-2 rounded-lg font-medium transition ${
+              filter === 'closed'
+                ? 'bg-sky-600 text-white'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            Closed ({jobs.filter(j => j.status === 'closed').length})
+          </button>
         </div>
 
-        {/* Jobs List */}
-        {filteredJobs.length === 0 ? (
-          <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-12 text-center">
-            <div className="text-6xl mb-4">💼</div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">No jobs yet</h3>
-            <p className="text-slate-600 mb-6">
-              {isPro 
-                ? "You haven't been assigned any jobs yet. Browse available jobs to get started!"
-                : "Post your first job to get started!"
-              }
-            </p>
-            <button
-              onClick={() => navigate(isPro ? '/browse-jobs' : '/post-job')}
-              className="px-8 py-4 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
-            >
-              {isPro ? 'Browse Jobs' : 'Post a Job'}
-            </button>
+        {/* Loading State */}
+        {loading && (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-600 mx-auto"></div>
+            <p className="text-slate-600 mt-4">Loading your jobs...</p>
           </div>
-        ) : (
+        )}
+
+        {/* Empty State */}
+        {!loading && filteredJobs.length === 0 && (
+          <div className="bg-white rounded-2xl border-2 border-slate-200 p-12 text-center">
+            <span className="text-6xl mb-4 block">📋</span>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">
+              {filter === 'all' ? 'No jobs yet' : `No ${filter} jobs`}
+            </h3>
+            <p className="text-slate-600 mb-6">
+              {filter === 'all' 
+                ? 'Post your first job and start getting quotes from local pros!'
+                : `You don't have any ${filter} jobs at the moment.`}
+            </p>
+            {filter === 'all' && (
+              <button
+                onClick={() => navigate('/post-job')}
+                className="px-6 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
+              >
+                Post Your First Job
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Jobs List */}
+        {!loading && filteredJobs.length > 0 && (
           <div className="space-y-4">
             {filteredJobs.map((job) => (
-              <div key={job.id} className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6 hover:shadow-lg transition">
+              <div
+                key={job.id}
+                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-sky-400 hover:shadow-xl transition p-6 cursor-pointer"
+                onClick={() => navigate(`/job/${job.id}`)}
+              >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-2xl font-bold text-slate-900">{job.title}</h3>
-                      <span className={`px-3 py-1 rounded-full text-sm font-semibold border-2 ${getStatusColor(job.status)}`}>
-                        {getStatusText(job.status)}
+                      <h3 className="text-xl font-bold text-slate-900">{job.title}</h3>
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                        job.status === 'open' 
+                          ? 'bg-emerald-100 text-emerald-700'
+                          : 'bg-slate-100 text-slate-700'
+                      }`}>
+                        {job.status === 'open' ? '🟢 Open' : '⚫ Closed'}
                       </span>
                     </div>
-                    <p className="text-slate-600 mb-3">{job.description}</p>
-                    <div className="flex flex-wrap gap-3">
-                      <span className="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold">
-                        {job.category}
-                      </span>
-                      <span className="text-slate-600 text-sm">📍 {job.location}</span>
-                      <span className="text-slate-600 text-sm">
-                        Posted {new Date(job.created_at).toLocaleDateString()}
-                      </span>
+                    
+                    <p className="text-slate-600 mb-3 line-clamp-2">{job.description}</p>
+                    
+                    <div className="flex items-center gap-4 text-sm text-slate-600">
+                      <span className="font-medium text-sky-600">{job.category}</span>
+                      <span>📍 {job.location}</span>
+                      <span>💰 {job.budget}</span>
+                      <span>📅 Posted {formatDate(job.created_at)}</span>
                     </div>
                   </div>
-                  <div className="text-right ml-6">
-                    <p className="text-3xl font-bold text-sky-600">${job.budget}</p>
-                  </div>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/job/${job.id}`);
+                    }}
+                    className="ml-4 px-4 py-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition font-medium text-sm"
+                  >
+                    View Details →
+                  </button>
                 </div>
 
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => navigate(`/job/${job.id}`)}
-                    className="flex-1 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
-                  >
-                    View Details
-                  </button>
-                  {!isPro && job.status === 'open' && (
-                    <button
-                      onClick={() => cancelJob(job.id)}
-                      className="px-6 py-3 bg-red-100 text-red-700 rounded-xl font-semibold hover:bg-red-200 transition"
-                    >
-                      Cancel Job
-                    </button>
-                  )}
+                {/* Quick Stats */}
+                <div className="flex items-center gap-6 pt-4 border-t border-slate-200">
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-600 text-sm">Proposals:</span>
+                    <span className="font-bold text-slate-900">0</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-600 text-sm">Views:</span>
+                    <span className="font-bold text-slate-900">-</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-600 text-sm">Messages:</span>
+                    <span className="font-bold text-slate-900">0</span>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         )}
+
+        {/* Stats Cards */}
+        {!loading && jobs.length > 0 && (
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="bg-gradient-to-br from-sky-500 to-blue-500 rounded-2xl p-6 text-white">
+              <h3 className="text-sm font-semibold opacity-90 mb-2">Total Jobs Posted</h3>
+              <p className="text-4xl font-bold">{jobs.length}</p>
+            </div>
+
+            <div className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-6 text-white">
+              <h3 className="text-sm font-semibold opacity-90 mb-2">Active Jobs</h3>
+              <p className="text-4xl font-bold">{jobs.filter(j => j.status === 'open').length}</p>
+            </div>
+
+            <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-6 text-white">
+              <h3 className="text-sm font-semibold opacity-90 mb-2">Completed Jobs</h3>
+              <p className="text-4xl font-bold">{jobs.filter(j => j.status === 'closed').length}</p>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ const ALL_PROVIDERS: any[] = [
     verified: true,
     topRated: true,
     description: "Award-winning custom furniture maker specializing in sustainable hardwoods",
-    bio: "I'm a passionate woodworker with over 12 years of experience creating custom furniture and cabinetry for residential and commercial clients throughout San Diego. My work has been featured in San Diego Home & Garden Magazine and I've won multiple awards at local craft shows.\n\nI specialize in working with sustainable hardwoods and creating pieces that will last generations. Every project begins with a consultation to understand your vision, followed by detailed design sketches and material selection. I take pride in my attention to detail and commitment to excellence.\n\nWhat sets me apart is my combination of traditional craftsmanship techniques with modern design sensibilities. Whether you're looking for a statement dining table, custom built-ins, or a complete home office, I'll work closely with you to bring your vision to life.",
+    bio: "I'm a passionate woodworker with over 12 years of experience creating custom furniture and cabinetry for residential and commercial clients throughout San Diego. My work has been featured in San Diego Home & Garden Magazine and I've won multiple awards at local craft shows.\n\nI specialize in working with sustainable hardwoods and creating pieces that will last generations. Every commission begins with a consultation to understand your vision, followed by detailed design sketches and material selection. I take pride in my attention to detail and commitment to excellence.\n\nWhat sets me apart is my combination of traditional craftsmanship techniques with modern design sensibilities. Whether you're looking for a statement dining table, custom built-ins, or a complete home office, I'll work closely with you to bring your vision to life.",
     skills: ["Custom Furniture Design", "Fine Cabinetry", "Wood Carving", "Furniture Restoration", "Live Edge Work", "Sustainable Materials"],
     certifications: ["Master Craftsman - 2020", "EPA Lead-Safe Certified - 2019", "OSHA Safety Certified - 2018"],
     languages: ["English", "Mandarin"],
@@ -42,13 +42,13 @@ const ALL_PROVIDERS: any[] = [
         price: "$450",
         delivery: "3 weeks",
         features: ["Simple furniture piece", "1 design revision", "Basic finish", "Sanding & assembly"],
-        description: "Perfect for small projects like side tables or shelves"
+        description: "Perfect for small tasks like side tables or shelves"
       },
       {
         name: "Standard",
         price: "$1,200",
         delivery: "4 weeks",
-        features: ["Medium complexity project", "3 design revisions", "Premium finish", "Delivery & setup", "1 month support"],
+        features: ["Medium complexity commission", "3 design revisions", "Premium finish", "Delivery & setup", "1 month support"],
         popular: true,
         description: "Ideal for dining tables, desks, or bedroom sets"
       },
@@ -56,7 +56,7 @@ const ALL_PROVIDERS: any[] = [
         name: "Premium",
         price: "$3,500+",
         delivery: "6-8 weeks",
-        features: ["Complex custom project", "Unlimited revisions", "Exhibition-quality finish", "White glove delivery", "1 year warranty", "Maintenance kit"],
+        features: ["Complex custom commission", "Unlimited revisions", "Exhibition-quality finish", "White glove delivery", "1 year warranty", "Maintenance kit"],
         description: "For statement pieces and full room installations"
       },
     ],
@@ -76,7 +76,7 @@ const ALL_PROVIDERS: any[] = [
         rating: 5,
         date: "2 weeks ago",
         project: "Custom Dining Table - $2,800",
-        comment: "Michael created a beautiful custom dining table for our home. The craftsmanship is exceptional and he was very professional throughout the process. He listened to our needs and delivered exactly what we envisioned. The table is the centerpiece of our home!",
+        comment: "Michael created a beautiful custom dining table for our home. The craftsmanship is exceptional and he was very professional throughout the process. He listened to our needs and the table is the centerpiece of our home!",
         helpful: 12
       },
       {
@@ -86,7 +86,7 @@ const ALL_PROVIDERS: any[] = [
         rating: 5,
         date: "1 month ago",
         project: "Kitchen Cabinets - $15,000",
-        comment: "Highly recommend! Great communication and delivered exactly what we wanted. The cabinets are stunning and the attention to detail is impressive. Worth every penny.",
+        comment: "Highly recommend! Great communication. The cabinets are stunning and the attention to detail is impressive. Worth every penny.",
         helpful: 8
       },
       {
@@ -96,7 +96,7 @@ const ALL_PROVIDERS: any[] = [
         rating: 4,
         date: "2 months ago",
         project: "Built-in Bookshelf - $4,500",
-        comment: "Very skilled woodworker. Project took a bit longer than expected but the quality was worth the wait. The built-in bookshelf is beautiful and perfectly fits our space.",
+        comment: "Very skilled woodworker. Commission took a bit longer than expected but the quality was worth the wait. The built-in bookshelf is beautiful and perfectly fits our space.",
         helpful: 5
       },
       {
@@ -113,19 +113,19 @@ const ALL_PROVIDERS: any[] = [
     faqs: [
       {
         question: "Do you offer design consultations?",
-        answer: "Yes! Every project begins with a free 30-minute consultation where we discuss your vision, space, and budget. I'll provide design sketches and material recommendations."
+        answer: "Yes! Every commission begins with a free 30-minute consultation where we discuss your vision, space, and budget. I'll provide design sketches and material recommendations."
       },
       {
         question: "What types of wood do you work with?",
-        answer: "I work with a variety of domestic and exotic hardwoods including walnut, cherry, oak, maple, and mahogany. I prioritize sustainably sourced materials and can help you choose the best wood for your project."
+        answer: "I work with a variety of domestic and exotic hardwoods including walnut, cherry, oak, maple, and mahogany. I prioritize sustainably sourced materials and can help you choose the best wood for your commission."
       },
       {
-        question: "How long does a typical project take?",
+        question: "How long does a typical commission take?",
         answer: "Timeline depends on complexity. Simple pieces take 2-3 weeks, while complex furniture or built-ins can take 6-8 weeks. I'll provide a detailed timeline during our consultation."
       },
       {
         question: "Do you provide delivery and installation?",
-        answer: "Yes, delivery and installation are included for all Standard and Premium packages within San Diego County. White glove service is available for Premium projects."
+        answer: "Yes, delivery and installation are included for all Standard and Premium packages within San Diego County. White glove service is available for Premium commissions."
       },
       {
         question: "What's your refund policy?",
@@ -190,7 +190,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">Pro Not Found</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">Worker Not Found</h1>
           <button onClick={() => navigate('/')} className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition">
             Go Home
           </button>
@@ -230,7 +230,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
       const newFavorite = {
         id: provider.id,
         name: provider.name,
-        type: 'seller', // Can be: 'gig', 'seller', or 'inspiration'
+        type: 'seller',
         data: {
           name: provider.name,
           title: provider.title,
@@ -332,12 +332,12 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                 <div className="flex items-center gap-3 flex-wrap mb-4">
                   {provider.topRated && (
                     <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold flex items-center gap-1">
-                      ⭐ Top Rated Pro
+                      ⭐ Highly Rated
                     </span>
                   )}
                   {provider.verified && (
                     <span className="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold flex items-center gap-1">
-                      ✓ Verified
+                      ✓ Profile Verified
                     </span>
                   )}
                   {provider.available && (
@@ -576,7 +576,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                   <span className="font-semibold text-slate-900 text-right text-sm">{provider.location}</span>
                 </div>
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200">
-                  <span className="text-slate-600">💼 Jobs Completed</span>
+                  <span className="text-slate-600">💼 Commissions</span>
                   <span className="font-semibold text-slate-900">{provider.jobs}</span>
                 </div>
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200">
