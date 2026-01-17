@@ -304,7 +304,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
         {/* View Toggle */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-slate-900">
-            {filteredProviders.length} {filteredProviders.length === 1 ? 'Pro' : 'Pros'} Near You
+            {filteredProviders.length} Independent {filteredProviders.length === 1 ? 'Worker' : 'Workers'} Near You
           </h2>
           <div className="flex gap-2 bg-white rounded-lg p-1 border-2 border-slate-200">
             <button
@@ -477,7 +477,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                               <div className="flex items-center gap-2 mb-2">
                                 <h3 className="font-bold text-lg">{selectedProvider.name}</h3>
                                 {selectedProvider.verified && (
-                                  <span className="text-sky-600">✓</span>
+                                  <span className="text-sky-600" title="Profile verified">✓</span>
                                 )}
                               </div>
                               <p className="text-sm text-slate-600 mb-2">{selectedProvider.description}</p>
@@ -506,7 +506,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
               <div className="space-y-4">
                 {filteredProviders.length === 0 ? (
                   <div className="bg-white rounded-2xl shadow-md p-12 text-center border-2 border-slate-200">
-                    <p className="text-slate-600 text-lg mb-4">No pros found matching your criteria</p>
+                    <p className="text-slate-600 text-lg mb-4">No workers found matching your criteria</p>
                     <button
                       onClick={() => {
                         setSearchQuery('');
@@ -530,7 +530,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                           <div className="flex items-center gap-3 mb-2">
                             <h3 className="font-bold text-xl text-slate-900">{provider.name}</h3>
                             {provider.verified && (
-                              <span className="text-sky-600 text-lg" title="Verified">✓</span>
+                              <span className="text-sky-600 text-lg" title="Profile verified">✓</span>
                             )}
                             {provider.available && (
                               <span className="px-2 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
@@ -554,7 +554,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                             <p className="font-bold text-slate-900">⭐ {provider.rating}</p>
                           </div>
                           <div>
-                            <span className="text-sm text-slate-600">Jobs</span>
+                            <span className="text-sm text-slate-600">Commissions</span>
                             <p className="font-bold text-slate-900">{provider.jobs}</p>
                           </div>
                           <div>

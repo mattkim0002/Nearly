@@ -70,13 +70,13 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
       if (error) throw error;
       setJobs(data || []);
     } catch (error) {
-      console.error('Error fetching jobs:', error);
+      console.error('Error fetching commissions:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  // Filter and sort jobs
+  // Filter and sort commissions
   const filteredJobs = jobs
     .filter(job => {
       // Category filter
@@ -142,8 +142,8 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
         
         {/* Header Section */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">Browse Jobs</h1>
-          <p className="text-slate-600">Find local job opportunities that match your skills</p>
+          <h1 className="text-4xl font-bold text-slate-900 mb-2">Browse Commissions</h1>
+          <p className="text-slate-600">Find local commission opportunities that match your skills</p>
         </div>
 
         {/* Search and Filters */}
@@ -152,7 +152,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
             {/* Search */}
             <div className="md:col-span-1">
               <label className="block text-sm font-semibold text-slate-900 mb-2">
-                Search Jobs
+                Search Commissions
               </label>
               <input
                 type="text"
@@ -199,7 +199,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
         {/* Results Count */}
         <div className="flex items-center justify-between mb-6">
           <p className="text-slate-600">
-            {loading ? 'Loading...' : `${filteredJobs.length} ${filteredJobs.length === 1 ? 'job' : 'jobs'} available`}
+            {loading ? 'Loading...' : `${filteredJobs.length} ${filteredJobs.length === 1 ? 'commission' : 'commissions'} available`}
           </p>
           
           {searchQuery || selectedCategory !== 'All Categories' ? (
@@ -219,7 +219,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
         {loading && (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-600 mx-auto"></div>
-            <p className="text-slate-600 mt-4">Loading available jobs...</p>
+            <p className="text-slate-600 mt-4">Loading available commissions...</p>
           </div>
         )}
 
@@ -227,11 +227,11 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
         {!loading && filteredJobs.length === 0 && (
           <div className="bg-white rounded-2xl border-2 border-slate-200 p-12 text-center">
             <span className="text-6xl mb-4 block">🔍</span>
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">No jobs found</h3>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">No commissions found</h3>
             <p className="text-slate-600 mb-6">
               {searchQuery || selectedCategory !== 'All Categories'
                 ? 'Try adjusting your filters to see more results.'
-                : 'No jobs are currently available. Check back soon!'}
+                : 'No commissions are currently available. Check back soon!'}
             </p>
             {(searchQuery || selectedCategory !== 'All Categories') && (
               <button
@@ -247,7 +247,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
           </div>
         )}
 
-        {/* Jobs List */}
+        {/* Commissions List */}
         {!loading && filteredJobs.length > 0 && (
           <div className="space-y-4">
             {filteredJobs.map((job) => (
@@ -279,7 +279,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
                       onClick={() => navigate(`/job/${job.id}`)}
                       className="px-6 py-2.5 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition whitespace-nowrap"
                     >
-                      Apply Now
+                      Submit Proposal
                     </button>
                     <button
                       onClick={() => navigate(`/job/${job.id}`)}
@@ -290,7 +290,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
                   </div>
                 </div>
 
-                {/* Job Stats */}
+                {/* Commission Stats */}
                 <div className="flex items-center gap-6 pt-4 border-t border-slate-200">
                   <div className="flex items-center gap-2">
                     <span className="text-slate-600 text-sm">Proposals:</span>
@@ -311,10 +311,10 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
           <div className="bg-gradient-to-r from-sky-100 to-blue-100 rounded-2xl p-6 mt-8 border-2 border-sky-200">
             <h3 className="font-bold text-lg text-slate-900 mb-2">💡 Tips for Success</h3>
             <ul className="space-y-1 text-slate-700">
-              <li>• Respond quickly to stand out from other applicants</li>
+              <li>• Respond quickly to stand out from other proposals</li>
               <li>• Include relevant work samples in your proposal</li>
               <li>• Be clear about your timeline and pricing</li>
-              <li>• Ask questions to show you understand the project</li>
+              <li>• Ask questions to show you understand the scope</li>
             </ul>
           </div>
         )}
