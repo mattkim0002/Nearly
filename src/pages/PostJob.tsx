@@ -52,7 +52,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
     setError('');
 
     try {
-      // Insert job into database
+      // Insert commission into database
       const { data, error: insertError } = await supabase
         .from('jobs')
         .insert([
@@ -74,14 +74,14 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
 
       setSuccess(true);
       
-      // Redirect to My Jobs after 2 seconds
+      // Redirect to My Commissions after 2 seconds
       setTimeout(() => {
         navigate('/my-jobs');
       }, 2000);
 
     } catch (err: any) {
-      console.error('Error posting job:', err);
-      setError(err.message || 'Failed to post job. Please try again.');
+      console.error('Error posting commission:', err);
+      setError(err.message || 'Failed to post commission. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -125,8 +125,8 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
             <div className="flex items-center gap-3">
               <span className="text-3xl">✅</span>
               <div>
-                <h3 className="font-bold text-emerald-900 text-lg">Job Posted Successfully!</h3>
-                <p className="text-emerald-700">Redirecting you to your jobs...</p>
+                <h3 className="font-bold text-emerald-900 text-lg">Commission Posted Successfully!</h3>
+                <p className="text-emerald-700">Redirecting you to your commissions...</p>
               </div>
             </div>
           </div>
@@ -147,21 +147,21 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
 
         {/* Form */}
         <div className="bg-white rounded-3xl shadow-2xl border-2 border-slate-200 p-8 md:p-12">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">Post a Job</h1>
-          <p className="text-slate-600 mb-8">Tell local pros about your project and get quotes</p>
+          <h1 className="text-4xl font-bold text-slate-900 mb-2">Post a Commission</h1>
+          <p className="text-slate-600 mb-8">Tell independent local talent about your needs and receive proposals</p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             
-            {/* Job Title */}
+            {/* Commission Title */}
             <div>
               <label className="block text-sm font-semibold text-slate-900 mb-2">
-                Job Title *
+                Commission Title *
               </label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="e.g., Custom dining table needed"
+                placeholder="e.g., Dining table build assistance"
                 className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none text-slate-900"
                 required
               />
@@ -188,12 +188,12 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
             {/* Description */}
             <div>
               <label className="block text-sm font-semibold text-slate-900 mb-2">
-                Project Description *
+                Scope Description *
               </label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Describe your project in detail. Include dimensions, materials, timeline, and any specific requirements..."
+                placeholder="Describe the scope in detail. Include dimensions, materials, timeline, and any specific requirements..."
                 rows={6}
                 className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none text-slate-900"
                 required
@@ -217,7 +217,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
                 required
               />
               <p className="text-sm text-slate-500 mt-2">
-                This helps pros send accurate quotes
+                This helps workers send accurate proposals
               </p>
             </div>
 
@@ -260,12 +260,12 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
                 disabled={loading}
                 className="w-full py-4 rounded-xl bg-sky-600 text-white font-semibold text-lg hover:bg-sky-700 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? 'Posting Job...' : 'Post Job for Free'}
+                {loading ? 'Posting Commission...' : 'Post Commission for Free'}
               </button>
             </div>
 
             <p className="text-sm text-slate-500 text-center">
-              By posting, you agree to receive quotes from local pros. You can review and compare before hiring.
+              By posting, you agree to receive proposals from independent workers. You can review and compare before hiring.
             </p>
           </form>
         </div>
@@ -281,7 +281,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
           <div className="bg-emerald-50 rounded-2xl p-4 border-2 border-emerald-200">
             <span className="text-2xl mb-2 block">⚡</span>
             <h3 className="font-bold text-slate-900 mb-1">Fast Responses</h3>
-            <p className="text-sm text-slate-600">Get quotes within 24 hours</p>
+            <p className="text-sm text-slate-600">Get proposals within 24 hours</p>
           </div>
 
           <div className="bg-purple-50 rounded-2xl p-4 border-2 border-purple-200">

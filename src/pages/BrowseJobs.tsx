@@ -322,4 +322,4 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
       </div>
     </div>
   );
-}
+} 
