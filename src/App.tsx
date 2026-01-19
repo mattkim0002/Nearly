@@ -18,6 +18,8 @@ import JobDetail from './pages/JobDetail';
 import MyProposals from './pages/MyProposals';
 import MyProjects from './pages/MyProjects';
 import ProfileEdit from './pages/ProfileEdit';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+
 
 
 function AppContent() {
@@ -79,6 +81,8 @@ function AppContent() {
   <Route path="/job/:id" element={<JobDetail user={user} onSignOut={handleSignOut} />} />
   <Route path="/my-proposals" element={<MyProposals user={user} onSignOut={handleSignOut} />} />
   <Route path="/my-projects" element={<MyProjects user={user} onSignOut={handleSignOut} />} />
+  <Route path="/privacy" element={<PrivacyPolicy user={user} onSignOut={handleSignOut} />} />
+
 </Routes>
   );
 }
