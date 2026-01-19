@@ -20,6 +20,13 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
       color: 'from-sky-400 to-blue-600'
     },
     {
+      title: 'Maps',
+      description: 'Find workers near you on the map',
+      icon: '🗺️',
+      path: '/browse',
+      color: 'from-emerald-400 to-teal-600'
+    },
+    {
       title: isPro ? 'Browse Jobs' : 'Post a Job',
       description: isPro ? 'Find available jobs to work on' : 'Get quotes from local pros',
       icon: isPro ? '🔍' : '✨',
