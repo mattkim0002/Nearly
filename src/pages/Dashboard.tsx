@@ -6,17 +6,6 @@ interface DashboardProps {
   onSignOut: () => void;
 }
 
-const CATEGORIES = [
-  { name: "Woodworking", icon: "🪵", color: "from-amber-500 to-orange-500" },
-  { name: "Ceramics", icon: "🏺", color: "from-rose-500 to-pink-500" },
-  { name: "Photography", icon: "📸", color: "from-blue-500 to-cyan-500" },
-  { name: "Painting", icon: "🎨", color: "from-purple-500 to-pink-500" },
-  { name: "Web Design", icon: "💻", color: "from-green-500 to-emerald-500" },
-  { name: "Logo Design", icon: "✏️", color: "from-indigo-500 to-purple-500" },
-  { name: "Metalwork", icon: "⚒️", color: "from-gray-600 to-slate-600" },
-  { name: "Jewelry", icon: "💎", color: "from-yellow-500 to-amber-500" },
-];
-
 export default function Dashboard({ user, onSignOut }: DashboardProps) {
   const navigate = useNavigate();
   const userName = user?.user_metadata?.name || 'User';
@@ -29,30 +18,39 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
+            {/* Logo */}
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
                 <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
                   <span className="text-white font-bold text-xl">●</span>
                 </div>
-                <span className="font-bold text-slate-900 text-xl">Bluedot</span>
+                <span className="font-bold text-slate-900 text-xl">Nearly</span>
               </div>
 
-              <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+              {/* Navigation Links */}
+              <nav className="hidden md:flex items-center gap-6">
                 <button 
                   onClick={() => navigate('/browse')}
-                  className="hover:text-sky-600 transition"
+                  className="text-slate-700 hover:text-sky-600 transition font-medium"
                 >
-                  {isCustomer ? 'Browse Pros' : 'Browse Jobs'}
+                  Browse Workers
+                </button>
+                <button 
+                  onClick={() => navigate('/map')}
+                  className="text-slate-700 hover:text-sky-600 transition font-medium"
+                >
+                  Maps
                 </button>
                 <button 
                   onClick={() => navigate('/pricing')}
-                  className="hover:text-sky-600 transition"
+                  className="text-slate-700 hover:text-sky-600 transition font-medium"
                 >
                   Pricing
                 </button>
               </nav>
             </div>
 
+            {/* Right Side */}
             <div className="flex items-center gap-4">
               <ProfileDropdown user={user} onSignOut={onSignOut} />
             </div>
@@ -62,124 +60,83 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        
         {/* Welcome Section */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
-            Welcome to Bluedot, {userName} 👋
+            Welcome to Nearly, {userName} 👋
           </h1>
-          <p className="text-lg text-slate-600">
+          <p className="text-xl text-slate-600">
             {isCustomer 
-              ? "Find talented local pros and makers for your next project"
-              : "Discover exciting job opportunities from local customers"}
+              ? 'Find talented independent local workers for your next commission' 
+              : 'Find local commissions and connect with clients'}
           </p>
         </div>
 
-        {/* Quick Actions */}
+        {/* Action Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {isCustomer ? (
-            <>
-              {/* Post a Job */}
-              <div 
-                onClick={() => navigate('/post-job')}
-                className="bg-white rounded-2xl border-2 border-slate-200 p-6 hover:border-sky-400 hover:shadow-xl transition cursor-pointer group"
-              >
-                <div className="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-sky-200 transition">
-                  <span className="text-2xl">📝</span>
-                </div>
-                <h3 className="font-bold text-xl text-slate-900 mb-2">Post a Job</h3>
-                <p className="text-slate-600">Get tailored offers for your needs. Posting is free!</p>
-              </div>
+          {/* Post a Commission */}
+          <div 
+            onClick={() => navigate('/post-job')}
+            className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer group"
+          >
+            <div className="w-16 h-16 bg-sky-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-sky-200 transition">
+              <span className="text-3xl">📝</span>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">Post a Commission</h3>
+            <p className="text-slate-600">
+              Get tailored offers for your needs. Posting is free!
+            </p>
+          </div>
 
-              {/* Browse Pros */}
-              <div 
-                onClick={() => navigate('/browse')}
-                className="bg-white rounded-2xl border-2 border-slate-200 p-6 hover:border-sky-400 hover:shadow-xl transition cursor-pointer group"
-              >
-                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-200 transition">
-                  <span className="text-2xl">🔍</span>
-                </div>
-                <h3 className="font-bold text-xl text-slate-900 mb-2">Browse Pros</h3>
-                <p className="text-slate-600">Find local makers and service providers near you</p>
-              </div>
+          {/* Browse Workers */}
+          <div 
+            onClick={() => navigate('/browse')}
+            className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer group"
+          >
+            <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-emerald-200 transition">
+              <span className="text-3xl">🔍</span>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">Browse Workers</h3>
+            <p className="text-slate-600">
+              Find independent local workers and service providers near you
+            </p>
+          </div>
 
-              {/* My Jobs */}
-              <div 
-                onClick={() => navigate('/my-jobs')}
-                className="bg-white rounded-2xl border-2 border-slate-200 p-6 hover:border-sky-400 hover:shadow-xl transition cursor-pointer group"
-              >
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition">
-                  <span className="text-2xl">💼</span>
-                </div>
-                <h3 className="font-bold text-xl text-slate-900 mb-2">My Jobs</h3>
-                <p className="text-slate-600">View and manage your posted jobs</p>
-              </div>
-            </>
-          ) : (
-            <>
-              {/* Browse Jobs */}
-              <div 
-                onClick={() => navigate('/browse-jobs')}
-                className="bg-white rounded-2xl border-2 border-slate-200 p-6 hover:border-sky-400 hover:shadow-xl transition cursor-pointer group"
-              >
-                <div className="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-sky-200 transition">
-                  <span className="text-2xl">🔍</span>
-                </div>
-                <h3 className="font-bold text-xl text-slate-900 mb-2">Browse Jobs</h3>
-                <p className="text-slate-600">Find local job opportunities that match your skills</p>
-              </div>
-
-              {/* My Services */}
-              <div 
-                onClick={() => navigate('/my-services')}
-                className="bg-white rounded-2xl border-2 border-slate-200 p-6 hover:border-sky-400 hover:shadow-xl transition cursor-pointer group"
-              >
-                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-200 transition">
-                  <span className="text-2xl">⚙️</span>
-                </div>
-                <h3 className="font-bold text-xl text-slate-900 mb-2">My Services</h3>
-                <p className="text-slate-600">Manage your offerings and portfolio</p>
-              </div>
-
-              {/* Profile Progress */}
-              <div 
-                onClick={() => navigate('/profile')}
-                className="bg-white rounded-2xl border-2 border-slate-200 p-6 hover:border-sky-400 hover:shadow-xl transition cursor-pointer group"
-              >
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition">
-                  <span className="text-2xl">📊</span>
-                </div>
-                <h3 className="font-bold text-xl text-slate-900 mb-2">Complete Profile</h3>
-                <p className="text-slate-600">Complete your profile to get more opportunities</p>
-              </div>
-            </>
-          )}
+          {/* My Commissions */}
+          <div 
+            onClick={() => navigate('/my-jobs')}
+            className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer group"
+          >
+            <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition">
+              <span className="text-3xl">💼</span>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">My Commissions</h3>
+            <p className="text-slate-600">
+              View and manage your posted commissions
+            </p>
+          </div>
         </div>
 
-        {/* Profile Progress (for customers) */}
-        {isCustomer && (
-          <div className="bg-gradient-to-r from-sky-100 to-blue-100 rounded-2xl p-6 mb-12 border-2 border-sky-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="font-bold text-xl text-slate-900 mb-1">Complete Your Profile</h3>
-                <p className="text-slate-600">Get personalized recommendations</p>
-              </div>
-              <button 
-                onClick={() => navigate('/profile')}
-                className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
-              >
-                Complete Profile
-              </button>
+        {/* Complete Profile Banner */}
+        <div className="bg-sky-50 rounded-2xl p-8 border-2 border-sky-200 mb-12">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Complete Your Profile</h3>
+              <p className="text-slate-600">Get personalized recommendations</p>
             </div>
+            <button 
+              onClick={() => navigate('/profile')}
+              className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
+            >
+              Complete Profile
+            </button>
           </div>
-        )}
+        </div>
 
-        {/* Explore Popular Categories */}
-        <div className="mb-8">
+        {/* Explore Categories */}
+        <div>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-slate-900">
-              Explore Popular Categories
-            </h2>
+            <h2 className="text-2xl font-bold text-slate-900">Explore Popular Categories</h2>
             <button 
               onClick={() => navigate('/browse')}
               className="text-sky-600 hover:text-sky-700 font-semibold flex items-center gap-2"
@@ -190,96 +147,51 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {CATEGORIES.map((category) => (
-              <div
-                key={category.name}
-                onClick={() => navigate(`/category/${category.name.toLowerCase()}`)}
-                className="bg-white rounded-2xl border-2 border-slate-200 p-6 hover:border-sky-400 hover:shadow-lg transition cursor-pointer group"
-              >
-                <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <span className="text-3xl">{category.icon}</span>
-                </div>
-                <h3 className="font-bold text-lg text-slate-900">{category.name}</h3>
-                <p className="text-sm text-slate-600 mt-1">
-                  {isCustomer ? 'Find local pros' : 'Find jobs'}
-                </p>
+            {/* Woodworking */}
+            <div 
+              onClick={() => navigate('/category/woodworking')}
+              className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer text-center group"
+            >
+              <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-orange-200 transition">
+                <span className="text-3xl">🪵</span>
               </div>
-            ))}
+              <h4 className="font-bold text-slate-900">Woodworking</h4>
+            </div>
+
+            {/* Ceramics */}
+            <div 
+              onClick={() => navigate('/category/ceramics')}
+              className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer text-center group"
+            >
+              <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-pink-200 transition">
+                <span className="text-3xl">🏺</span>
+              </div>
+              <h4 className="font-bold text-slate-900">Ceramics</h4>
+            </div>
+
+            {/* Photography */}
+            <div 
+              onClick={() => navigate('/category/photography')}
+              className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer text-center group"
+            >
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200 transition">
+                <span className="text-3xl">📸</span>
+              </div>
+              <h4 className="font-bold text-slate-900">Photography</h4>
+            </div>
+
+            {/* Design */}
+            <div 
+              onClick={() => navigate('/category/design')}
+              className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer text-center group"
+            >
+              <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-200 transition">
+                <span className="text-3xl">🎨</span>
+              </div>
+              <h4 className="font-bold text-slate-900">Design</h4>
+            </div>
           </div>
         </div>
-
-        {/* Local Banner */}
-        <div className="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl p-12 text-center text-white mb-12">
-          <div className="max-w-2xl mx-auto">
-            <span className="text-6xl mb-4 block">📍</span>
-            <h2 className="text-3xl font-bold mb-4">Supporting Local Makers in San Diego</h2>
-            <p className="text-xl text-emerald-50">
-              Every job posted supports small businesses and keeps money circulating in your community.
-            </p>
-          </div>
-        </div>
-
-        {/* How It Works */}
-        <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border-2 border-slate-200">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">How It Works</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {isCustomer ? (
-              <>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl">1️⃣</span>
-                  </div>
-                  <h3 className="font-bold text-xl mb-2">Post Your Job</h3>
-                  <p className="text-slate-600">Describe what you need done and set your budget</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl">2️⃣</span>
-                  </div>
-                  <h3 className="font-bold text-xl mb-2">Get Matched</h3>
-                  <p className="text-slate-600">Local pros send you quotes and portfolios</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl">3️⃣</span>
-                  </div>
-                  <h3 className="font-bold text-xl mb-2">Pay Securely</h3>
-                  <p className="text-slate-600">Money held in escrow until job is complete</p>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl">1️⃣</span>
-                  </div>
-                  <h3 className="font-bold text-xl mb-2">Browse Jobs</h3>
-                  <p className="text-slate-600">Find local projects that match your skills</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl">2️⃣</span>
-                  </div>
-                  <h3 className="font-bold text-xl mb-2">Send Proposal</h3>
-                  <p className="text-slate-600">Submit your quote and portfolio</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl">3️⃣</span>
-                  </div>
-                  <h3 className="font-bold text-xl mb-2">Get Paid</h3>
-                  <p className="text-slate-600">Complete the job and receive secure payment</p>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-
       </div>
     </div>
   );
