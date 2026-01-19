@@ -36,7 +36,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
                   Browse Workers
                 </button>
                 <button 
-                  onClick={() => navigate('/map')}
+                  onClick={() => navigate('/browse')}
                   className="text-slate-700 hover:text-sky-600 transition font-medium"
                 >
                   Maps
