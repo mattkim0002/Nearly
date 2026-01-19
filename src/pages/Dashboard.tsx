@@ -8,9 +8,53 @@ interface DashboardProps {
 
 export default function Dashboard({ user, onSignOut }: DashboardProps) {
   const navigate = useNavigate();
-  const userName = user?.user_metadata?.name || 'User';
   const userType = user?.user_metadata?.user_type || 'customer';
-  const isCustomer = userType === 'customer';
+  const isPro = userType === 'pro';
+
+  const navigationItems = [
+    {
+      title: 'Browse Workers',
+      description: 'View list of local pros and makers',
+      icon: '📋',
+      path: '/browse-workers',
+      color: 'from-sky-400 to-blue-600'
+    },
+    {
+      title: 'Maps',
+      description: 'Find workers near you on the map',
+      icon: '🗺️',
+      path: '/browse',
+      color: 'from-emerald-400 to-teal-600'
+    },
+    {
+      title: isPro ? 'Browse Jobs' : 'Post a Job',
+      description: isPro ? 'Find available jobs to work on' : 'Get quotes from local pros',
+      icon: isPro ? '🔍' : '✨',
+      path: isPro ? '/browse-jobs' : '/post-job',
+      color: 'from-purple-400 to-pink-600'
+    },
+    {
+      title: 'My Jobs',
+      description: isPro ? 'Jobs you\'re working on' : 'Jobs you\'ve posted',
+      icon: '💼',
+      path: '/my-jobs',
+      color: 'from-amber-400 to-orange-600'
+    },
+    {
+      title: 'Messages',
+      description: 'Chat with clients and workers',
+      icon: '💬',
+      path: '/messages',
+      color: 'from-blue-400 to-indigo-600'
+    },
+    {
+      title: 'My Profile',
+      description: 'Edit your profile and settings',
+      icon: '👤',
+      path: '/profile',
+      color: 'from-pink-400 to-rose-600'
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
@@ -18,39 +62,12 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center gap-8">
-              <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-                <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">●</span>
-                </div>
-                <span className="font-bold text-slate-900 text-xl">Nearly</span>
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
+              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+                <span className="text-white font-bold text-xl">●</span>
               </div>
-
-              {/* Navigation Links */}
-              <nav className="hidden md:flex items-center gap-6">
-                <button 
-                  onClick={() => navigate('/browse')}
-                  className="text-slate-700 hover:text-sky-600 transition font-medium"
-                >
-                  Browse Workers
-                </button>
-                <button 
-                  onClick={() => navigate('/browse')}
-                  className="text-slate-700 hover:text-sky-600 transition font-medium"
-                >
-                  Maps
-                </button>
-                <button 
-                  onClick={() => navigate('/pricing')}
-                  className="text-slate-700 hover:text-sky-600 transition font-medium"
-                >
-                  Pricing
-                </button>
-              </nav>
+              <span className="font-bold text-slate-900 text-xl">Nearly</span>
             </div>
-
-            {/* Right Side */}
             <div className="flex items-center gap-4">
               <ProfileDropdown user={user} onSignOut={onSignOut} />
             </div>
@@ -63,133 +80,79 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
         {/* Welcome Section */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
-            Welcome to Nearly, {userName} 👋
+            Welcome back, {user?.user_metadata?.full_name || 'there'}! 👋
           </h1>
           <p className="text-xl text-slate-600">
-            {isCustomer 
-              ? 'Find talented independent local workers for your next commission' 
-              : 'Find local commissions and connect with clients'}
+            {isPro 
+              ? 'Ready to find your next job?'
+              : 'What would you like to do today?'
+            }
           </p>
         </div>
 
-        {/* Action Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {/* Post a Commission */}
-          <div 
-            onClick={() => navigate('/post-job')}
-            className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer group"
-          >
-            <div className="w-16 h-16 bg-sky-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-sky-200 transition">
-              <span className="text-3xl">📝</span>
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-slate-600 font-medium">Active Jobs</span>
+              <span className="text-2xl">💼</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Post a Commission</h3>
-            <p className="text-slate-600">
-              Get tailored offers for your needs. Posting is free!
-            </p>
+            <p className="text-3xl font-bold text-slate-900">0</p>
           </div>
-
-          {/* Browse Workers */}
-          <div 
-            onClick={() => navigate('/browse')}
-            className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer group"
-          >
-            <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-emerald-200 transition">
-              <span className="text-3xl">🔍</span>
+          
+          <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-slate-600 font-medium">Messages</span>
+              <span className="text-2xl">💬</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Browse Workers</h3>
-            <p className="text-slate-600">
-              Find independent local workers and service providers near you
-            </p>
+            <p className="text-3xl font-bold text-slate-900">0</p>
           </div>
-
-          {/* My Commissions */}
-          <div 
-            onClick={() => navigate('/my-jobs')}
-            className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer group"
-          >
-            <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition">
-              <span className="text-3xl">💼</span>
+          
+          <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-slate-600 font-medium">Completed</span>
+              <span className="text-2xl">✅</span>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">My Commissions</h3>
-            <p className="text-slate-600">
-              View and manage your posted commissions
-            </p>
+            <p className="text-3xl font-bold text-slate-900">0</p>
           </div>
         </div>
 
-        {/* Complete Profile Banner */}
-        <div className="bg-sky-50 rounded-2xl p-8 border-2 border-sky-200 mb-12">
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Complete Your Profile</h3>
-              <p className="text-slate-600">Get personalized recommendations</p>
-            </div>
-            <button 
-              onClick={() => navigate('/profile')}
-              className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
-            >
-              Complete Profile
-            </button>
+        {/* Navigation Cards */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">Quick Actions</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {navigationItems.map((item) => (
+              <div
+                key={item.path}
+                onClick={() => navigate(item.path)}
+                className="bg-white rounded-2xl shadow-md border-2 border-slate-200 hover:border-sky-400 hover:shadow-xl transition cursor-pointer p-6 group"
+              >
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition`}>
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Explore Categories */}
-        <div>
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-slate-900">Explore Popular Categories</h2>
-            <button 
-              onClick={() => navigate('/browse')}
-              className="text-sky-600 hover:text-sky-700 font-semibold flex items-center gap-2"
-            >
-              Show All
-              <span>→</span>
-            </button>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {/* Woodworking */}
-            <div 
-              onClick={() => navigate('/category/woodworking')}
-              className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer text-center group"
-            >
-              <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-orange-200 transition">
-                <span className="text-3xl">🪵</span>
-              </div>
-              <h4 className="font-bold text-slate-900">Woodworking</h4>
-            </div>
-
-            {/* Ceramics */}
-            <div 
-              onClick={() => navigate('/category/ceramics')}
-              className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer text-center group"
-            >
-              <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-pink-200 transition">
-                <span className="text-3xl">🏺</span>
-              </div>
-              <h4 className="font-bold text-slate-900">Ceramics</h4>
-            </div>
-
-            {/* Photography */}
-            <div 
-              onClick={() => navigate('/category/photography')}
-              className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer text-center group"
-            >
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200 transition">
-                <span className="text-3xl">📸</span>
-              </div>
-              <h4 className="font-bold text-slate-900">Photography</h4>
-            </div>
-
-            {/* Design */}
-            <div 
-              onClick={() => navigate('/category/design')}
-              className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-sky-500 transition cursor-pointer text-center group"
-            >
-              <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-200 transition">
-                <span className="text-3xl">🎨</span>
-              </div>
-              <h4 className="font-bold text-slate-900">Design</h4>
-            </div>
+        {/* Recent Activity */}
+        <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-8">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">Recent Activity</h2>
+          <div className="text-center py-12">
+            <div className="text-6xl mb-4">📭</div>
+            <p className="text-slate-600">No recent activity yet</p>
+            <p className="text-slate-500 text-sm mt-2">
+              {isPro 
+                ? 'Start browsing jobs to get started!'
+                : 'Post your first job to get started!'
+              }
+            </p>
           </div>
         </div>
       </div>
