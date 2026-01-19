@@ -101,10 +101,10 @@ const HIRE_TALENT_CATEGORIES = [
 ];
 
 const FIND_WORK_ITEMS = [
-  "Browse All Commissions",
-  "Woodworking Tasks",
-  "Design Tasks",
-  "Photography Assistance",
+  "Browse All Jobs",
+  "Woodworking Projects",
+  "Design Projects",
+  "Photography Gigs",
   "How to Get Started",
   "Success Stories"
 ];
@@ -129,7 +129,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
       navigate('/auth', { state: { mode: 'signup' } });
       return;
     }
-    alert('Commission posted! (This is a demo)');
+    alert('Job posted! (This is a demo)');
   };
 
   const handleViewProfile = () => {
@@ -203,7 +203,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
           onClick={() => navigate('/auth', { state: { mode: 'signup' } })}
           className="text-emerald-600 hover:text-emerald-700 font-semibold"
         >
-          Post a commission →
+          Post a job →
         </button>
       </div>
     </div>
@@ -285,14 +285,14 @@ export default function Home({ user, onSignOut }: HomeProps) {
         {/* Hero Section */}
         <section className="pt-16 pb-24 text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-tight max-w-4xl mx-auto">
-            Connect with independent local talent for{' '}
+            Find trusted local pros & makers for{' '}
             <span className="bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
-              hands-on work
+              any project
             </span>
           </h1>
           
           <p className="mt-6 text-xl text-slate-600 max-w-2xl mx-auto">
-            Commission local makers, pay through escrow, and support skilled help in your community.
+            Book today, pay through escrow, and support local makers in your community.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -300,13 +300,13 @@ export default function Home({ user, onSignOut }: HomeProps) {
   onClick={() => document.getElementById('post-job')?.scrollIntoView({ behavior: 'smooth' })}
   className="px-8 py-4 text-lg font-semibold rounded-full bg-sky-600 text-white hover:bg-sky-700 transition shadow-xl shadow-sky-200"
 >
-  Post a Commission — Free
+  Post a Job — Free
 </button>
 <button 
   onClick={() => navigate('/browse')}
   className="px-8 py-4 text-lg font-semibold rounded-full bg-white text-slate-900 hover:bg-slate-50 transition border-2 border-slate-200"
 >
-Browse Local Talent
+Map
 </button>
           </div>
         </section>
@@ -341,7 +341,7 @@ Browse Local Talent
         {/* Available Providers */}
         <section className="py-16">
           <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-            Independent Local Talent
+            Available Local Pros & Makers
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -356,13 +356,13 @@ Browse Local Talent
                     <p className="text-sm text-slate-600">{provider.service}</p>
                   </div>
                   {provider.verified && (
-                    <span className="text-sky-600 text-xl" title="Profile verified">✓</span>
+                    <span className="text-sky-600 text-xl" title="Verified">✓</span>
                   )}
                 </div>
                 
                 <div className="space-y-2 text-sm text-slate-600 mb-4">
                   <p>📍 {provider.location} · {provider.distance}</p>
-                  <p>⭐ {provider.rating} · {provider.jobs} commissions</p>
+                  <p>⭐ {provider.rating} · {provider.jobs} jobs completed</p>
                 </div>
                 
                 <div className="flex items-center justify-between pt-4 border-t border-slate-200">
@@ -388,16 +388,16 @@ Browse Local Talent
               <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📝</span>
               </div>
-              <h3 className="font-bold text-xl mb-2">Post Your Commission</h3>
-              <p className="text-slate-600">Describe the scope and set your budget</p>
+              <h3 className="font-bold text-xl mb-2">Post Your Job</h3>
+              <p className="text-slate-600">Describe what you need done and set your budget</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🤝</span>
               </div>
-              <h3 className="font-bold text-xl mb-2">Review Proposals</h3>
-              <p className="text-slate-600">Independent workers send you offers and portfolios</p>
+              <h3 className="font-bold text-xl mb-2">Get Matched</h3>
+              <p className="text-slate-600">Local pros send you quotes and portfolios</p>
             </div>
             
             <div className="text-center">
@@ -405,7 +405,7 @@ Browse Local Talent
                 <span className="text-2xl">✨</span>
               </div>
               <h3 className="font-bold text-xl mb-2">Pay Securely</h3>
-              <p className="text-slate-600">Money held in escrow per agreed terms</p>
+              <p className="text-slate-600">Money held in escrow until job is complete</p>
             </div>
           </div>
         </section>
@@ -415,7 +415,7 @@ Browse Local Talent
           <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Mission</h2>
           <p className="text-xl text-slate-600 leading-relaxed">
             We're building a platform that connects communities with talented local makers and service providers. 
-            Every commission posted supports small businesses and keeps money circulating in your neighborhood.
+            Every job posted supports small businesses and keeps money circulating in your neighborhood.
           </p>
         </section>
 
@@ -425,13 +425,13 @@ Browse Local Talent
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl border-2 border-slate-200 p-8">
-              <h3 className="text-2xl font-bold mb-2">For Clients</h3>
+              <h3 className="text-2xl font-bold mb-2">For Customers</h3>
               <p className="text-4xl font-bold text-sky-600 mb-4">Free</p>
-              <p className="text-slate-600 mb-6">Post unlimited commissions at no cost</p>
+              <p className="text-slate-600 mb-6">Post unlimited jobs at no cost</p>
               <ul className="space-y-3 text-slate-600">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600">✓</span>
-                  <span>Post unlimited commissions</span>
+                  <span>Post unlimited jobs</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600">✓</span>
@@ -445,13 +445,13 @@ Browse Local Talent
             </div>
             
             <div className="bg-gradient-to-br from-sky-600 to-blue-600 rounded-2xl border-2 border-sky-700 p-8 text-white">
-              <h3 className="text-2xl font-bold mb-2">For Independent Workers</h3>
+              <h3 className="text-2xl font-bold mb-2">For Pros</h3>
               <p className="text-4xl font-bold mb-4">8% fee</p>
-              <p className="opacity-90 mb-6">Only charged on paid commissions</p>
+              <p className="opacity-90 mb-6">Only charged on completed jobs</p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <span className="text-sky-200">✓</span>
-                  <span>Unlimited proposals</span>
+                  <span>Unlimited job applications</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-sky-200">✓</span>
@@ -469,19 +469,19 @@ Browse Local Talent
         {/* Post Job Form */}
         <section id="post-job" className="py-16 mb-16">
           <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 max-w-3xl mx-auto border-2 border-slate-200">
-            <h2 className="text-3xl font-bold text-slate-900 mb-2 text-center">Post a Commission</h2>
-            <p className="text-slate-600 text-center mb-8">Connect with local talent in minutes</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-2 text-center">Post Your Job</h2>
+            <p className="text-slate-600 text-center mb-8">Get quotes from local pros in minutes</p>
             
             <form onSubmit={handlePostJob} className="space-y-6">
               <div>
                 <label className="block text-sm font-semibold text-slate-900 mb-2">
-                  What assistance do you need?
+                  What do you need done?
                 </label>
                 <input
                   type="text"
                   value={jobTitle}
                   onChange={(e) => setJobTitle(e.target.value)}
-                  placeholder="e.g., Dining table build assistance"
+                  placeholder="e.g., Custom dining table"
                   className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
                   required
                 />
@@ -489,12 +489,12 @@ Browse Local Talent
               
               <div>
                 <label className="block text-sm font-semibold text-slate-900 mb-2">
-                  Scope Details
+                  Project Details
                 </label>
                 <textarea
                   value={jobDescription}
                   onChange={(e) => setJobDescription(e.target.value)}
-                  placeholder="Describe the scope and tasks in detail..."
+                  placeholder="Describe your project in detail..."
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none"
                   required
@@ -519,7 +519,7 @@ Browse Local Talent
                 type="submit"
                 className="w-full py-4 rounded-xl bg-sky-600 text-white font-semibold text-lg hover:bg-sky-700 transition shadow-lg"
               >
-                {user ? 'Post Commission for Free' : 'Sign In to Post Commission'}
+                {user ? 'Post Job for Free' : 'Sign In to Post Job'}
               </button>
             </form>
           </div>
