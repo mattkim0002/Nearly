@@ -102,13 +102,13 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
       if (error) throw error;
       setJob(data);
     } catch (error) {
-      console.error('Error loading commission:', error);
+      console.error('Error loading job:', error);
     }
   };
 
   const loadProposals = async () => {
     try {
-      console.log('Loading proposals for commission:', id);
+      console.log('Loading proposals for job:', id);
       
       const { data, error } = await supabase
         .from('proposals')
@@ -122,8 +122,8 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
         id: p.id,
         jobId: p.job_id,
         proId: p.pro_id,
-        proName: 'Independent Worker',
-        proAvatar: 'IW',
+        proName: 'Pro User',
+        proAvatar: 'PU',
         proRating: 4.5,
         proJobs: 0,
         coverLetter: p.cover_letter,
@@ -223,7 +223,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
 
       if (proposalError) throw proposalError;
 
-      // Update commission status to in_progress
+      // Update job status to in_progress
       const { error: jobError } = await supabase
         .from('jobs')
         .update({ status: 'in_progress' })
@@ -287,7 +287,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
       await loadJob();
       setShowDeliveryForm(false);
       setDeliveryNotes('');
-      alert('Work submitted! The client will review it.');
+      alert('Work delivered! The customer will review it.');
     } catch (error: any) {
       console.error('Error submitting delivery:', error);
       alert('Error submitting delivery: ' + error.message);
@@ -304,7 +304,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
       if (error) throw error;
 
       await loadJob();
-      alert('Work approved! You can now leave a review.');
+      alert('Job marked as complete! You can now leave a review.');
     } catch (error: any) {
       console.error('Error approving delivery:', error);
       alert('Error approving delivery: ' + error.message);
@@ -323,9 +323,9 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
 
       if (error) throw error;
 
-      // TODO: Send message to worker with revision notes
+      // TODO: Send message to pro with revision notes
       await loadJob();
-      alert('Revision requested. The worker has been notified.');
+      alert('Revision requested. The pro has been notified.');
     } catch (error: any) {
       console.error('Error requesting revision:', error);
       alert('Error requesting revision: ' + error.message);
@@ -383,7 +383,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-slate-600">Loading commission...</p>
+          <p className="text-slate-600">Loading job...</p>
         </div>
       </div>
     );
@@ -393,9 +393,9 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">Commission Not Found</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">Job Not Found</h1>
           <button onClick={() => navigate('/browse-jobs')} className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition">
-            Browse Commissions
+            Browse Jobs
           </button>
         </div>
       </div>
@@ -430,7 +430,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Column */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Commission Info */}
+            {/* Job Info */}
             <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-8">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
@@ -448,7 +448,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                     }`}>
                       {job.status === 'open' ? '🟢 Open for Proposals' :
                        job.status === 'in_progress' ? '⏳ In Progress' :
-                       job.status === 'delivered' ? '📦 Submitted - Awaiting Approval' :
+                       job.status === 'delivered' ? '📦 Delivered - Awaiting Approval' :
                        job.status === 'completed' ? '✅ Completed' :
                        '❌ Cancelled'}
                     </span>
@@ -477,24 +477,24 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
               </div>
             </div>
 
-            {/* Delivery Section - For Worker to Submit Work */}
+            {/* Delivery Section - For Pro to Submit Work */}
             {isAssignedPro && job.status === 'in_progress' && (
               <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl shadow-md border-2 border-sky-300 p-8">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">📦 Ready to Submit?</h2>
-                <p className="text-slate-600 mb-6">Submit your work for the client to review.</p>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">📦 Ready to Deliver?</h2>
+                <p className="text-slate-600 mb-6">Submit your completed work for the customer to review.</p>
                 
                 {!showDeliveryForm ? (
                   <button
                     onClick={() => setShowDeliveryForm(true)}
                     className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
                   >
-                    Submit Work
+                    Submit Delivery
                   </button>
                 ) : (
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-semibold text-slate-900 mb-2">
-                        Submission Notes
+                        Delivery Notes
                       </label>
                       <textarea
                         value={deliveryNotes}
@@ -515,7 +515,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                         onClick={handleSubmitDelivery}
                         className="flex-1 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
                       >
-                        Submit Work
+                        Submit Delivery
                       </button>
                     </div>
                   </div>
@@ -523,12 +523,12 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
               </div>
             )}
 
-            {/* Delivery Review Section - For Client to Approve */}
+            {/* Delivery Review Section - For Customer to Approve */}
             {isJobOwner && job.status === 'delivered' && acceptedProposal?.deliveryNotes && (
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl shadow-md border-2 border-blue-300 p-8">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">📦 Work Submitted!</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">📦 Work Delivered!</h2>
                 <div className="mb-6">
-                  <p className="text-sm text-slate-600 mb-2">Submitted on {formatDate(acceptedProposal.deliveryDate)}</p>
+                  <p className="text-sm text-slate-600 mb-2">Delivered on {formatDate(acceptedProposal.deliveryDate)}</p>
                   <div className="bg-white rounded-xl p-4 border border-slate-200">
                     <p className="text-slate-700 whitespace-pre-line">{acceptedProposal.deliveryNotes}</p>
                   </div>
@@ -538,7 +538,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                     onClick={handleApproveDelivery}
                     className="flex-1 py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
                   >
-                    ✓ Approve Work
+                    ✓ Approve & Complete
                   </button>
                   <button
                     onClick={handleRequestRevision}
@@ -607,7 +607,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                           <textarea
                             value={reviewText}
                             onChange={(e) => setReviewText(e.target.value)}
-                            placeholder={isJobOwner ? "How was your experience with this worker?" : "How was working with this client?"}
+                            placeholder={isJobOwner ? "How was your experience with this pro?" : "How was working with this customer?"}
                             rows={4}
                             className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-purple-500 focus:outline-none resize-none"
                           />
@@ -659,7 +659,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                       <textarea
                         value={proposalText}
                         onChange={(e) => setProposalText(e.target.value)}
-                        placeholder="Explain why you're a good fit for this commission..."
+                        placeholder="Explain why you're the best fit for this job..."
                         rows={6}
                         className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none"
                       />
@@ -705,7 +705,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                     <span className="text-6xl mb-4 block">📝</span>
                     <h3 className="text-xl font-bold text-slate-900 mb-2">No proposals yet</h3>
                     <p className="text-slate-600">
-                      {isPro ? 'Be the first to submit a proposal!' : 'Waiting for workers to submit proposals...'}
+                      {isPro ? 'Be the first to submit a proposal!' : 'Waiting for pros to submit proposals...'}
                     </p>
                   </div>
                 ) : (
@@ -726,7 +726,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                               <div className="flex items-center gap-3 text-sm text-slate-600">
                                 <span>⭐ {proposal.proRating}</span>
                                 <span>•</span>
-                                <span>{proposal.proJobs} commissions</span>
+                                <span>{proposal.proJobs} jobs completed</span>
                               </div>
                             </div>
                             {proposal.status === 'accepted' && (
@@ -772,7 +772,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6 sticky top-24">
-              <h3 className="font-bold text-lg text-slate-900 mb-4">Commission Status</h3>
+              <h3 className="font-bold text-lg text-slate-900 mb-4">Job Status</h3>
               
               {/* Status Progress */}
               <div className="space-y-3 mb-6">
@@ -786,7 +786,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                 </div>
                 <div className={`flex items-center gap-3 ${job.status === 'delivered' || job.status === 'completed' ? 'text-emerald-600' : 'text-slate-400'}`}>
                   <span className="text-2xl">{job.status === 'delivered' || job.status === 'completed' ? '✓' : '○'}</span>
-                  <span className="font-semibold">Submitted</span>
+                  <span className="font-semibold">Delivered</span>
                 </div>
                 <div className={`flex items-center gap-3 ${job.status === 'completed' ? 'text-emerald-600' : 'text-slate-400'}`}>
                   <span className="text-2xl">{job.status === 'completed' ? '✓' : '○'}</span>
@@ -816,8 +816,13 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
       {/* Payment Modal */}
       {showPaymentModal && selectedProposal && (
         <PaymentModal
-          job={job}
-          proposal={selectedProposal}
+          commission={{
+            id: job.id,
+            title: job.title,
+            budget: parseFloat(selectedProposal.budget.toString().replace(/[$,]/g, '')) || 0,
+            workerName: selectedProposal.proName,
+            workerId: selectedProposal.proId
+          }}
           onClose={() => {
             setShowPaymentModal(false);
             setSelectedProposal(null);
