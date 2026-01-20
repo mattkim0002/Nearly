@@ -134,7 +134,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -155,9 +155,9 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
           <div>
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-slate-600 mb-6">
-              <button onClick={() => setSelectedList(null)} className="hover:text-sky-600">Home</button>
+              <button onClick={() => setSelectedList(null)} className="hover:text-red-500">Home</button>
               <span>›</span>
-              <button onClick={() => setSelectedList(null)} className="hover:text-sky-600">My Lists</button>
+              <button onClick={() => setSelectedList(null)} className="hover:text-red-500">My Lists</button>
             </div>
 
             {/* List Header */}
@@ -190,7 +190,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
               )}
 
               <div className="flex items-center gap-2 mt-3 text-sm text-slate-600">
-                <div className="w-6 h-6 rounded-full bg-sky-600 flex items-center justify-center text-white text-xs font-bold">
+                <div className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white text-xs font-bold">
                   {user?.user_metadata?.name?.[0] || 'M'}
                 </div>
                 <span>Created by {user?.user_metadata?.name || 'Matthew Kim'}</span>
@@ -251,7 +251,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
                 {filteredFavorites.map((item: any) => (
                   <div
                     key={item.id}
-                    className="bg-white rounded-2xl border-2 border-slate-200 hover:border-sky-400 hover:shadow-lg transition p-6 relative group"
+                    className="bg-white rounded-2xl border-2 border-slate-200 hover:border-red-300 hover:shadow-lg transition p-6 relative group"
                   >
                     {/* Remove button */}
                     <button
@@ -268,7 +268,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
                     >
                       {/* Avatar */}
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-600 to-blue-600 flex items-center justify-center text-white font-bold text-xl">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold text-xl">
                           {item.data.image}
                         </div>
                         <div className="flex-1">
@@ -296,14 +296,14 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-xs text-slate-600">Starting at</p>
-                          <p className="font-bold text-sky-600 text-lg">{item.data.startingAt}</p>
+                          <p className="font-bold text-red-500 text-lg">{item.data.startingAt}</p>
                         </div>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             navigate(`/pro/${item.id}`);
                           }}
-                          className="px-4 py-2 rounded-lg bg-sky-600 text-white font-semibold hover:bg-sky-700 transition text-sm"
+                          className="px-4 py-2 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition text-sm"
                         >
                           View
                         </button>
@@ -339,10 +339,10 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
               {/* Create New List Card */}
               <button
                 onClick={() => setShowCreateModal(true)}
-                className="aspect-square border-2 border-dashed border-slate-300 rounded-2xl hover:border-sky-400 hover:bg-sky-50 transition flex flex-col items-center justify-center cursor-pointer"
+                className="aspect-square border-2 border-dashed border-slate-300 rounded-2xl hover:border-red-300 hover:bg-sky-50 transition flex flex-col items-center justify-center cursor-pointer"
               >
-                <span className="text-5xl text-sky-500 mb-3">+</span>
-                <span className="text-sky-600 font-semibold">Create a List</span>
+                <span className="text-5xl text-red-600 mb-3">+</span>
+                <span className="text-red-500 font-semibold">Create a List</span>
               </button>
 
               {/* User's Lists */}
@@ -350,7 +350,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
                 <div
                   key={list.id}
                   onClick={() => setSelectedList(list)}
-                  className="aspect-square bg-white border-2 border-slate-200 rounded-2xl hover:border-sky-400 hover:shadow-lg transition p-6 cursor-pointer flex flex-col"
+                  className="aspect-square bg-white border-2 border-slate-200 rounded-2xl hover:border-red-300 hover:shadow-lg transition p-6 cursor-pointer flex flex-col"
                 >
                   <div className="flex-1">
                     <h3 className="font-bold text-xl text-slate-900 mb-2">{list.name}</h3>
@@ -402,7 +402,7 @@ export default function ListsPage({ user, onSignOut }: ListsPageProps) {
                 value={newListName}
                 onChange={(e) => setNewListName(e.target.value)}
                 placeholder="e.g., Favorite Woodworkers"
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                 autoFocus
               />
             </div>

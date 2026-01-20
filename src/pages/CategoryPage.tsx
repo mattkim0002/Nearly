@@ -215,7 +215,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">nearly</span>
@@ -228,13 +228,13 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
                 <>
                   <button
                     onClick={() => navigate('/auth')}
-                    className="px-5 py-2.5 text-slate-700 hover:text-sky-600 transition font-medium"
+                    className="px-5 py-2.5 text-slate-700 hover:text-red-500 transition font-medium"
                   >
                     Log In
                   </button>
                   <button
                     onClick={() => navigate('/auth')}
-                    className="px-5 py-2.5 rounded-full bg-sky-600 text-white hover:bg-sky-700 transition shadow-lg"
+                    className="px-5 py-2.5 rounded-full bg-red-500 text-white hover:bg-red-600 transition shadow-lg"
                   >
                     Sign Up
                   </button>
@@ -260,7 +260,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
         {/* Category Header */}
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-3">
-            <div className="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-500 rounded-2xl flex items-center justify-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-blue-500 rounded-2xl flex items-center justify-center">
               <span className="text-4xl">{categoryInfo?.icon || '🔷'}</span>
             </div>
             <div>
@@ -284,7 +284,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
                   type="checkbox"
                   checked={showAvailableOnly}
                   onChange={(e) => setShowAvailableOnly(e.target.checked)}
-                  className="w-4 h-4 text-sky-600 rounded"
+                  className="w-4 h-4 text-red-500 rounded"
                 />
                 <span className="text-sm text-slate-700">Available now only</span>
               </label>
@@ -295,7 +295,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-sky-500 focus:outline-none text-sm"
+                className="px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none text-sm"
               >
                 <option value="rating">Highest Rated</option>
                 <option value="price">Lowest Price</option>
@@ -318,7 +318,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
             {showAvailableOnly && (
               <button
                 onClick={() => setShowAvailableOnly(false)}
-                className="px-6 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
+                className="px-6 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
               >
                 Show All Pros
               </button>
@@ -329,7 +329,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
             {providers.map((provider) => (
               <div
                 key={provider.id}
-                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-sky-400 hover:shadow-xl transition p-6 cursor-pointer relative"
+                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-red-300 hover:shadow-xl transition p-6 cursor-pointer relative"
                 onClick={() => navigate(`/pro/${provider.id}`)}
               >
                 {/* Favorite Heart Button */}
@@ -342,7 +342,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
                       alert('Added to favorites!');
                     }
                   }}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white hover:bg-sky-50 border-2 border-slate-200 hover:border-sky-500 rounded-full flex items-center justify-center transition shadow-md z-10"
+                  className="absolute top-4 right-4 w-10 h-10 bg-white hover:bg-sky-50 border-2 border-slate-200 hover:border-red-600 rounded-full flex items-center justify-center transition shadow-md z-10"
                   title="Add to favorites"
                 >
                   <svg 
@@ -358,14 +358,14 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
 
                 {/* Provider Avatar */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-600 to-blue-600 flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold text-xl">
                     {provider.image}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <h3 className="font-bold text-lg text-slate-900">{provider.name}</h3>
                       {provider.verified && (
-                        <span className="text-sky-600 text-lg" title="Verified">✓</span>
+                        <span className="text-red-500 text-lg" title="Verified">✓</span>
                       )}
                     </div>
                     <p className="text-sm text-slate-600">{provider.location}</p>
@@ -402,7 +402,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs text-slate-600">Starting at</p>
-                    <p className="font-bold text-sky-600 text-lg">{provider.startingAt}</p>
+                    <p className="font-bold text-red-500 text-lg">{provider.startingAt}</p>
                   </div>
                   <button
                     onClick={(e) => {
@@ -413,7 +413,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
                         navigate(`/pro/${provider.id}`);
                       }
                     }}
-                    className="px-4 py-2 rounded-lg bg-sky-600 text-white font-semibold hover:bg-sky-700 transition text-sm"
+                    className="px-4 py-2 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition text-sm"
                   >
                     Contact
                   </button>
@@ -425,12 +425,12 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
 
         {/* CTA Banner */}
         {providers.length > 0 && (
-          <div className="bg-gradient-to-r from-sky-600 to-blue-600 rounded-3xl p-8 text-center text-white mt-12">
+          <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-3xl p-8 text-center text-white mt-12">
             <h2 className="text-2xl font-bold mb-3">Can't find what you're looking for?</h2>
-            <p className="text-sky-100 mb-6">Post a job and let local pros come to you!</p>
+            <p className="text-red-50 mb-6">Post a job and let local pros come to you!</p>
             <button
               onClick={() => navigate(user ? '/post-job' : '/auth')}
-              className="px-8 py-3 bg-white text-sky-600 rounded-xl font-semibold hover:bg-sky-50 transition"
+              className="px-8 py-3 bg-white text-red-500 rounded-xl font-semibold hover:bg-sky-50 transition"
             >
               Post a Job - Free
             </button>

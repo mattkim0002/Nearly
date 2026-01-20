@@ -70,7 +70,7 @@ export default function BrowseWorkers({ user, onSignOut }: BrowseWorkersProps) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-slate-600">Loading workers...</p>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function BrowseWorkers({ user, onSignOut }: BrowseWorkersProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -111,12 +111,12 @@ export default function BrowseWorkers({ user, onSignOut }: BrowseWorkersProps) {
               placeholder="Search by name, skills, or expertise..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
             />
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
             >
               {categories.map(cat => (
                 <option key={cat} value={cat}>
@@ -151,12 +151,12 @@ export default function BrowseWorkers({ user, onSignOut }: BrowseWorkersProps) {
             {filteredWorkers.map((worker) => (
               <div
                 key={worker.id}
-                className="bg-white rounded-2xl shadow-md border-2 border-slate-200 hover:border-sky-400 hover:shadow-xl transition p-6 cursor-pointer"
+                className="bg-white rounded-2xl shadow-md border-2 border-slate-200 hover:border-red-300 hover:shadow-xl transition p-6 cursor-pointer"
                 onClick={() => navigate(`/pro/${worker.id}`)}
               >
                 {/* Avatar */}
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white font-bold text-2xl flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-300 to-red-600 flex items-center justify-center text-white font-bold text-2xl flex-shrink-0">
                     {worker.avatar_url ? (
                       <img 
                         src={worker.avatar_url} 
@@ -175,7 +175,7 @@ export default function BrowseWorkers({ user, onSignOut }: BrowseWorkersProps) {
                       {worker.location || 'Location not specified'}
                     </p>
                     {worker.hourly_rate && (
-                      <p className="text-sm font-semibold text-sky-600 mt-1">
+                      <p className="text-sm font-semibold text-red-500 mt-1">
                         {worker.hourly_rate}
                       </p>
                     )}
@@ -196,7 +196,7 @@ export default function BrowseWorkers({ user, onSignOut }: BrowseWorkersProps) {
                       {worker.skills.slice(0, 4).map((skill: string, idx: number) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-semibold"
+                          className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-semibold"
                         >
                           {skill}
                         </span>
@@ -229,7 +229,7 @@ export default function BrowseWorkers({ user, onSignOut }: BrowseWorkersProps) {
                     e.stopPropagation();
                     navigate(`/pro/${worker.id}`);
                   }}
-                  className="mt-4 w-full py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
+                  className="mt-4 w-full py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition"
                 >
                   View Full Profile
                 </button>

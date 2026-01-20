@@ -75,12 +75,12 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
             {[1, 2, 3].map((num) => (
               <div key={num} className="flex items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                  step >= num ? 'bg-sky-600 text-white' : 'bg-slate-200 text-slate-600'
+                  step >= num ? 'bg-red-500 text-white' : 'bg-slate-200 text-slate-600'
                 }`}>
                   {step > num ? '✓' : num}
                 </div>
                 {num < 3 && (
-                  <div className={`w-16 h-1 ${step > num ? 'bg-sky-600' : 'bg-slate-200'}`}></div>
+                  <div className={`w-16 h-1 ${step > num ? 'bg-red-500' : 'bg-slate-200'}`}></div>
                 )}
               </div>
             ))}
@@ -99,7 +99,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
           {step === 1 && (
             <>
               <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-3xl">👋</span>
                 </div>
                 <h1 className="text-3xl font-bold text-slate-900 mb-3">Welcome to Nearly!</h1>
@@ -117,19 +117,19 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                     </p>
                     <ul className="space-y-2 text-sm text-slate-700">
                       <li className="flex items-start gap-2">
-                        <span className="text-sky-600 mt-0.5">•</span>
+                        <span className="text-red-500 mt-0.5">•</span>
                         <span><strong>You are an independent worker</strong> - not an employee of Nearly. You control your own schedule, pricing, and how you perform services.</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-sky-600 mt-0.5">•</span>
+                        <span className="text-red-500 mt-0.5">•</span>
                         <span><strong>Nearly does not guarantee outcomes</strong> - You are responsible for delivering quality work that meets the terms you agree to with clients.</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-sky-600 mt-0.5">•</span>
+                        <span className="text-red-500 mt-0.5">•</span>
                         <span><strong>Payment is released per agreed terms</strong> - Clients approve work based on your agreement together. Nearly holds funds but doesn't determine completion.</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-sky-600 mt-0.5">•</span>
+                        <span className="text-red-500 mt-0.5">•</span>
                         <span><strong>Reviews come from users, not Nearly</strong> - Build your reputation by delivering great work to clients.</span>
                       </li>
                     </ul>
@@ -142,35 +142,35 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                 <h3 className="font-bold text-slate-900 mb-4">How Nearly Works:</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex gap-3">
-                    <span className="font-bold text-sky-600">1.</span>
+                    <span className="font-bold text-red-500">1.</span>
                     <span className="text-slate-700"><strong>Browse Commissions:</strong> Find work that matches your skills in your area</span>
                   </div>
                   <div className="flex gap-3">
-                    <span className="font-bold text-sky-600">2.</span>
+                    <span className="font-bold text-red-500">2.</span>
                     <span className="text-slate-700"><strong>Submit Proposals:</strong> Send your budget, timeline, and why you're the best fit</span>
                   </div>
                   <div className="flex gap-3">
-                    <span className="font-bold text-sky-600">3.</span>
+                    <span className="font-bold text-red-500">3.</span>
                     <span className="text-slate-700"><strong>Get Hired:</strong> When a client accepts your proposal, payment goes into escrow</span>
                   </div>
                   <div className="flex gap-3">
-                    <span className="font-bold text-sky-600">4.</span>
+                    <span className="font-bold text-red-500">4.</span>
                     <span className="text-slate-700"><strong>Complete Work:</strong> Deliver according to your agreed terms and submit for review</span>
                   </div>
                   <div className="flex gap-3">
-                    <span className="font-bold text-sky-600">5.</span>
+                    <span className="font-bold text-red-500">5.</span>
                     <span className="text-slate-700"><strong>Get Paid:</strong> Once the client approves, payment is released to you</span>
                   </div>
                 </div>
               </div>
 
               {/* Agreement Checkbox */}
-              <label className="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-sky-300 transition mb-6">
+              <label className="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-red-400 transition mb-6">
                 <input
                   type="checkbox"
                   checked={agreedToTerms}
                   onChange={(e) => setAgreedToTerms(e.target.checked)}
-                  className="mt-1 w-5 h-5 rounded border-slate-300 text-sky-600 focus:ring-sky-500"
+                  className="mt-1 w-5 h-5 rounded border-slate-300 text-red-500 focus:ring-red-600"
                 />
                 <span className="text-sm text-slate-700">
                   I understand that I am an independent worker, not an employee of Nearly. I am responsible for delivering quality work that meets the terms I agree to with clients. Nearly facilitates connections and payment processing only and does not guarantee outcomes.
@@ -180,7 +180,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
               <button
                 onClick={() => setStep(2)}
                 disabled={!agreedToTerms}
-                className="w-full py-4 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition disabled:bg-slate-300 disabled:cursor-not-allowed text-lg"
+                className="w-full py-4 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition disabled:bg-slate-300 disabled:cursor-not-allowed text-lg"
               >
                 Continue to Profile Setup
               </button>
@@ -202,7 +202,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                     placeholder="e.g., Sarah Johnson"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   />
                 </div>
 
@@ -215,7 +215,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                     onChange={(e) => setBio(e.target.value)}
                     placeholder="Tell clients about your experience, expertise, and what makes you great at what you do..."
                     rows={5}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none"
                   />
                   <p className="text-xs text-slate-500 mt-1">
                     💡 Tip: Profiles with detailed bios get 2x more responses!
@@ -233,11 +233,11 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                       onChange={(e) => setSkillInput(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleAddSkill()}
                       placeholder="e.g., Woodworking, Logo Design, etc."
-                      className="flex-1 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                      className="flex-1 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                     />
                     <button
                       onClick={handleAddSkill}
-                      className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
+                      className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition"
                     >
                       Add
                     </button>
@@ -246,11 +246,11 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                   {skills.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {skills.map((skill, index) => (
-                        <div key={index} className="flex items-center gap-2 px-3 py-2 bg-sky-100 text-sky-700 rounded-full">
+                        <div key={index} className="flex items-center gap-2 px-3 py-2 bg-red-50 text-red-600 rounded-full">
                           <span className="text-sm font-semibold">{skill}</span>
                           <button
                             onClick={() => handleRemoveSkill(index)}
-                            className="text-sky-600 hover:text-sky-800"
+                            className="text-red-500 hover:text-sky-800"
                           >
                             ×
                           </button>
@@ -271,7 +271,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                 <button
                   onClick={() => setStep(3)}
                   disabled={!displayName || !bio || skills.length === 0}
-                  className="flex-1 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition disabled:bg-slate-300 disabled:cursor-not-allowed"
+                  className="flex-1 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition disabled:bg-slate-300 disabled:cursor-not-allowed"
                 >
                   Continue
                 </button>
@@ -296,7 +296,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                       value={hourlyRate}
                       onChange={(e) => setHourlyRate(e.target.value)}
                       placeholder="50"
-                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                     />
                   </div>
                   <p className="text-xs text-slate-500 mt-1">
@@ -311,7 +311,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                   <select
                     value={availability}
                     onChange={(e) => setAvailability(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   >
                     <option value="full-time">Full-time (40+ hours/week)</option>
                     <option value="part-time">Part-time (20-40 hours/week)</option>
@@ -336,7 +336,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                 <button
                   onClick={handleComplete}
                   disabled={loading}
-                  className="flex-1 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition disabled:opacity-50"
+                  className="flex-1 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition disabled:opacity-50"
                 >
                   {loading ? 'Completing...' : 'Complete Setup'}
                 </button>

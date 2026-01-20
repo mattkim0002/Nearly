@@ -113,7 +113,7 @@ export default function MyProposals({ user, onSignOut }: MyProposalsProps) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-slate-600">Loading your proposals...</p>
         </div>
       </div>
@@ -127,7 +127,7 @@ export default function MyProposals({ user, onSignOut }: MyProposalsProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -173,7 +173,7 @@ export default function MyProposals({ user, onSignOut }: MyProposalsProps) {
               onClick={() => setFilter('all')}
               className={`flex-1 px-6 py-4 font-semibold transition ${
                 filter === 'all'
-                  ? 'text-sky-600 border-b-2 border-sky-600'
+                  ? 'text-red-500 border-b-2 border-red-500'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -226,7 +226,7 @@ export default function MyProposals({ user, onSignOut }: MyProposalsProps) {
             </p>
             <button
               onClick={() => navigate('/browse-jobs')}
-              className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
+              className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition"
             >
               Browse Jobs
             </button>
@@ -241,7 +241,7 @@ export default function MyProposals({ user, onSignOut }: MyProposalsProps) {
                     ? 'border-emerald-500 bg-emerald-50'
                     : proposal.status === 'rejected'
                     ? 'border-slate-300 bg-slate-50'
-                    : 'border-slate-200 hover:border-sky-400'
+                    : 'border-slate-200 hover:border-red-300'
                 }`}
                 onClick={() => navigate(`/job/${proposal.job_id}`)}
               >
@@ -266,7 +266,7 @@ export default function MyProposals({ user, onSignOut }: MyProposalsProps) {
                       )}
                     </div>
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold">
+                      <span className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm font-semibold">
                         {proposal.jobCategory}
                       </span>
                       <span className="text-sm text-slate-600">📍 {proposal.jobLocation}</span>
@@ -286,7 +286,7 @@ export default function MyProposals({ user, onSignOut }: MyProposalsProps) {
                 <div className="flex items-center gap-6 pt-4 border-t border-slate-200">
                   <div>
                     <p className="text-xs text-slate-600">Your Budget</p>
-                    <p className="font-bold text-sky-600">{proposal.budget}</p>
+                    <p className="font-bold text-red-500">{proposal.budget}</p>
                   </div>
                   <div>
                     <p className="text-xs text-slate-600">Your Timeline</p>
@@ -302,7 +302,7 @@ export default function MyProposals({ user, onSignOut }: MyProposalsProps) {
                         e.stopPropagation();
                         navigate(`/job/${proposal.job_id}`);
                       }}
-                      className="px-4 py-2 bg-sky-600 text-white rounded-lg font-semibold hover:bg-sky-700 transition text-sm"
+                      className="px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition text-sm"
                     >
                       View Job →
                     </button>

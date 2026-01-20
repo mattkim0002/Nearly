@@ -65,7 +65,7 @@ export default function Profile({ user, onSignOut }: ProfileProps) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-slate-600">Loading profile...</p>
         </div>
       </div>
@@ -79,7 +79,7 @@ export default function Profile({ user, onSignOut }: ProfileProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -99,7 +99,7 @@ export default function Profile({ user, onSignOut }: ProfileProps) {
             {/* Profile Card */}
             <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-8">
               <div className="text-center mb-6">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-sky-600 to-blue-600 flex items-center justify-center text-white font-bold text-5xl mb-4 overflow-hidden">
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold text-5xl mb-4 overflow-hidden">
                   {profile?.avatar_url ? (
                     <img src={profile.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
                   ) : (
@@ -111,7 +111,7 @@ export default function Profile({ user, onSignOut }: ProfileProps) {
                 </h1>
                 <p className="text-slate-600 mb-4">{profile?.location || 'Location not set'}</p>
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-sky-100 text-sky-700 text-sm font-semibold rounded-full">
+                  <span className="px-3 py-1 bg-red-50 text-red-600 text-sm font-semibold rounded-full">
                     {isPro ? '⭐ Pro Maker' : '👤 Customer'}
                   </span>
                   {profile?.email_verified && (
@@ -151,7 +151,7 @@ export default function Profile({ user, onSignOut }: ProfileProps) {
               <div className="space-y-3">
                 <button
                   onClick={() => navigate('/profile/edit')}
-                  className="w-full py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
+                  className="w-full py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
                 >
                   Edit Profile
                 </button>
@@ -176,7 +176,7 @@ export default function Profile({ user, onSignOut }: ProfileProps) {
                   {profile.skills.map((skill: string, index: number) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold"
+                      className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm font-semibold"
                     >
                       {skill}
                     </span>

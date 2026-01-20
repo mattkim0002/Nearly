@@ -174,7 +174,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             </ul>
 
             <p className="text-slate-600 mb-6">
-              To exercise these rights, contact us at <a href="mailto:privacy@nearly.com" className="text-sky-600 hover:text-sky-700 font-semibold">privacy@nearly.com</a>. 
+              To exercise these rights, contact us at <a href="mailto:privacy@nearly.com" className="text-red-500 hover:text-red-600 font-semibold">privacy@nearly.com</a>. 
               We will respond within 30 days.
             </p>
 
@@ -203,7 +203,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <p className="text-slate-600 mb-6">
               Nearly is not intended for users under 18 years of age. We do not knowingly collect personal 
               information from children under 18. If you believe we have collected information from a child 
-              under 18, please contact us immediately at <a href="mailto:privacy@nearly.com" className="text-sky-600 hover:text-sky-700 font-semibold">privacy@nearly.com</a>, 
+              under 18, please contact us immediately at <a href="mailto:privacy@nearly.com" className="text-red-500 hover:text-red-600 font-semibold">privacy@nearly.com</a>, 
               and we will delete such information.
             </p>
 
@@ -240,7 +240,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             </ul>
 
             <p className="text-slate-600 mb-6">
-              To exercise these rights, email us at <a href="mailto:privacy@nearly.com" className="text-sky-600 hover:text-sky-700 font-semibold">privacy@nearly.com</a> with 
+              To exercise these rights, email us at <a href="mailto:privacy@nearly.com" className="text-red-500 hover:text-red-600 font-semibold">privacy@nearly.com</a> with 
               "California Privacy Rights" in the subject line.
             </p>
 
@@ -278,13 +278,13 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-6">
               <p className="text-slate-900 mb-2"><strong>Nearly Privacy Team</strong></p>
-              <p className="text-slate-600 mb-1">Email: <a href="mailto:privacy@nearly.com" className="text-sky-600 hover:text-sky-700 font-semibold">privacy@nearly.com</a></p>
-              <p className="text-slate-600 mb-1">Support: <a href="mailto:support@nearly.com" className="text-sky-600 hover:text-sky-700 font-semibold">support@nearly.com</a></p>
+              <p className="text-slate-600 mb-1">Email: <a href="mailto:privacy@nearly.com" className="text-red-500 hover:text-red-600 font-semibold">privacy@nearly.com</a></p>
+              <p className="text-slate-600 mb-1">Support: <a href="mailto:support@nearly.com" className="text-red-500 hover:text-red-600 font-semibold">support@nearly.com</a></p>
               <p className="text-slate-600">Mailing Address: [Your Company Address]</p>
             </div>
 
             {/* Summary Box */}
-            <div className="bg-sky-50 border-2 border-sky-300 rounded-xl p-6 mt-8">
+            <div className="bg-sky-50 border-2 border-red-400 rounded-xl p-6 mt-8">
               <h4 className="text-lg font-bold text-slate-900 mb-3">Privacy in Plain English</h4>
               <ul className="space-y-2 text-sm text-slate-700 mb-0">
                 <li>✓ We collect information you provide and data about how you use Nearly</li>
@@ -303,7 +303,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
         <div className="p-8 border-t border-slate-200">
           <button
             onClick={onClose}
-            className="w-full py-4 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
+            className="w-full py-4 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
           >
             Close
           </button>

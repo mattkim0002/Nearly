@@ -85,7 +85,7 @@ export default function ReportUserModal({ reportedUserId, reportedUserName, onCl
             <select
               value={reason}
               onChange={(e) => setReason(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
             >
               <option value="">Select a reason...</option>
               {REPORT_REASONS.map((r) => (
@@ -103,7 +103,7 @@ export default function ReportUserModal({ reportedUserId, reportedUserName, onCl
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Provide any additional context..."
               rows={4}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none"
             />
           </div>
         </div>

@@ -382,7 +382,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-slate-600">Loading job...</p>
         </div>
       </div>
@@ -394,7 +394,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-slate-900 mb-4">Job Not Found</h1>
-          <button onClick={() => navigate('/browse-jobs')} className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition">
+          <button onClick={() => navigate('/browse-jobs')} className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition">
             Browse Jobs
           </button>
         </div>
@@ -409,7 +409,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -436,13 +436,13 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                 <div className="flex-1">
                   <h1 className="text-3xl font-bold text-slate-900 mb-2">{job.title}</h1>
                   <div className="flex items-center gap-3 flex-wrap mb-4">
-                    <span className="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold">
+                    <span className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm font-semibold">
                       {job.category}
                     </span>
                     <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
                       job.status === 'open' ? 'bg-emerald-100 text-emerald-700' :
                       job.status === 'in_progress' ? 'bg-amber-100 text-amber-700' :
-                      job.status === 'delivered' ? 'bg-blue-100 text-blue-700' :
+                      job.status === 'delivered' ? 'bg-blue-100 text-red-700' :
                       job.status === 'completed' ? 'bg-purple-100 text-purple-700' :
                       'bg-slate-100 text-slate-700'
                     }`}>
@@ -464,7 +464,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
               <div className="grid md:grid-cols-3 gap-4 pt-6 border-t border-slate-200">
                 <div>
                   <p className="text-sm text-slate-600 mb-1">Budget</p>
-                  <p className="font-bold text-xl text-sky-600">{job.budget}</p>
+                  <p className="font-bold text-xl text-red-500">{job.budget}</p>
                 </div>
                 <div>
                   <p className="text-sm text-slate-600 mb-1">Posted</p>
@@ -479,14 +479,14 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
 
             {/* Delivery Section - For Pro to Submit Work */}
             {isAssignedPro && job.status === 'in_progress' && (
-              <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl shadow-md border-2 border-sky-300 p-8">
+              <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl shadow-md border-2 border-red-400 p-8">
                 <h2 className="text-2xl font-bold text-slate-900 mb-4">📦 Ready to Deliver?</h2>
                 <p className="text-slate-600 mb-6">Submit your completed work for the customer to review.</p>
                 
                 {!showDeliveryForm ? (
                   <button
                     onClick={() => setShowDeliveryForm(true)}
-                    className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
+                    className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition"
                   >
                     Submit Delivery
                   </button>
@@ -501,7 +501,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                         onChange={(e) => setDeliveryNotes(e.target.value)}
                         placeholder="Describe what you've completed, provide links to files, or add any important notes..."
                         rows={6}
-                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none"
                       />
                     </div>
                     <div className="flex gap-3">
@@ -513,7 +513,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                       </button>
                       <button
                         onClick={handleSubmitDelivery}
-                        className="flex-1 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
+                        className="flex-1 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
                       >
                         Submit Delivery
                       </button>
@@ -568,7 +568,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                     <p className="text-slate-600 italic">"{existingReview.review_text}"</p>
                     <button
                       onClick={() => setShowReviewForm(true)}
-                      className="mt-4 text-sky-600 hover:text-sky-700 font-semibold"
+                      className="mt-4 text-red-500 hover:text-red-600 font-semibold"
                     >
                       Edit Review
                     </button>
@@ -642,7 +642,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                 {isPro && job.status === 'open' && (
                   <button
                     onClick={() => setShowProposalForm(true)}
-                    className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
+                    className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition"
                   >
                     Submit Proposal
                   </button>
@@ -661,7 +661,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                         onChange={(e) => setProposalText(e.target.value)}
                         placeholder="Explain why you're the best fit for this job..."
                         rows={6}
-                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none"
                       />
                     </div>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -672,7 +672,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                           value={proposalBudget}
                           onChange={(e) => setProposalBudget(e.target.value)}
                           placeholder="e.g., $2,500"
-                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                         />
                       </div>
                       <div>
@@ -682,7 +682,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                           value={proposalTimeline}
                           onChange={(e) => setProposalTimeline(e.target.value)}
                           placeholder="e.g., 5 weeks"
-                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                         />
                       </div>
                     </div>
@@ -690,7 +690,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                       <button onClick={() => setShowProposalForm(false)} className="flex-1 py-3 rounded-xl bg-slate-200 text-slate-700 font-semibold hover:bg-slate-300 transition">
                         Cancel
                       </button>
-                      <button onClick={handleSubmitProposal} className="flex-1 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition">
+                      <button onClick={handleSubmitProposal} className="flex-1 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition">
                         Submit Proposal
                       </button>
                     </div>
@@ -713,10 +713,10 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                     <div key={proposal.id} className={`border-2 rounded-2xl p-6 ${
                       proposal.status === 'accepted' ? 'border-emerald-500 bg-emerald-50' :
                       proposal.status === 'rejected' ? 'border-slate-300 bg-slate-50 opacity-60' :
-                      'border-slate-200 hover:border-sky-400'
+                      'border-slate-200 hover:border-red-300'
                     } transition`}>
                       <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-600 to-blue-600 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
                           {proposal.proAvatar}
                         </div>
                         <div className="flex-1">
@@ -740,7 +740,7 @@ export default function JobDetail({ user, onSignOut }: JobDetailProps) {
                           <div className="flex items-center gap-6 mb-4">
                             <div>
                               <p className="text-xs text-slate-600">Budget</p>
-                              <p className="font-bold text-sky-600">{proposal.budget}</p>
+                              <p className="font-bold text-red-500">{proposal.budget}</p>
                             </div>
                             <div>
                               <p className="text-xs text-slate-600">Timeline</p>

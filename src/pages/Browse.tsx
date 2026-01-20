@@ -220,7 +220,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">nearly</span>
@@ -230,7 +230,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
     <>
       <button
         onClick={() => navigate('/profile')}
-        className="text-slate-700 hover:text-sky-600 transition"
+        className="text-slate-700 hover:text-red-500 transition"
       >
         Hi, {user.user_metadata?.name}!
       </button>
@@ -245,13 +245,13 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
     <>
       <button
         onClick={() => navigate('/auth')}
-        className="px-5 py-2.5 text-slate-700 hover:text-sky-600 transition font-medium"
+        className="px-5 py-2.5 text-slate-700 hover:text-red-500 transition font-medium"
       >
         Log In
       </button>
       <button
         onClick={() => navigate('/auth')}
-        className="px-5 py-2.5 rounded-full bg-sky-600 text-white hover:bg-sky-700 transition"
+        className="px-5 py-2.5 rounded-full bg-red-500 text-white hover:bg-red-600 transition"
       >
         Sign Up
       </button>
@@ -276,7 +276,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="e.g., Woodworker, Photographer"
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
               />
             </div>
             
@@ -289,12 +289,12 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                 value={zipCode}
                 onChange={(e) => setZipCode(e.target.value)}
                 placeholder="92180"
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
               />
             </div>
 
             <div className="flex items-end">
-              <button className="w-full py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition shadow-lg">
+              <button className="w-full py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition shadow-lg">
                 Search
               </button>
             </div>
@@ -311,7 +311,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
               onClick={() => setViewMode('map')}
               className={`px-4 py-2 rounded-lg font-medium transition ${
                 viewMode === 'map'
-                  ? 'bg-sky-600 text-white'
+                  ? 'bg-red-500 text-white'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -321,7 +321,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
               onClick={() => setViewMode('list')}
               className={`px-4 py-2 rounded-lg font-medium transition ${
                 viewMode === 'list'
-                  ? 'bg-sky-600 text-white'
+                  ? 'bg-red-500 text-white'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -344,7 +344,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                 <select
                   value={selectedService}
                   onChange={(e) => setSelectedService(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                 >
                   {SERVICES.map(service => (
                     <option key={service} value={service}>{service}</option>
@@ -377,7 +377,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as any)}
-                  className="w-full px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                 >
                   <option value="distance">Closest First</option>
                   <option value="rating">Highest Rated</option>
@@ -391,7 +391,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                     type="checkbox"
                     checked={showAvailableOnly}
                     onChange={(e) => setShowAvailableOnly(e.target.checked)}
-                    className="w-4 h-4 text-sky-600 rounded"
+                    className="w-4 h-4 text-red-500 rounded"
                   />
                   <span className="text-sm text-slate-700">Available now only</span>
                 </label>
@@ -405,7 +405,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                   setShowAvailableOnly(false);
                   setSortBy('distance');
                 }}
-                className="w-full py-2 text-sm text-slate-600 hover:text-sky-600 transition"
+                className="w-full py-2 text-sm text-slate-600 hover:text-red-500 transition"
               >
                 Clear all filters
               </button>
@@ -477,7 +477,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                               <div className="flex items-center gap-2 mb-2">
                                 <h3 className="font-bold text-lg">{selectedProvider.name}</h3>
                                 {selectedProvider.verified && (
-                                  <span className="text-sky-600" title="Profile verified">✓</span>
+                                  <span className="text-red-500" title="Profile verified">✓</span>
                                 )}
                               </div>
                               <p className="text-sm text-slate-600 mb-2">{selectedProvider.description}</p>
@@ -486,10 +486,10 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                                 <span>{selectedProvider.distance} mi away</span>
                               </div>
                               <div className="flex items-center justify-between">
-                                <span className="font-bold text-sky-600">{selectedProvider.startingAt}</span>
+                                <span className="font-bold text-red-500">{selectedProvider.startingAt}</span>
                                 <button
                                   onClick={() => !user && navigate('/auth')}
-                                  className="px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-semibold hover:bg-sky-700"
+                                  className="px-4 py-2 bg-red-500 text-white rounded-lg text-sm font-semibold hover:bg-red-600"
                                 >
                                   Contact
                                 </button>
@@ -514,7 +514,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                         setMaxDistance(10);
                         setShowAvailableOnly(false);
                       }}
-                      className="text-sky-600 hover:text-sky-700 font-semibold"
+                      className="text-red-500 hover:text-red-600 font-semibold"
                     >
                       Clear filters
                     </button>
@@ -523,14 +523,14 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                   filteredProviders.map((provider) => (
                     <div
                       key={provider.id}
-                      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6 border-2 border-slate-200 hover:border-sky-400 cursor-pointer"
+                      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6 border-2 border-slate-200 hover:border-red-300 cursor-pointer"
                     >
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
                             <h3 className="font-bold text-xl text-slate-900">{provider.name}</h3>
                             {provider.verified && (
-                              <span className="text-sky-600 text-lg" title="Profile verified">✓</span>
+                              <span className="text-red-500 text-lg" title="Profile verified">✓</span>
                             )}
                             {provider.available && (
                               <span className="px-2 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
@@ -540,7 +540,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
                           </div>
                           <p className="text-slate-600 mb-2">{provider.description}</p>
                           <div className="flex items-center gap-4 text-sm text-slate-600">
-                            <span className="font-medium text-sky-600">{provider.service}</span>
+                            <span className="font-medium text-red-500">{provider.service}</span>
                             <span>📍 {provider.location}</span>
                             <span className="font-semibold text-slate-900">{provider.distance} miles away</span>
                           </div>
@@ -565,7 +565,7 @@ export default function Browse({ user, onSignOut }: BrowseProps) {
 
                         <button
                           onClick={() => !user && navigate('/auth')}
-                          className="px-6 py-3 rounded-full bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
+                          className="px-6 py-3 rounded-full bg-red-500 text-white font-semibold hover:bg-red-600 transition"
                         >
                           Contact
                         </button>

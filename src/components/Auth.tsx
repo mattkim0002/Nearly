@@ -149,7 +149,7 @@ export default function Auth() {
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-blue-100 flex items-center justify-center px-4 py-8">
       <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-2xl border-2 border-slate-200">
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="h-12 w-12 rounded-xl bg-sky-600 flex items-center justify-center">
+          <div className="h-12 w-12 rounded-xl bg-red-500 flex items-center justify-center">
             <span className="text-white font-bold text-2xl">●</span>
           </div>
           <span className="font-bold text-slate-900 text-2xl">Nearly</span>
@@ -188,7 +188,7 @@ export default function Auth() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   required
                 />
               </div>
@@ -203,7 +203,7 @@ export default function Auth() {
                     onClick={() => setUserType('customer')}
                     className={`py-3 rounded-xl font-medium transition ${
                       userType === 'customer'
-                        ? 'bg-sky-600 text-white'
+                        ? 'bg-red-500 text-white'
                         : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                     }`}
                   >
@@ -214,7 +214,7 @@ export default function Auth() {
                     onClick={() => setUserType('pro')}
                     className={`py-3 rounded-xl font-medium transition ${
                       userType === 'pro'
-                        ? 'bg-sky-600 text-white'
+                        ? 'bg-red-500 text-white'
                         : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                     }`}
                   >
@@ -232,7 +232,7 @@ export default function Auth() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   required
                 />
               </div>
@@ -246,7 +246,7 @@ export default function Auth() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   required
                   minLength={6}
                 />
@@ -268,7 +268,7 @@ export default function Auth() {
                     onChange={(e) => setYearsExperience(e.target.value)}
                     placeholder="5"
                     min="0"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                     required
                   />
                 </div>
@@ -282,7 +282,7 @@ export default function Auth() {
                     value={hourlyRate}
                     onChange={(e) => setHourlyRate(e.target.value)}
                     placeholder="$50/hour"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                     required
                   />
                 </div>
@@ -299,12 +299,12 @@ export default function Auth() {
                     onChange={(e) => setSkillInput(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addSkill())}
                     placeholder="Add a skill (e.g., Woodworking)"
-                    className="flex-1 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                    className="flex-1 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   />
                   <button
                     type="button"
                     onClick={addSkill}
-                    className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700"
+                    className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600"
                   >
                     Add
                   </button>
@@ -313,7 +313,7 @@ export default function Auth() {
                   {skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold flex items-center gap-2"
+                      className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm font-semibold flex items-center gap-2"
                     >
                       {skill}
                       <button
@@ -337,7 +337,7 @@ export default function Auth() {
                   onChange={(e) => setBio(e.target.value)}
                   placeholder="Tell us about yourself and your work..."
                   rows={3}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none"
                   required
                 />
               </div>
@@ -352,7 +352,7 @@ export default function Auth() {
                     value={location2}
                     onChange={(e) => setLocation2(e.target.value)}
                     placeholder="San Diego, CA"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                     required
                   />
                 </div>
@@ -366,7 +366,7 @@ export default function Auth() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="(555) 123-4567"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   />
                 </div>
               </div>
@@ -379,7 +379,7 @@ export default function Auth() {
                   type="file"
                   accept=".pdf"
                   onChange={handleResumeChange}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-red-600 hover:file:bg-red-50"
                 />
                 <p className="text-xs text-slate-500 mt-1">PDF only, max 10MB</p>
               </div>
@@ -387,7 +387,7 @@ export default function Auth() {
               <button
                 type="button"
                 onClick={() => setShowProDetails(false)}
-                className="text-sky-600 hover:text-sky-700 font-medium text-sm"
+                className="text-red-500 hover:text-red-600 font-medium text-sm"
               >
                 ← Back to basic info
               </button>
@@ -406,7 +406,7 @@ export default function Auth() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   required
                 />
               </div>
@@ -420,7 +420,7 @@ export default function Auth() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   required
                   minLength={6}
                 />
@@ -431,7 +431,7 @@ export default function Auth() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-4 rounded-xl bg-sky-600 text-white font-semibold text-lg hover:bg-sky-700 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-4 rounded-xl bg-red-500 text-white font-semibold text-lg hover:bg-red-600 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading 
               ? 'Loading...' 
@@ -449,7 +449,7 @@ export default function Auth() {
               setShowProDetails(false);
               setMessage('');
             }}
-            className="text-sky-600 hover:text-sky-700 font-medium"
+            className="text-red-500 hover:text-red-600 font-medium"
           >
             {isSignUp
               ? 'Already have an account? Sign in'

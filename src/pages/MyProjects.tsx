@@ -81,7 +81,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-slate-600">Loading your jobs...</p>
         </div>
       </div>
@@ -95,7 +95,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -130,7 +130,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
           </div>
           <div className="bg-white rounded-2xl shadow-md border-2 border-blue-200 p-6">
             <p className="text-sm text-slate-600 mb-1">Delivered</p>
-            <p className="text-3xl font-bold text-blue-600">{stats.delivered}</p>
+            <p className="text-3xl font-bold text-red-600">{stats.delivered}</p>
           </div>
           <div className="bg-white rounded-2xl shadow-md border-2 border-purple-200 p-6">
             <p className="text-sm text-slate-600 mb-1">Completed</p>
@@ -145,7 +145,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
               onClick={() => setFilter('all')}
               className={`flex-1 px-6 py-4 font-semibold transition whitespace-nowrap ${
                 filter === 'all'
-                  ? 'text-sky-600 border-b-2 border-sky-600'
+                  ? 'text-red-500 border-b-2 border-red-500'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -175,7 +175,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
               onClick={() => setFilter('delivered')}
               className={`flex-1 px-6 py-4 font-semibold transition whitespace-nowrap ${
                 filter === 'delivered'
-                  ? 'text-blue-600 border-b-2 border-blue-600'
+                  ? 'text-red-600 border-b-2 border-red-600'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -209,7 +209,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
             {filter === 'all' && (
               <button
                 onClick={() => navigate('/post-job')}
-                className="px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
+                className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition"
               >
                 Post a Job
               </button>
@@ -220,7 +220,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
             {filteredJobs.map((job) => (
               <div
                 key={job.id}
-                className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6 hover:border-sky-400 hover:shadow-lg transition cursor-pointer"
+                className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6 hover:border-red-300 hover:shadow-lg transition cursor-pointer"
                 onClick={() => navigate(`/job/${job.id}`)}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -230,7 +230,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
                       <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
                         job.status === 'open' ? 'bg-emerald-100 text-emerald-700' :
                         job.status === 'in_progress' ? 'bg-amber-100 text-amber-700' :
-                        job.status === 'delivered' ? 'bg-blue-100 text-blue-700' :
+                        job.status === 'delivered' ? 'bg-blue-100 text-red-700' :
                         job.status === 'completed' ? 'bg-purple-100 text-purple-700' :
                         'bg-slate-100 text-slate-700'
                       }`}>
@@ -244,7 +244,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
                     <p className="text-slate-600 line-clamp-2 mb-3">{job.description}</p>
                     <div className="flex items-center gap-4 text-sm">
                       <span className="text-slate-600">
-                        <span className="font-semibold text-sky-600">{job.budget}</span>
+                        <span className="font-semibold text-red-500">{job.budget}</span>
                       </span>
                       <span className="text-slate-600">•</span>
                       <span className="text-slate-600">📍 {job.location}</span>
@@ -272,7 +272,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
                       e.stopPropagation();
                       navigate(`/job/${job.id}`);
                     }}
-                    className="px-4 py-2 bg-sky-600 text-white rounded-lg font-semibold hover:bg-sky-700 transition text-sm"
+                    className="px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition text-sm"
                   >
                     View Details →
                   </button>
@@ -281,7 +281,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
                 {/* Action needed badges */}
                 {job.status === 'delivered' && (
                   <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg flex items-center gap-2">
-                    <span className="text-blue-600">⚠️</span>
+                    <span className="text-red-600">⚠️</span>
                     <span className="text-sm font-semibold text-blue-900">Action needed: Review and approve delivery</span>
                   </div>
                 )}

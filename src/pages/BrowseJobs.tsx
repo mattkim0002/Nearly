@@ -124,7 +124,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -159,7 +159,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by title or description..."
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
               />
             </div>
 
@@ -171,7 +171,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
               >
                 {CATEGORIES.map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
@@ -187,7 +187,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
               >
                 <option value="recent">Most Recent</option>
                 <option value="budget">Highest Budget</option>
@@ -208,7 +208,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
                 setSearchQuery('');
                 setSelectedCategory('All Categories');
               }}
-              className="text-sky-600 hover:text-sky-700 font-medium text-sm"
+              className="text-red-500 hover:text-red-600 font-medium text-sm"
             >
               Clear filters
             </button>
@@ -218,7 +218,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
         {/* Loading State */}
         {loading && (
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto"></div>
             <p className="text-slate-600 mt-4">Loading available commissions...</p>
           </div>
         )}
@@ -239,7 +239,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
                   setSearchQuery('');
                   setSelectedCategory('All Categories');
                 }}
-                className="px-6 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition"
+                className="px-6 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
               >
                 Clear Filters
               </button>
@@ -253,7 +253,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
             {filteredJobs.map((job) => (
               <div
                 key={job.id}
-                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-sky-400 hover:shadow-xl transition p-6"
+                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-red-300 hover:shadow-xl transition p-6"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
@@ -267,7 +267,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
                     <p className="text-slate-600 mb-3 line-clamp-2">{job.description}</p>
                     
                     <div className="flex items-center gap-4 text-sm text-slate-600">
-                      <span className="font-medium text-sky-600">{job.category}</span>
+                      <span className="font-medium text-red-500">{job.category}</span>
                       <span>📍 {job.location}</span>
                       <span>💰 Budget: {job.budget}</span>
                       <span>📅 Posted {formatDate(job.created_at)}</span>
@@ -277,7 +277,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
                   <div className="ml-4 flex flex-col gap-2">
                     <button
                       onClick={() => navigate(`/job/${job.id}`)}
-                      className="px-6 py-2.5 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition whitespace-nowrap"
+                      className="px-6 py-2.5 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition whitespace-nowrap"
                     >
                       Submit Proposal
                     </button>
@@ -308,7 +308,7 @@ export default function BrowseJobs({ user, onSignOut }: BrowseJobsProps) {
 
         {/* Tips Card */}
         {!loading && filteredJobs.length > 0 && (
-          <div className="bg-gradient-to-r from-sky-100 to-blue-100 rounded-2xl p-6 mt-8 border-2 border-sky-200">
+          <div className="bg-gradient-to-r from-red-50 to-blue-100 rounded-2xl p-6 mt-8 border-2 border-sky-200">
             <h3 className="font-bold text-lg text-slate-900 mb-2">💡 Tips for Success</h3>
             <ul className="space-y-1 text-slate-700">
               <li>• Respond quickly to stand out from other proposals</li>

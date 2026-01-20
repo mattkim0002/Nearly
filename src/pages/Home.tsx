@@ -151,7 +151,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
      <header className="flex items-center gap-8 py-6">
   <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
     <div className="h-10 w-10 rounded-xl bg-white shadow-md border border-sky-200 flex items-center justify-center">
-      <span className="text-sky-600 font-bold text-xl">●</span>
+      <span className="text-red-500 font-bold text-xl">●</span>
     </div>
     <span className="font-bold text-slate-900 text-xl">Nearly</span>
   </div>
@@ -169,7 +169,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
     setHoverTimeout(timeout);
   }}
 >
-  <button className="flex items-center gap-1 hover:text-sky-600 transition">
+  <button className="flex items-center gap-1 hover:text-red-500 transition">
     Hire Talent
     <span className={`transform transition-transform text-xs ${showHireTalent ? 'rotate-180' : ''}`}>
       ▼
@@ -186,7 +186,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
             <ul className="space-y-2">
               {category.items.map((item) => (
                 <li key={item}>
-                  <button className="text-slate-600 hover:text-sky-600 transition text-left">
+                  <button className="text-slate-600 hover:text-red-500 transition text-left">
                     {item}
                   </button>
                 </li>
@@ -222,7 +222,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
     setHoverTimeout(timeout);
   }}
 >
-  <button className="flex items-center gap-1 hover:text-sky-600 transition">
+  <button className="flex items-center gap-1 hover:text-red-500 transition">
     Find Work
     <span className={`transform transition-transform text-xs ${showFindWork ? 'rotate-180' : ''}`}>
       ▼
@@ -235,7 +235,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
       <ul className="space-y-2">
         {FIND_WORK_ITEMS.map((item) => (
           <li key={item}>
-            <button className="w-full text-left px-4 py-2 text-slate-700 hover:bg-sky-50 hover:text-sky-600 rounded-lg transition">
+            <button className="w-full text-left px-4 py-2 text-slate-700 hover:bg-sky-50 hover:text-red-500 rounded-lg transition">
               {item}
             </button>
           </li>
@@ -253,11 +253,11 @@ export default function Home({ user, onSignOut }: HomeProps) {
   )}
 </div>
 
-    <button onClick={() => navigate('/pricing')} className="hover:text-sky-600 transition">
+    <button onClick={() => navigate('/pricing')} className="hover:text-red-500 transition">
       Pricing
     </button>
     
-    <a href="#how" className="hover:text-sky-600 transition">How it Works</a>
+    <a href="#how" className="hover:text-red-500 transition">How it Works</a>
     
 <div className="ml-auto flex items-center gap-4">
   {user ? (
@@ -266,13 +266,13 @@ export default function Home({ user, onSignOut }: HomeProps) {
     <>
       <button
         onClick={() => navigate('/auth')}
-        className="px-5 py-2.5 text-slate-700 hover:text-sky-600 transition font-medium"
+        className="px-5 py-2.5 text-slate-700 hover:text-red-500 transition font-medium"
       >
         Log In
       </button>
       <button
         onClick={() => navigate('/auth', { state: { mode: 'signup' } })}
-        className="px-5 py-2.5 rounded-full bg-sky-600 text-white hover:bg-sky-700 transition shadow-lg"
+        className="px-5 py-2.5 rounded-full bg-red-500 text-white hover:bg-red-600 transition shadow-lg"
       >
         Sign Up
       </button>
@@ -286,7 +286,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
         <section className="pt-16 pb-24 text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-tight max-w-4xl mx-auto">
             Find trusted local pros & makers for{' '}
-            <span className="bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
               any project
             </span>
           </h1>
@@ -298,7 +298,7 @@ export default function Home({ user, onSignOut }: HomeProps) {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button 
   onClick={() => document.getElementById('post-job')?.scrollIntoView({ behavior: 'smooth' })}
-  className="px-8 py-4 text-lg font-semibold rounded-full bg-sky-600 text-white hover:bg-sky-700 transition shadow-xl shadow-sky-200"
+  className="px-8 py-4 text-lg font-semibold rounded-full bg-red-500 text-white hover:bg-red-600 transition shadow-xl shadow-sky-200"
 >
   Post a Job — Free
 </button>
@@ -320,7 +320,7 @@ Map
               <div
                 key={service}
                 onClick={() => navigate(`/category/${service.toLowerCase().replace(/\s+/g, '-')}`)}
-                className="bg-white p-6 rounded-2xl border-2 border-slate-200 hover:border-sky-400 hover:shadow-lg transition cursor-pointer text-center font-medium"
+                className="bg-white p-6 rounded-2xl border-2 border-slate-200 hover:border-red-300 hover:shadow-lg transition cursor-pointer text-center font-medium"
               >
                 {service}
               </div>
@@ -348,7 +348,7 @@ Map
             {PROVIDERS.map((provider) => (
               <div
                 key={provider.id}
-                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-sky-400 hover:shadow-xl transition p-6 cursor-pointer"
+                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-red-300 hover:shadow-xl transition p-6 cursor-pointer"
               >
                 <div className="flex items-start justify-between mb-3">
                   <div>
@@ -356,7 +356,7 @@ Map
                     <p className="text-sm text-slate-600">{provider.service}</p>
                   </div>
                   {provider.verified && (
-                    <span className="text-sky-600 text-xl" title="Verified">✓</span>
+                    <span className="text-red-500 text-xl" title="Verified">✓</span>
                   )}
                 </div>
                 
@@ -369,7 +369,7 @@ Map
                   <span className="font-semibold text-slate-900">From {provider.startingAt}</span>
                   <button
                     onClick={handleViewProfile}
-                    className="px-4 py-2 rounded-full bg-sky-100 text-sky-700 hover:bg-sky-200 transition font-medium text-sm"
+                    className="px-4 py-2 rounded-full bg-red-50 text-red-600 hover:bg-sky-200 transition font-medium text-sm"
                   >
                     View Profile
                   </button>
@@ -385,7 +385,7 @@ Map
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📝</span>
               </div>
               <h3 className="font-bold text-xl mb-2">Post Your Job</h3>
@@ -393,7 +393,7 @@ Map
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🤝</span>
               </div>
               <h3 className="font-bold text-xl mb-2">Get Matched</h3>
@@ -401,7 +401,7 @@ Map
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">✨</span>
               </div>
               <h3 className="font-bold text-xl mb-2">Pay Securely</h3>
@@ -426,7 +426,7 @@ Map
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl border-2 border-slate-200 p-8">
               <h3 className="text-2xl font-bold mb-2">For Customers</h3>
-              <p className="text-4xl font-bold text-sky-600 mb-4">Free</p>
+              <p className="text-4xl font-bold text-red-500 mb-4">Free</p>
               <p className="text-slate-600 mb-6">Post unlimited jobs at no cost</p>
               <ul className="space-y-3 text-slate-600">
                 <li className="flex items-start gap-2">
@@ -444,7 +444,7 @@ Map
               </ul>
             </div>
             
-            <div className="bg-gradient-to-br from-sky-600 to-blue-600 rounded-2xl border-2 border-sky-700 p-8 text-white">
+            <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl border-2 border-red-600 p-8 text-white">
               <h3 className="text-2xl font-bold mb-2">For Pros</h3>
               <p className="text-4xl font-bold mb-4">8% fee</p>
               <p className="opacity-90 mb-6">Only charged on completed jobs</p>
@@ -482,7 +482,7 @@ Map
                   value={jobTitle}
                   onChange={(e) => setJobTitle(e.target.value)}
                   placeholder="e.g., Custom dining table"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   required
                 />
               </div>
@@ -496,7 +496,7 @@ Map
                   onChange={(e) => setJobDescription(e.target.value)}
                   placeholder="Describe your project in detail..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none"
                   required
                 />
               </div>
@@ -510,14 +510,14 @@ Map
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
                   placeholder="e.g., $500-$1000"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                   required
                 />
               </div>
               
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-sky-600 text-white font-semibold text-lg hover:bg-sky-700 transition shadow-lg"
+                className="w-full py-4 rounded-xl bg-red-500 text-white font-semibold text-lg hover:bg-red-600 transition shadow-lg"
               >
                 {user ? 'Post Job for Free' : 'Sign In to Post Job'}
               </button>
@@ -529,17 +529,17 @@ Map
         <footer className="py-12 border-t border-slate-200">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded-lg bg-sky-600 flex items-center justify-center">
+              <div className="h-8 w-8 rounded-lg bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold">●</span>
               </div>
               <span className="font-semibold text-slate-900">Nearly</span>
             </div>
             
             <div className="flex gap-8 text-sm text-slate-600">
-              <a href="#" className="hover:text-sky-600">About</a>
-              <a href="#" className="hover:text-sky-600">Terms</a>
-              <a href="#" className="hover:text-sky-600">Privacy</a>
-              <a href="#" className="hover:text-sky-600">Contact</a>
+              <a href="#" className="hover:text-red-500">About</a>
+              <a href="#" className="hover:text-red-500">Terms</a>
+              <a href="#" className="hover:text-red-500">Privacy</a>
+              <a href="#" className="hover:text-red-500">Contact</a>
             </div>
             
             <p className="text-sm text-slate-500">© 2024 Nearly. All rights reserved.</p>

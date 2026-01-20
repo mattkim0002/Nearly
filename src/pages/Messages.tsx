@@ -242,7 +242,7 @@ export default function Messages({ user, onSignOut }: MessagesProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-sky-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -273,12 +273,12 @@ export default function Messages({ user, onSignOut }: MessagesProps) {
                     key={conv.id}
                     onClick={() => setSelectedConversation(conv.id)}
                     className={`p-4 cursor-pointer hover:bg-sky-50 transition ${
-                      selectedConversation === conv.id ? 'bg-sky-50 border-l-4 border-sky-600' : ''
+                      selectedConversation === conv.id ? 'bg-sky-50 border-l-4 border-red-500' : ''
                     }`}
                   >
                     <div className="flex items-start gap-3">
                       <div className="relative flex-shrink-0">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-600 to-blue-600 flex items-center justify-center text-white font-bold">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold">
                           {conv.otherUser.avatar}
                         </div>
                         {conv.otherUser.online && (
@@ -295,7 +295,7 @@ export default function Messages({ user, onSignOut }: MessagesProps) {
                       </div>
 
                       {conv.unread > 0 && (
-                        <div className="flex-shrink-0 w-5 h-5 bg-sky-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                        <div className="flex-shrink-0 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
                           {conv.unread}
                         </div>
                       )}
@@ -314,7 +314,7 @@ export default function Messages({ user, onSignOut }: MessagesProps) {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="relative">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-600 to-blue-600 flex items-center justify-center text-white font-bold">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold">
                             {selectedConv.otherUser.avatar}
                           </div>
                           {selectedConv.otherUser.online && (
@@ -331,7 +331,7 @@ export default function Messages({ user, onSignOut }: MessagesProps) {
                       
                       <button
                         onClick={() => navigate(`/pro/${selectedConv.id}`)}
-                        className="px-4 py-2 rounded-lg bg-sky-100 text-sky-700 hover:bg-sky-200 transition text-sm font-medium"
+                        className="px-4 py-2 rounded-lg bg-red-50 text-red-600 hover:bg-sky-200 transition text-sm font-medium"
                       >
                         View Profile
                       </button>
@@ -349,7 +349,7 @@ export default function Messages({ user, onSignOut }: MessagesProps) {
                           <div
                             className={`rounded-2xl px-4 py-2 ${
                               msg.senderId === 'me'
-                                ? 'bg-sky-600 text-white'
+                                ? 'bg-red-500 text-white'
                                 : 'bg-white border-2 border-slate-200 text-slate-900'
                             }`}
                           >
@@ -374,12 +374,12 @@ export default function Messages({ user, onSignOut }: MessagesProps) {
                         onChange={(e) => setNewMessage(e.target.value)}
                         onKeyPress={handleKeyPress}
                         placeholder="Type a message..."
-                        className="flex-1 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-sky-500 focus:outline-none"
+                        className="flex-1 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
                       />
                       <button
                         onClick={handleSendMessage}
                         disabled={!newMessage.trim() || sending}
-                        className="px-6 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-6 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         Send
                       </button>

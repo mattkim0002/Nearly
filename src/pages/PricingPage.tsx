@@ -22,7 +22,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
       <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
           <div className="h-10 w-10 rounded-xl bg-white shadow-md border border-sky-200 flex items-center justify-center">
-            <span className="text-sky-600 font-bold text-xl">●</span>
+            <span className="text-red-500 font-bold text-xl">●</span>
           </div>
           <span className="font-bold text-slate-900 text-xl">Nearly</span>
         </div>
@@ -32,7 +32,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
             <>
               <button
                 onClick={() => navigate('/profile')}
-                className="text-slate-700 hover:text-sky-600 transition font-medium"
+                className="text-slate-700 hover:text-red-500 transition font-medium"
               >
                 Hi, {user.user_metadata?.name}!
               </button>
@@ -46,7 +46,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
           ) : (
             <button
               onClick={() => navigate('/auth')}
-              className="px-5 py-2.5 rounded-full bg-sky-600 text-white hover:bg-sky-700 transition shadow-lg"
+              className="px-5 py-2.5 rounded-full bg-red-500 text-white hover:bg-red-600 transition shadow-lg"
             >
               Sign In
             </button>
@@ -61,7 +61,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-extrabold text-slate-900 mb-4">
             Customers post for free,<br />
-            <span className="bg-gradient-to-r from-sky-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
               Pros only pay after hiring
             </span>
           </h1>
@@ -87,23 +87,23 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
 
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Unlimited job applications</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Basic profile & portfolio</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Client reviews & ratings</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Secure payment processing</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Email support</span>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
           </div>
 
           {/* Pro Plan - Popular */}
-          <div className="bg-gradient-to-br from-sky-600 to-blue-600 rounded-3xl shadow-2xl border-2 border-sky-700 p-8 relative transform lg:scale-105">
+          <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-3xl shadow-2xl border-2 border-red-600 p-8 relative transform lg:scale-105">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
               <span className="bg-emerald-400 text-emerald-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                 MOST POPULAR
@@ -126,12 +126,12 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
 
             <div className="mb-6 text-white">
               <h3 className="text-2xl font-bold mb-2">Pro</h3>
-              <p className="text-sky-100">For growing businesses</p>
+              <p className="text-red-50">For growing businesses</p>
             </div>
 
             <div className="mb-8 text-white">
               <div className="text-5xl font-extrabold mb-2">6%</div>
-              <p className="text-sky-100">Service fee per completed job</p>
+              <p className="text-red-50">Service fee per completed job</p>
             </div>
 
             <div className="space-y-4 mb-8 text-white">
@@ -163,7 +163,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
 
             <button
               onClick={() => handleGetStarted('Pro')}
-              className="w-full py-4 rounded-xl bg-white text-sky-600 font-semibold hover:bg-sky-50 transition shadow-lg"
+              className="w-full py-4 rounded-xl bg-white text-red-500 font-semibold hover:bg-sky-50 transition shadow-lg"
             >
               Get started for free
             </button>
@@ -183,27 +183,27 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
 
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Everything in Pro, plus:</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700 font-semibold">Top tier search placement</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700 font-semibold">Verified badge</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Unlimited portfolio items</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Custom branding options</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-sky-600 text-xl mt-0.5">✓</span>
+                <span className="text-red-500 text-xl mt-0.5">✓</span>
                 <span className="text-slate-700">Dedicated account manager</span>
               </div>
             </div>
@@ -272,7 +272,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
         <div className="text-center mt-16">
           <button
             onClick={() => navigate('/')}
-            className="text-sky-600 hover:text-sky-700 font-semibold text-lg"
+            className="text-red-500 hover:text-red-600 font-semibold text-lg"
           >
             ← Back to Home
           </button>

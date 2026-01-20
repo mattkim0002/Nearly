@@ -30,7 +30,7 @@ export default function ConfirmDialog({
       icon: '⚡'
     },
     info: {
-      button: 'bg-sky-600 hover:bg-sky-700',
+      button: 'bg-red-500 hover:bg-red-600',
       icon: 'ℹ️'
     }
   };
