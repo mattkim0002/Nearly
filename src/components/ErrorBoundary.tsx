@@ -28,7 +28,7 @@ export default class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center p-4">
-          <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border-2 border-red-200 p-8 text-center">
+          <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border-2 border-orange-200 p-8 text-center">
             <div className="text-6xl mb-6 text-orange-500">!</div>
             <h1 className="text-2xl font-bold text-slate-900 mb-4">Oops! Something went wrong</h1>
             <p className="text-slate-600 mb-6">
