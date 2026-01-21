@@ -56,7 +56,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -77,7 +77,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
             {/* Step 1 */}
             <div className="flex items-center gap-2">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                step >= 1 ? 'bg-red-500 text-white' : 'bg-slate-200 text-slate-600'
+                step >= 1 ? 'bg-orange-500 text-white' : 'bg-slate-200 text-slate-600'
               }`}>
                 {step > 1 ? '✓' : '1'}
               </div>
@@ -86,12 +86,12 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
               </span>
             </div>
 
-            <div className={`w-16 h-1 ${step >= 2 ? 'bg-red-500' : 'bg-slate-200'}`}></div>
+            <div className={`w-16 h-1 ${step >= 2 ? 'bg-orange-500' : 'bg-slate-200'}`}></div>
 
             {/* Step 2 */}
             <div className="flex items-center gap-2">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                step >= 2 ? 'bg-red-500 text-white' : 'bg-slate-200 text-slate-600'
+                step >= 2 ? 'bg-orange-500 text-white' : 'bg-slate-200 text-slate-600'
               }`}>
                 {step > 2 ? '✓' : '2'}
               </div>
@@ -100,12 +100,12 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
               </span>
             </div>
 
-            <div className={`w-16 h-1 ${step >= 3 ? 'bg-red-500' : 'bg-slate-200'}`}></div>
+            <div className={`w-16 h-1 ${step >= 3 ? 'bg-orange-500' : 'bg-slate-200'}`}></div>
 
             {/* Step 3 */}
             <div className="flex items-center gap-2">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                step >= 3 ? 'bg-red-500 text-white' : 'bg-slate-200 text-slate-600'
+                step >= 3 ? 'bg-orange-500 text-white' : 'bg-slate-200 text-slate-600'
               }`}>
                 {step > 3 ? '✓' : '3'}
               </div>
@@ -136,7 +136,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                   
                   <div className="border-t border-slate-200 pt-4 mt-4">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-bold">
                         {commission.workerName.split(' ').map((n: string) => n[0]).join('')}
                       </div>
                       <div>
@@ -203,12 +203,12 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                 </div>
 
                 {/* Agreement Checkbox */}
-                <label className="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-red-400 transition mb-6">
+                <label className="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-orange-400 transition mb-6">
                   <input
                     type="checkbox"
                     checked={agreed}
                     onChange={(e) => setAgreed(e.target.checked)}
-                    className="mt-1 w-5 h-5 rounded border-slate-300 text-red-500 focus:ring-red-600"
+                    className="mt-1 w-5 h-5 rounded border-slate-300 text-orange-500 focus:ring-orange-600"
                   />
                   <span className="text-sm text-slate-700">
                     I understand that Nearly facilitates connections and payment processing only. 
@@ -222,7 +222,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                 <button
                   onClick={handleProceedToPayment}
                   disabled={!agreed}
-                  className="w-full py-4 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition disabled:bg-slate-300 disabled:cursor-not-allowed text-lg"
+                  className="w-full py-4 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition disabled:bg-slate-300 disabled:cursor-not-allowed text-lg"
                 >
                   Proceed to Payment
                 </button>
@@ -243,7 +243,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                       onClick={() => setPaymentMethod('card')}
                       className={`p-6 rounded-xl border-2 transition ${
                         paymentMethod === 'card'
-                          ? 'border-red-600 bg-sky-50'
+                          ? 'border-orange-600 bg-sky-50'
                           : 'border-slate-200 hover:border-slate-300'
                       }`}
                     >
@@ -256,7 +256,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                       onClick={() => setPaymentMethod('bank')}
                       className={`p-6 rounded-xl border-2 transition ${
                         paymentMethod === 'bank'
-                          ? 'border-red-600 bg-sky-50'
+                          ? 'border-orange-600 bg-sky-50'
                           : 'border-slate-200 hover:border-slate-300'
                       }`}
                     >
@@ -283,7 +283,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                         <input 
                           type="text" 
                           placeholder="1234 5678 9012 3456"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                         />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
@@ -292,7 +292,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                           <input 
                             type="text" 
                             placeholder="MM/YY"
-                            className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                            className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                           />
                         </div>
                         <div>
@@ -300,7 +300,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                           <input 
                             type="text" 
                             placeholder="123"
-                            className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                            className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                           />
                         </div>
                       </div>
@@ -309,7 +309,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                         <input 
                           type="text" 
                           placeholder="John Doe"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                         />
                       </div>
                     </div>
@@ -322,7 +322,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                         <input 
                           type="text" 
                           placeholder="Enter your account number"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                         />
                       </div>
                       <div>
@@ -330,7 +330,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                         <input 
                           type="text" 
                           placeholder="Enter your routing number"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                         />
                       </div>
                       <div>
@@ -338,7 +338,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                         <input 
                           type="text" 
                           placeholder="John Doe"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                         />
                       </div>
                     </div>
@@ -357,7 +357,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                   <button
                     onClick={handleSubmitPayment}
                     disabled={processing}
-                    className="flex-1 py-4 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition disabled:opacity-50 text-lg"
+                    className="flex-1 py-4 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition disabled:opacity-50 text-lg"
                   >
                     {processing ? (
                       <span className="flex items-center justify-center gap-2">
@@ -388,19 +388,19 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                   <h3 className="font-bold text-slate-900 mb-3">What's Next?</h3>
                   <div className="space-y-3 text-sm text-slate-700">
                     <div className="flex items-start gap-2">
-                      <span className="text-red-500 mt-0.5">1.</span>
+                      <span className="text-orange-500 mt-0.5">1.</span>
                       <span>{commission.workerName} will be notified and can begin work</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-red-500 mt-0.5">2.</span>
+                      <span className="text-orange-500 mt-0.5">2.</span>
                       <span>You'll receive updates as the work progresses</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-red-500 mt-0.5">3.</span>
+                      <span className="text-orange-500 mt-0.5">3.</span>
                       <span>When work is submitted, you'll review and approve it</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-red-500 mt-0.5">4.</span>
+                      <span className="text-orange-500 mt-0.5">4.</span>
                       <span>Upon approval, payment will be released per your agreed terms</span>
                     </div>
                   </div>
@@ -415,7 +415,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                   </button>
                   <button
                     onClick={() => navigate('/dashboard')}
-                    className="flex-1 py-4 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
+                    className="flex-1 py-4 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
                   >
                     Back to Dashboard
                   </button>
@@ -440,7 +440,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                 </div>
                 <div className="flex justify-between pt-3 border-t-2 border-slate-300">
                   <span className="text-lg font-bold text-slate-900">Total:</span>
-                  <span className="text-lg font-bold text-red-500">${totalAmount.toFixed(2)}</span>
+                  <span className="text-lg font-bold text-orange-500">${totalAmount.toFixed(2)}</span>
                 </div>
               </div>
 

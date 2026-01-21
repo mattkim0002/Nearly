@@ -85,7 +85,7 @@ export default function ReportUserModal({ reportedUserId, reportedUserName, onCl
             <select
               value={reason}
               onChange={(e) => setReason(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
             >
               <option value="">Select a reason...</option>
               {REPORT_REASONS.map((r) => (
@@ -103,7 +103,7 @@ export default function ReportUserModal({ reportedUserId, reportedUserName, onCl
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Provide any additional context..."
               rows={4}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none resize-none"
             />
           </div>
         </div>
@@ -125,7 +125,7 @@ export default function ReportUserModal({ reportedUserId, reportedUserName, onCl
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="flex-1 py-3 rounded-xl bg-red-600 text-white font-semibold hover:bg-red-700 transition disabled:bg-slate-400"
+            className="flex-1 py-3 rounded-xl bg-orange-600 text-white font-semibold hover:bg-orange-700 transition disabled:bg-slate-400"
           >
             {submitting ? 'Submitting...' : 'Submit Report'}
           </button>

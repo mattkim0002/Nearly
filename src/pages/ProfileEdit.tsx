@@ -246,7 +246,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -267,7 +267,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
           <div className="bg-white rounded-2xl shadow-md border-2 border-slate-200 p-6">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Profile Picture</h2>
             <div className="flex items-center gap-6">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-red-300 to-red-600 flex items-center justify-center text-white text-3xl font-bold overflow-hidden">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-orange-300 to-orange-600 flex items-center justify-center text-white text-3xl font-bold overflow-hidden">
                 {avatarPreview ? (
                   <img src={avatarPreview} alt="Avatar" className="w-full h-full object-cover" />
                 ) : (
@@ -278,7 +278,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                 type="file"
                 accept="image/*"
                 onChange={handleAvatarChange}
-                className="file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-red-600 hover:file:bg-red-50"
+                className="file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-orange-600 hover:file:bg-orange-50"
               />
             </div>
           </div>
@@ -293,7 +293,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                   type="text"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                   required
                 />
               </div>
@@ -304,7 +304,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none resize-none"
                   placeholder="Tell us about yourself..."
                 />
               </div>
@@ -316,7 +316,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                   />
                 </div>
 
@@ -326,7 +326,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                     placeholder="San Diego, CA"
                   />
                 </div>
@@ -350,12 +350,12 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                       onChange={(e) => setSkillInput(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addSkill())}
                       placeholder="e.g., Woodworking, Design, Photography"
-                      className="flex-1 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                      className="flex-1 px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                     />
                     <button
                       type="button"
                       onClick={addSkill}
-                      className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600"
+                      className="px-6 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600"
                     >
                       Add
                     </button>
@@ -364,13 +364,13 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                     {skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm font-semibold flex items-center gap-2"
+                        className="px-3 py-1 bg-orange-50 text-orange-600 rounded-full text-sm font-semibold flex items-center gap-2"
                       >
                         {skill}
                         <button
                           type="button"
                           onClick={() => removeSkill(skill)}
-                          className="text-sky-900 hover:text-red-600"
+                          className="text-sky-900 hover:text-orange-600"
                         >
                           ×
                         </button>
@@ -387,7 +387,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                       value={hourlyRate}
                       onChange={(e) => setHourlyRate(e.target.value)}
                       placeholder="$50/hour"
-                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                     />
                   </div>
 
@@ -398,7 +398,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                       value={yearsExperience}
                       onChange={(e) => setYearsExperience(e.target.value)}
                       min="0"
-                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -416,7 +416,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                   type="file"
                   accept=".pdf"
                   onChange={handleResumeChange}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-red-600 hover:file:bg-red-50"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-orange-600 hover:file:bg-orange-50"
                 />
                 <p className="text-xs text-slate-500 mt-1">PDF only, max 10MB</p>
               </div>
@@ -429,7 +429,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                   accept="image/*"
                   multiple
                   onChange={handlePortfolioChange}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-red-600 hover:file:bg-red-50"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-orange-600 hover:file:bg-orange-50"
                 />
                 <p className="text-xs text-slate-500 mt-1">Images only, max 5MB each</p>
                 
@@ -444,7 +444,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                           <button
                             type="button"
                             onClick={() => removeExistingPortfolio(url)}
-                            className="absolute top-1 right-1 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-700"
+                            className="absolute top-1 right-1 bg-orange-600 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-orange-700"
                           >
                             ×
                           </button>
@@ -465,7 +465,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                           <button
                             type="button"
                             onClick={() => removePortfolioImage(idx)}
-                            className="absolute top-1 right-1 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-700"
+                            className="absolute top-1 right-1 bg-orange-600 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-orange-700"
                           >
                             ×
                           </button>
@@ -484,7 +484,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                   accept=".pdf"
                   multiple
                   onChange={handleCertificationsChange}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-red-600 hover:file:bg-red-50"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-orange-600 hover:file:bg-orange-50"
                 />
                 <p className="text-xs text-slate-500 mt-1">PDF only, max 10MB each</p>
 
@@ -495,13 +495,13 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                     <div className="space-y-2">
                       {existingCerts.map((url, idx) => (
                         <div key={idx} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl">
-                          <a href={url} target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline">
+                          <a href={url} target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:underline">
                             📄 Certificate {idx + 1}
                           </a>
                           <button
                             type="button"
                             onClick={() => removeExistingCert(url)}
-                            className="text-red-600 hover:text-red-700"
+                            className="text-orange-600 hover:text-orange-700"
                           >
                             Remove
                           </button>
@@ -522,7 +522,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
                           <button
                             type="button"
                             onClick={() => removeCertification(idx)}
-                            className="text-red-600 hover:text-red-700"
+                            className="text-orange-600 hover:text-orange-700"
                           >
                             Remove
                           </button>
@@ -547,7 +547,7 @@ export default function ProfileEdit({ user, onSignOut }: ProfileEditProps) {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 py-4 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition disabled:opacity-50"
+              className="flex-1 py-4 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition disabled:opacity-50"
             >
               {loading ? 'Saving...' : 'Save Profile'}
             </button>

@@ -29,14 +29,14 @@ export default class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center p-4">
           <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border-2 border-red-200 p-8 text-center">
-            <div className="text-6xl mb-6 text-red-500">!</div>
+            <div className="text-6xl mb-6 text-orange-500">!</div>
             <h1 className="text-2xl font-bold text-slate-900 mb-4">Oops! Something went wrong</h1>
             <p className="text-slate-600 mb-6">
               We encountered an unexpected error. Your data is safe.
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="w-full py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition"
+              className="w-full py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition"
             >
               Reload Page
             </button>

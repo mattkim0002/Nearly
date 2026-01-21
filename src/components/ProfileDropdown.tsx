@@ -44,7 +44,7 @@ export default function ProfileDropdown({ user, onSignOut }: ProfileDropdownProp
           className="flex items-center gap-2 hover:opacity-80 transition"
           title="Go to Dashboard"
         >
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold shadow-md">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-bold shadow-md">
             {getInitials(userName)}
           </div>
           <span className="text-sm font-medium text-slate-700 hidden md:block">
@@ -74,7 +74,7 @@ export default function ProfileDropdown({ user, onSignOut }: ProfileDropdownProp
           <div className="px-4 py-3 border-b border-slate-200">
             <p className="font-bold text-slate-900">{userName}</p>
             <p className="text-sm text-slate-600">{user?.email}</p>
-            <span className="inline-block mt-2 px-3 py-1 bg-red-50 text-red-600 text-xs font-semibold rounded-full">
+            <span className="inline-block mt-2 px-3 py-1 bg-orange-50 text-orange-600 text-xs font-semibold rounded-full">
               {userType === 'pro' ? 'Pro Maker' : 'Customer'}
             </span>
           </div>
@@ -179,7 +179,7 @@ export default function ProfileDropdown({ user, onSignOut }: ProfileDropdownProp
                 onSignOut();
                 setIsOpen(false);
               }}
-              className="w-full px-4 py-2.5 text-left text-red-600 hover:bg-red-50 transition flex items-center gap-3 font-medium"
+              className="w-full px-4 py-2.5 text-left text-orange-600 hover:bg-orange-50 transition flex items-center gap-3 font-medium"
             >
               <span className="text-lg">🚪</span>
               <span>Sign Out</span>

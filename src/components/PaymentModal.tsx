@@ -93,7 +93,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                   </div>
                   <div className="flex justify-between pt-3 border-t-2 border-slate-300">
                     <span className="text-lg font-bold text-slate-900">Total:</span>
-                    <span className="text-lg font-bold text-red-500">${totalAmount.toFixed(2)}</span>
+                    <span className="text-lg font-bold text-orange-500">${totalAmount.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -149,12 +149,12 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
               </div>
 
               {/* Agreement Checkbox */}
-              <label className="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-red-400 transition mb-6">
+              <label className="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-xl cursor-pointer hover:border-orange-400 transition mb-6">
                 <input
                   type="checkbox"
                   checked={agreed}
                   onChange={(e) => setAgreed(e.target.checked)}
-                  className="mt-1 w-5 h-5 rounded border-slate-300 text-red-500 focus:ring-red-600"
+                  className="mt-1 w-5 h-5 rounded border-slate-300 text-orange-500 focus:ring-orange-600"
                 />
                 <span className="text-sm text-slate-700">
                   I understand that Nearly facilitates connections and payment processing only. 
@@ -175,7 +175,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                 <button
                   onClick={handleProceedToPayment}
                   disabled={!agreed}
-                  className="flex-1 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition disabled:bg-slate-300 disabled:cursor-not-allowed"
+                  className="flex-1 py-3 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition disabled:bg-slate-300 disabled:cursor-not-allowed"
                 >
                   Proceed to Payment
                 </button>
@@ -195,7 +195,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                     onClick={() => setPaymentMethod('card')}
                     className={`p-4 rounded-xl border-2 transition ${
                       paymentMethod === 'card'
-                        ? 'border-red-600 bg-sky-50'
+                        ? 'border-orange-600 bg-sky-50'
                         : 'border-slate-200 hover:border-slate-300'
                     }`}
                   >
@@ -208,7 +208,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                     onClick={() => setPaymentMethod('bank')}
                     className={`p-4 rounded-xl border-2 transition ${
                       paymentMethod === 'bank'
-                        ? 'border-red-600 bg-sky-50'
+                        ? 'border-orange-600 bg-sky-50'
                         : 'border-slate-200 hover:border-slate-300'
                     }`}
                   >
@@ -232,7 +232,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                       <input 
                         type="text" 
                         placeholder="1234 5678 9012 3456"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
@@ -241,7 +241,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                         <input 
                           type="text" 
                           placeholder="MM/YY"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                         />
                       </div>
                       <div>
@@ -249,7 +249,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                         <input 
                           type="text" 
                           placeholder="123"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                         />
                       </div>
                     </div>
@@ -263,7 +263,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                       <input 
                         type="text" 
                         placeholder="Enter your account number"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                       />
                     </div>
                     <div>
@@ -271,7 +271,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                       <input 
                         type="text" 
                         placeholder="Enter your routing number"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-red-600 focus:outline-none"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-slate-300 focus:border-orange-600 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -282,7 +282,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
               <div className="bg-slate-50 rounded-xl p-4 mb-6">
                 <div className="flex justify-between items-center">
                   <span className="font-semibold text-slate-900">Total Amount:</span>
-                  <span className="text-2xl font-bold text-red-500">${totalAmount.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-orange-500">${totalAmount.toFixed(2)}</span>
                 </div>
               </div>
 
@@ -296,7 +296,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                 </button>
                 <button
                   onClick={handleSubmitPayment}
-                  className="flex-1 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
+                  className="flex-1 py-3 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
                 >
                   Pay ${totalAmount.toFixed(2)}
                 </button>
@@ -307,7 +307,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
           {/* STEP 3: Processing */}
           {step === 'processing' && (
             <div className="py-12 text-center">
-              <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+              <div className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Processing Payment...</h3>
               <p className="text-slate-600">Please wait while we securely process your payment</p>
             </div>

@@ -94,7 +94,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -134,12 +134,12 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
 
         {/* Error Message */}
         {error && (
-          <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 mb-8">
+          <div className="bg-orange-50 border-2 border-orange-200 rounded-2xl p-6 mb-8">
             <div className="flex items-center gap-3">
               <span className="text-3xl">⚠️</span>
               <div>
                 <h3 className="font-bold text-red-900 text-lg">Error</h3>
-                <p className="text-red-700">{error}</p>
+                <p className="text-orange-700">{error}</p>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g., Dining table build assistance"
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none text-slate-900"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none text-slate-900"
                 required
               />
             </div>
@@ -175,7 +175,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none text-slate-900"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none text-slate-900"
                 required
               >
                 <option value="">Select a category</option>
@@ -195,7 +195,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Describe the scope in detail. Include dimensions, materials, timeline, and any specific requirements..."
                 rows={6}
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none text-slate-900"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none resize-none text-slate-900"
                 required
               />
               <p className="text-sm text-slate-500 mt-2">
@@ -213,7 +213,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
                 value={budget}
                 onChange={(e) => setBudget(e.target.value)}
                 placeholder="e.g., $500-$1000"
-                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none text-slate-900"
+                className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none text-slate-900"
                 required
               />
               <p className="text-sm text-slate-500 mt-2">
@@ -232,7 +232,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="e.g., North Park, San Diego"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none text-slate-900"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none text-slate-900"
                   required
                 />
               </div>
@@ -246,7 +246,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
                   value={zipCode}
                   onChange={(e) => setZipCode(e.target.value)}
                   placeholder="e.g., 92104"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none text-slate-900"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none text-slate-900"
                   required
                   maxLength={5}
                 />
@@ -258,7 +258,7 @@ export default function PostJob({ user, onSignOut }: PostJobProps) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 rounded-xl bg-red-500 text-white font-semibold text-lg hover:bg-red-600 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-4 rounded-xl bg-orange-500 text-white font-semibold text-lg hover:bg-orange-600 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Posting Commission...' : 'Post Commission for Free'}
               </button>

@@ -17,7 +17,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
       description: 'View list of local pros and makers',
       icon: '📋',
       path: '/browse-workers',
-      color: 'from-red-300 to-red-600'
+      color: 'from-orange-300 to-orange-600'
     },
     {
       title: 'Maps',
@@ -63,7 +63,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -125,7 +125,7 @@ export default function Dashboard({ user, onSignOut }: DashboardProps) {
               <div
                 key={item.path}
                 onClick={() => navigate(item.path)}
-                className="bg-white rounded-2xl shadow-md border-2 border-slate-200 hover:border-red-300 hover:shadow-xl transition cursor-pointer p-6 group"
+                className="bg-white rounded-2xl shadow-md border-2 border-slate-200 hover:border-orange-300 hover:shadow-xl transition cursor-pointer p-6 group"
               >
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition`}>
                   {item.icon}

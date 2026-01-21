@@ -16,7 +16,7 @@ export default function PrivacyPolicy({ user, onSignOut }: PrivacyPolicyProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -26,8 +26,8 @@ export default function PrivacyPolicy({ user, onSignOut }: PrivacyPolicyProps) {
                 <ProfileDropdown user={user} onSignOut={onSignOut!} />
               ) : (
                 <>
-                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 text-slate-700 hover:text-red-500 transition font-medium">Log In</button>
-                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 rounded-full bg-red-500 text-white hover:bg-red-600 transition shadow-lg">Sign Up</button>
+                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 text-slate-700 hover:text-orange-500 transition font-medium">Log In</button>
+                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 rounded-full bg-orange-500 text-white hover:bg-orange-600 transition shadow-lg">Sign Up</button>
                 </>
               )}
             </div>
@@ -199,7 +199,7 @@ export default function PrivacyPolicy({ user, onSignOut }: PrivacyPolicyProps) {
             </ul>
 
             <p className="text-slate-600 mb-6">
-              To exercise these rights, contact us at <a href="mailto:privacy@nearly.com" className="text-red-500 hover:text-red-600 font-semibold">privacy@nearly.com</a>. 
+              To exercise these rights, contact us at <a href="mailto:privacy@nearly.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@nearly.com</a>. 
               We will respond within 30 days.
             </p>
 
@@ -222,13 +222,13 @@ export default function PrivacyPolicy({ user, onSignOut }: PrivacyPolicyProps) {
             
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-8">
               <p className="text-slate-900 mb-2"><strong>Nearly Privacy Team</strong></p>
-              <p className="text-slate-600 mb-1">Email: <a href="mailto:privacy@nearly.com" className="text-red-500 hover:text-red-600 font-semibold">privacy@nearly.com</a></p>
-              <p className="text-slate-600 mb-1">Support: <a href="mailto:support@nearly.com" className="text-red-500 hover:text-red-600 font-semibold">support@nearly.com</a></p>
+              <p className="text-slate-600 mb-1">Email: <a href="mailto:privacy@nearly.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@nearly.com</a></p>
+              <p className="text-slate-600 mb-1">Support: <a href="mailto:support@nearly.com" className="text-orange-500 hover:text-orange-600 font-semibold">support@nearly.com</a></p>
               <p className="text-slate-600">Mailing Address: [Your Company Address]</p>
             </div>
 
             {/* Summary Box */}
-            <div className="bg-sky-50 border-2 border-red-400 rounded-xl p-6">
+            <div className="bg-sky-50 border-2 border-orange-400 rounded-xl p-6">
               <h3 className="text-lg font-bold text-slate-900 mb-3">Privacy in Plain English</h3>
               <ul className="space-y-2 text-sm text-slate-700 mb-0">
                 <li>✓ We collect information you provide and data about how you use Nearly</li>

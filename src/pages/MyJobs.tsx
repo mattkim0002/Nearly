@@ -81,7 +81,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Bluedot</span>
@@ -106,7 +106,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
           
           <button
             onClick={() => navigate('/post-job')}
-            className="px-6 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition shadow-lg"
+            className="px-6 py-3 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition shadow-lg"
           >
             + Post New Job
           </button>
@@ -118,7 +118,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
             onClick={() => setFilter('all')}
             className={`px-6 py-2 rounded-lg font-medium transition ${
               filter === 'all'
-                ? 'bg-red-500 text-white'
+                ? 'bg-orange-500 text-white'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -128,7 +128,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
             onClick={() => setFilter('open')}
             className={`px-6 py-2 rounded-lg font-medium transition ${
               filter === 'open'
-                ? 'bg-red-500 text-white'
+                ? 'bg-orange-500 text-white'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -138,7 +138,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
             onClick={() => setFilter('closed')}
             className={`px-6 py-2 rounded-lg font-medium transition ${
               filter === 'closed'
-                ? 'bg-red-500 text-white'
+                ? 'bg-orange-500 text-white'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -149,7 +149,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
         {/* Loading State */}
         {loading && (
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
             <p className="text-slate-600 mt-4">Loading your jobs...</p>
           </div>
         )}
@@ -169,7 +169,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
             {filter === 'all' && (
               <button
                 onClick={() => navigate('/post-job')}
-                className="px-6 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition"
+                className="px-6 py-3 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
               >
                 Post Your First Job
               </button>
@@ -183,7 +183,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
             {filteredJobs.map((job) => (
               <div
                 key={job.id}
-                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-red-300 hover:shadow-xl transition p-6 cursor-pointer"
+                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-orange-300 hover:shadow-xl transition p-6 cursor-pointer"
                 onClick={() => navigate(`/job/${job.id}`)}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -202,7 +202,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
                     <p className="text-slate-600 mb-3 line-clamp-2">{job.description}</p>
                     
                     <div className="flex items-center gap-4 text-sm text-slate-600">
-                      <span className="font-medium text-red-500">{job.category}</span>
+                      <span className="font-medium text-orange-500">{job.category}</span>
                       <span>📍 {job.location}</span>
                       <span>💰 {job.budget}</span>
                       <span>📅 Posted {formatDate(job.created_at)}</span>
@@ -243,7 +243,7 @@ export default function MyJobs({ user, onSignOut }: MyJobsProps) {
         {/* Stats Cards */}
         {!loading && jobs.length > 0 && (
           <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-gradient-to-br from-red-600 to-blue-500 rounded-2xl p-6 text-white">
+            <div className="bg-gradient-to-br from-orange-600 to-blue-500 rounded-2xl p-6 text-white">
               <h3 className="text-sm font-semibold opacity-90 mb-2">Total Jobs Posted</h3>
               <p className="text-4xl font-bold">{jobs.length}</p>
             </div>

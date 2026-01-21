@@ -97,7 +97,7 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
                 We collect and use your data as described in our{' '}
                 <button 
                   onClick={() => setShowPrivacy(true)}
-                  className="text-red-500 hover:text-red-600 font-semibold underline"
+                  className="text-orange-500 hover:text-orange-600 font-semibold underline"
                 >
                   Privacy Policy
                 </button>
@@ -137,7 +137,7 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
                 type="checkbox"
                 checked={accepted}
                 onChange={(e) => setAccepted(e.target.checked)}
-                className="mt-1 w-5 h-5 rounded border-slate-300 text-red-500 focus:ring-red-600"
+                className="mt-1 w-5 h-5 rounded border-slate-300 text-orange-500 focus:ring-orange-600"
               />
               <span className="text-slate-700">
                 I have read and agree to the Terms of Service and{' '}
@@ -146,7 +146,7 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
                     e.preventDefault();
                     setShowPrivacy(true);
                   }}
-                  className="text-red-500 hover:text-red-600 font-semibold underline"
+                  className="text-orange-500 hover:text-orange-600 font-semibold underline"
                 >
                   Privacy Policy
                 </button>
@@ -156,7 +156,7 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
             <button
               onClick={onAccept}
               disabled={!accepted}
-              className="w-full py-4 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition disabled:bg-slate-300 disabled:cursor-not-allowed"
+              className="w-full py-4 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition disabled:bg-slate-300 disabled:cursor-not-allowed"
             >
               Accept and Continue
             </button>

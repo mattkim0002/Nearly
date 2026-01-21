@@ -175,7 +175,7 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -185,8 +185,8 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
                 <ProfileDropdown user={user} onSignOut={onSignOut!} />
               ) : (
                 <>
-                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 text-slate-700 hover:text-red-500 transition font-medium">Log In</button>
-                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 rounded-full bg-red-500 text-white hover:bg-red-600 transition shadow-lg">Sign Up</button>
+                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 text-slate-700 hover:text-orange-500 transition font-medium">Log In</button>
+                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 rounded-full bg-orange-500 text-white hover:bg-orange-600 transition shadow-lg">Sign Up</button>
                 </>
               )}
             </div>
@@ -274,7 +274,7 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="mailto:support@nearly.com"
-              className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition inline-block"
+              className="px-6 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition inline-block"
             >
               Email Support
             </a>

@@ -191,7 +191,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-slate-900 mb-4">Worker Not Found</h1>
-          <button onClick={() => navigate('/')} className="px-6 py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition">
+          <button onClick={() => navigate('/')} className="px-6 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition">
             Go Home
           </button>
         </div>
@@ -272,7 +272,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-              <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
               <span className="font-bold text-slate-900 text-xl">Nearly</span>
@@ -282,8 +282,8 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                 <ProfileDropdown user={user} onSignOut={onSignOut} />
               ) : (
                 <>
-                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 text-slate-700 hover:text-red-500 transition font-medium">Log In</button>
-                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 rounded-full bg-red-500 text-white hover:bg-red-600 transition shadow-lg">Sign Up</button>
+                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 text-slate-700 hover:text-orange-500 transition font-medium">Log In</button>
+                  <button onClick={() => navigate('/auth')} className="px-5 py-2.5 rounded-full bg-orange-500 text-white hover:bg-orange-600 transition shadow-lg">Sign Up</button>
                 </>
               )}
             </div>
@@ -304,8 +304,8 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
             onClick={handleToggleFavorite}
             className={`absolute top-4 right-4 w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg z-50 ${
               isFavorited 
-                ? 'bg-red-500 border-2 border-red-600' 
-                : 'bg-white hover:bg-sky-50 border-2 border-slate-300 hover:border-red-600'
+                ? 'bg-orange-500 border-2 border-orange-600' 
+                : 'bg-white hover:bg-sky-50 border-2 border-slate-300 hover:border-orange-600'
             }`}
             title={isFavorited ? "Remove from favorites" : "Add to favorites"}
           >
@@ -321,7 +321,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
 
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-shrink-0">
-              <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-bold text-4xl">
+              <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-bold text-4xl">
                 {provider.name.split(' ').map((n: string) => n[0]).join('')}
               </div>
             </div>
@@ -336,7 +336,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                     </span>
                   )}
                   {provider.verified && (
-                    <span className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm font-semibold flex items-center gap-1">
+                    <span className="px-3 py-1 bg-orange-50 text-orange-600 rounded-full text-sm font-semibold flex items-center gap-1">
                       ✓ Profile Verified
                     </span>
                   )}
@@ -378,7 +378,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                 </div>
               </div>
 
-              <button onClick={handleContact} className="w-full md:w-auto px-8 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition shadow-lg">
+              <button onClick={handleContact} className="w-full md:w-auto px-8 py-3 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition shadow-lg">
                 Contact {provider.name.split(' ')[0]}
               </button>
             </div>
@@ -387,13 +387,13 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
 
         {/* Tabs */}
         <div className="flex gap-2 mb-8 bg-white rounded-xl p-1 border-2 border-slate-200 w-fit">
-          <button onClick={() => setSelectedTab('overview')} className={`px-6 py-2 rounded-lg font-medium transition ${selectedTab === 'overview' ? 'bg-red-500 text-white' : 'text-slate-600 hover:text-slate-900'}`}>
+          <button onClick={() => setSelectedTab('overview')} className={`px-6 py-2 rounded-lg font-medium transition ${selectedTab === 'overview' ? 'bg-orange-500 text-white' : 'text-slate-600 hover:text-slate-900'}`}>
             Overview
           </button>
-          <button onClick={() => setSelectedTab('portfolio')} className={`px-6 py-2 rounded-lg font-medium transition ${selectedTab === 'portfolio' ? 'bg-red-500 text-white' : 'text-slate-600 hover:text-slate-900'}`}>
+          <button onClick={() => setSelectedTab('portfolio')} className={`px-6 py-2 rounded-lg font-medium transition ${selectedTab === 'portfolio' ? 'bg-orange-500 text-white' : 'text-slate-600 hover:text-slate-900'}`}>
             Portfolio ({provider.portfolio?.length || 0})
           </button>
-          <button onClick={() => setSelectedTab('reviews')} className={`px-6 py-2 rounded-lg font-medium transition ${selectedTab === 'reviews' ? 'bg-red-500 text-white' : 'text-slate-600 hover:text-slate-900'}`}>
+          <button onClick={() => setSelectedTab('reviews')} className={`px-6 py-2 rounded-lg font-medium transition ${selectedTab === 'reviews' ? 'bg-orange-500 text-white' : 'text-slate-600 hover:text-slate-900'}`}>
             Reviews ({provider.reviews?.length || 0})
           </button>
         </div>
@@ -413,7 +413,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                   <h3 className="font-bold text-slate-900 mb-3">Skills & Expertise</h3>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {provider.skills?.map((skill: string, index: number) => (
-                      <span key={index} className="px-4 py-2 bg-red-50 text-red-600 rounded-full text-sm font-medium">{skill}</span>
+                      <span key={index} className="px-4 py-2 bg-orange-50 text-orange-600 rounded-full text-sm font-medium">{skill}</span>
                     ))}
                   </div>
 
@@ -438,14 +438,14 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                     <h2 className="text-2xl font-bold text-slate-900 mb-6">Pricing Packages</h2>
                     <div className="grid md:grid-cols-3 gap-4">
                       {provider.packages?.map((pkg: any, index: number) => (
-                        <div key={index} className={`relative rounded-2xl border-2 p-6 cursor-pointer transition ${pkg.popular ? 'border-red-600 bg-sky-50' : 'border-slate-200 hover:border-red-400'}`}>
+                        <div key={index} className={`relative rounded-2xl border-2 p-6 cursor-pointer transition ${pkg.popular ? 'border-orange-600 bg-sky-50' : 'border-slate-200 hover:border-orange-400'}`}>
                           {pkg.popular && (
-                            <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full">
+                            <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full">
                               MOST POPULAR
                             </span>
                           )}
                           <h3 className="font-bold text-xl text-slate-900 mb-2">{pkg.name}</h3>
-                          <p className="text-3xl font-bold text-red-500 mb-1">{pkg.price}</p>
+                          <p className="text-3xl font-bold text-orange-500 mb-1">{pkg.price}</p>
                           <p className="text-sm text-slate-600 mb-4">⏱️ {pkg.delivery}</p>
                           <p className="text-sm text-slate-600 mb-4">{pkg.description}</p>
                           <ul className="space-y-2 mb-6">
@@ -456,7 +456,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                               </li>
                             ))}
                           </ul>
-                          <button onClick={handleContact} className={`w-full py-2 rounded-lg font-semibold transition ${pkg.popular ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
+                          <button onClick={handleContact} className={`w-full py-2 rounded-lg font-semibold transition ${pkg.popular ? 'bg-orange-500 text-white hover:bg-orange-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
                             Select Package
                           </button>
                         </div>
@@ -489,14 +489,14 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                 {provider.portfolio && provider.portfolio.length > 0 ? (
                   <div className="grid md:grid-cols-2 gap-6">
                     {provider.portfolio?.map((item: any) => (
-                      <div key={item.id} className="group border-2 border-slate-200 rounded-2xl overflow-hidden hover:border-red-300 transition cursor-pointer">
+                      <div key={item.id} className="group border-2 border-slate-200 rounded-2xl overflow-hidden hover:border-orange-300 transition cursor-pointer">
                         <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
                           <span className="text-8xl">{item.image}</span>
                         </div>
                         <div className="p-4">
                           <div className="flex items-start justify-between mb-2">
                             <h3 className="font-bold text-slate-900">{item.title}</h3>
-                            <span className="text-sm font-semibold text-red-500">{item.price}</span>
+                            <span className="text-sm font-semibold text-orange-500">{item.price}</span>
                           </div>
                           <p className="text-sm text-slate-600 mb-2">{item.description}</p>
                           <p className="text-xs text-slate-500">{item.year}</p>
@@ -549,7 +549,7 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
                                 ))}
                               </div>
                             </div>
-                            <p className="text-sm font-semibold text-red-500 mb-2">{review.project}</p>
+                            <p className="text-sm font-semibold text-orange-500 mb-2">{review.project}</p>
                             <p className="text-slate-600 leading-relaxed mb-3">{review.comment}</p>
                             <button className="text-sm text-slate-500 hover:text-slate-700 transition">
                               👍 Helpful ({review.helpful})
@@ -612,12 +612,12 @@ export default function ProProfile({ user, onSignOut }: ProProfileProps) {
 
             <div className="mb-6">
               <label className="block text-sm font-semibold text-slate-900 mb-2">Your Message</label>
-              <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Hi! I'm interested in your services..." rows={6} className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-red-600 focus:outline-none resize-none" />
+              <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Hi! I'm interested in your services..." rows={6} className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 focus:border-orange-600 focus:outline-none resize-none" />
             </div>
 
             <div className="flex gap-3">
               <button onClick={() => setShowContactForm(false)} className="flex-1 py-3 rounded-xl bg-slate-200 text-slate-700 font-semibold hover:bg-slate-300 transition">Cancel</button>
-              <button onClick={handleSendMessage} className="flex-1 py-3 rounded-xl bg-red-500 text-white font-semibold hover:bg-red-600 transition">Send Message</button>
+              <button onClick={handleSendMessage} className="flex-1 py-3 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">Send Message</button>
             </div>
           </div>
         </div>

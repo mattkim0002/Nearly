@@ -22,7 +22,7 @@ export default function ConfirmDialog({
 }: ConfirmDialogProps) {
   const typeStyles = {
     danger: {
-      button: 'bg-red-600 hover:bg-red-700',
+      button: 'bg-orange-600 hover:bg-orange-700',
       icon: '⚠️'
     },
     warning: {
@@ -30,7 +30,7 @@ export default function ConfirmDialog({
       icon: '⚡'
     },
     info: {
-      button: 'bg-red-500 hover:bg-red-600',
+      button: 'bg-orange-500 hover:bg-orange-600',
       icon: 'ℹ️'
     }
   };

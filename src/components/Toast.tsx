@@ -18,8 +18,8 @@ export default function Toast({ message, type, onClose, duration = 3000 }: Toast
 
   const styles = {
     success: 'bg-emerald-500 border-emerald-600',
-    error: 'bg-red-500 border-red-600',
-    info: 'bg-red-600 border-red-500'
+    error: 'bg-orange-500 border-orange-600',
+    info: 'bg-orange-600 border-orange-500'
   };
 
   const icons = {
