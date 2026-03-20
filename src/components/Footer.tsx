@@ -14,7 +14,7 @@ export default function Footer() {
               <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
-              <span className="font-bold text-white text-xl">Nearly</span>
+              <span className="font-bold text-white text-xl">Launchpad</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
               Connecting clients with independent local workers for commissions and services.
@@ -63,7 +63,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:support@nearly.com" className="text-slate-400 hover:text-white transition">
+                <a href="mailto:support@launchpad.com" className="text-slate-400 hover:text-white transition">
                   Contact Support
                 </a>
               </li>
@@ -75,13 +75,13 @@ export default function Footer() {
             <h3 className="font-bold text-white mb-4">Connect</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="mailto:support@nearly.com" className="text-slate-400 hover:text-white transition">
-                  support@nearly.com
+                <a href="mailto:support@launchpad.com" className="text-slate-400 hover:text-white transition">
+                  support@launchpad.com
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@nearly.com" className="text-slate-400 hover:text-white transition">
-                  hello@nearly.com
+                <a href="mailto:hello@launchpad.com" className="text-slate-400 hover:text-white transition">
+                  hello@launchpad.com
                 </a>
               </li>
             </ul>
@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-sm">
-              © {currentYear} Nearly. All rights reserved.
+              © {currentYear} Launchpad. All rights reserved.
             </p>
             
             <div className="flex items-center gap-6 text-sm">
@@ -104,7 +104,7 @@ export default function Footer() {
                 Help
               </Link>
               <span className="text-slate-600">•</span>
-              <a href="mailto:support@nearly.com" className="text-slate-400 hover:text-white transition">
+              <a href="mailto:support@launchpad.com" className="text-slate-400 hover:text-white transition">
                 Contact
               </a>
             </div>
