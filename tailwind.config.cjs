@@ -1,8 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-// ADD TO YOUR tailwind.config.js
-
-// In the theme.extend section, add these animations:
-
 module.exports = {
   content: [
     "./index.html",
@@ -10,25 +6,26 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#01696F',
+        'primary-dark': '#015459',
+        'primary-light': '#E6F2F2',
+        background: '#F7F6F2',
+        'text-main': '#28251D',
+        'text-muted': '#7A7974',
+        border: '#D4D1CA',
+        error: '#A12C7B',
+        success: '#437A22',
+        warning: '#964219',
+      },
       animation: {
-        'fadeIn': 'fadeIn 0.3s ease-in-out',
-        'slideInRight': 'slideInRight 0.3s ease-out',
-        'slideInLeft': 'slideInLeft 0.3s ease-out',
-        'slideUp': 'slideUp 0.3s ease-out',
-        'bounce-slow': 'bounce 2s infinite',
+        fadeIn: 'fadeIn 0.3s ease-in-out',
+        slideUp: 'slideUp 0.3s ease-out',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
-        },
-        slideInRight: {
-          '0%': { transform: 'translateX(100%)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' },
-        },
-        slideInLeft: {
-          '0%': { transform: 'translateX(-100%)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' },
         },
         slideUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },

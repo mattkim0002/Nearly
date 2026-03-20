@@ -1,67 +1,78 @@
 /**
- * Field Filler
- *
- * Receives a FillRequest (profile + optional AI-generated answers),
- * delegates field mapping to the correct ATS module, then sets values
- * on the DOM while firing the React/Vue synthetic events that modern
- * ATSes listen to (input + change).
+ * Field Filler — resolves detected fields against a profile and injects values.
  */
 
 import { detectATS } from './detector'
-import { mapGreenhouseFields } from './greenhouse'
-import { mapLeverFields } from './lever'
-import type { FillRequest, FieldMap } from '../shared/types'
+import { scanGreenhouseFields } from './greenhouse'
+import { scanLeverFields } from './lever'
+import { injectValue } from './injector'
+import type { DetectedField } from '../shared/types'
+import type { UserProfile } from '../shared/types'
 
-export function fillFields(request: FillRequest): { filled: number; skipped: number } {
-  const ats = detectATS()
-  if (!ats) return { filled: 0, skipped: 0 }
+/** Resolve a profile key path like "address.city" to the value in the profile. */
+function resolveProfileValue(profile: UserProfile, key: string): string | undefined {
+  if (key === 'fullName') return `${profile.firstName} ${profile.lastName}`.trim()
 
-  const fieldMaps: FieldMap[] =
-    ats === 'greenhouse'
-      ? mapGreenhouseFields(request.profile)
-      : mapLeverFields(request.profile)
-
-  // Merge AI-generated answers for open-ended questions
-  if (request.aiAnswers) {
-    for (const [selector, value] of Object.entries(request.aiAnswers)) {
-      fieldMaps.push({ selector, value, fieldKey: 'aiAnswer' })
-    }
+  const parts = key.split('.')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let val: unknown = profile as Record<string, unknown>
+  for (const part of parts) {
+    if (val === null || typeof val !== 'object') return undefined
+    val = (val as Record<string, unknown>)[part]
   }
+  if (val === undefined || val === null) return undefined
+  if (typeof val === 'boolean') return val ? 'Yes' : 'No'
+  return String(val)
+}
 
+export function fillFields(
+  profile: UserProfile,
+  aiAnswers: Record<string, string> = {}
+): { filled: number; skipped: number; fields: DetectedField[] } {
+  const ats = detectATS()
+  if (!ats) return { filled: 0, skipped: 0, fields: [] }
+
+  const detected = ats === 'greenhouse' ? scanGreenhouseFields() : scanLeverFields()
   let filled = 0
   let skipped = 0
 
-  for (const { selector, value } of fieldMaps) {
-    const el = document.querySelector<HTMLInputElement | HTMLTextAreaElement>(selector)
+  const result: DetectedField[] = detected.map((field) => {
+    const el = document.querySelector<HTMLElement>(field.selector)
     if (!el) {
       skipped++
-      continue
+      return { ...field, confidence: 'low' }
     }
 
-    setNativeValue(el, value)
-    filled++
-  }
+    // Check for AI answer override first
+    if (aiAnswers[field.selector]) {
+      injectValue(el, aiAnswers[field.selector])
+      filled++
+      return { ...field, filledValue: aiAnswers[field.selector] }
+    }
 
-  return { filled, skipped }
+    if (!field.mappedProfileKey) {
+      skipped++
+      return field
+    }
+
+    const value = resolveProfileValue(profile, field.mappedProfileKey)
+    if (!value) {
+      skipped++
+      return field
+    }
+
+    injectValue(el, value)
+    filled++
+    return { ...field, filledValue: value }
+  })
+
+  return { filled, skipped, fields: result }
 }
 
-/**
- * Sets a value on an input/textarea in a way that React's synthetic event
- * system can detect (needed for controlled components used by Greenhouse/Lever).
- */
-function setNativeValue(
-  el: HTMLInputElement | HTMLTextAreaElement,
-  value: string
-): void {
-  const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-    el.tagName === 'TEXTAREA'
-      ? HTMLTextAreaElement.prototype
-      : HTMLInputElement.prototype,
-    'value'
-  )?.set
-
-  nativeInputValueSetter?.call(el, value)
-
-  el.dispatchEvent(new Event('input', { bubbles: true }))
-  el.dispatchEvent(new Event('change', { bubbles: true }))
+/** Inject a single AI-generated answer into a specific field. */
+export function injectAnswer(selector: string, answer: string): boolean {
+  const el = document.querySelector<HTMLElement>(selector)
+  if (!el) return false
+  injectValue(el, answer)
+  return true
 }

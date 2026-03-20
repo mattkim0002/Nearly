@@ -1,14 +1,11 @@
 /**
- * ATS Detector
- *
- * Inspects the current page URL and DOM to determine which
- * Applicant Tracking System (ATS) is in use.
+ * ATS Detector — inspects URL and DOM to identify the Applicant Tracking System.
  */
 
 export type ATSType = 'greenhouse' | 'lever' | null
 
 export function detectATS(): ATSType {
-  const { hostname, pathname } = window.location
+  const { hostname } = window.location
 
   if (
     hostname.includes('greenhouse.io') ||
@@ -17,10 +14,7 @@ export function detectATS(): ATSType {
     return 'greenhouse'
   }
 
-  if (
-    hostname.includes('lever.co') ||
-    pathname.startsWith('/jobs/lever')
-  ) {
+  if (hostname.includes('lever.co')) {
     return 'lever'
   }
 

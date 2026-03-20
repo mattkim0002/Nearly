@@ -1,45 +1,94 @@
 /**
- * Lever ATS — field mapper
+ * Lever ATS — field scanner
  *
- * Maps standard profile keys to Lever form field selectors.
- * Returns a list of { selector, value } pairs ready to be filled.
+ * Returns DetectedField[] for a Lever job application page.
  */
 
-import type { FieldMap, UserProfile } from '../shared/types'
+import type { DetectedField } from '../shared/types'
+import { buildSelector, getFieldType, mapLabelToProfileKey } from '../lib/fields'
 
-/** Known Lever input selectors keyed by profile field */
-const LEVER_SELECTORS: Record<keyof UserProfile, string> = {
-  firstName: 'input[name="name"]',       // Lever uses a single "Full Name" field
-  lastName: '',                           // merged into firstName mapping at fill time
-  email: 'input[name="email"]',
-  phone: 'input[name="phone"]',
-  linkedIn: 'input[name="urls[LinkedIn]"]',
-  website: 'input[name="urls[Other]"]',
-  location: 'input[name="location"]',
-  coverLetter: 'textarea[name="comments"]',
-  resumeText: '', // handled via file upload — not autofilled
-}
+export function scanLeverFields(): DetectedField[] {
+  const fields: DetectedField[] = []
+  const seen = new Set<string>()
 
-export function mapLeverFields(profile: UserProfile): FieldMap[] {
-  const fields: FieldMap[] = []
+  // Lever uses .application-field and .custom-question containers
+  const containers = document.querySelectorAll<HTMLElement>(
+    '.application-field, .custom-question, [data-qa]'
+  )
 
-  for (const key of Object.keys(LEVER_SELECTORS) as Array<keyof UserProfile>) {
-    const selector = LEVER_SELECTORS[key]
-    if (!selector || !profile[key]) continue
+  containers.forEach((container) => {
+    const labelEl = container.querySelector('label, .application-label')
+    const label = labelEl?.textContent?.trim() ?? ''
+    const input = container.querySelector<HTMLElement>('input, textarea, select')
+    if (!input) return
 
-    // Lever uses a single name field — combine first + last
-    if (key === 'firstName') {
-      fields.push({
-        selector,
-        value: `${profile.firstName} ${profile.lastName}`.trim(),
-        fieldKey: 'firstName',
-      })
-      continue
-    }
-    if (key === 'lastName') continue // already merged above
+    const selector = buildSelector(input)
+    if (seen.has(selector)) return
+    seen.add(selector)
 
-    fields.push({ selector, value: String(profile[key]), fieldKey: key })
-  }
+    const fieldName = input.getAttribute('name') ?? input.getAttribute('id') ?? ''
+    const fieldType = getFieldType(input)
+    if (fieldType === 'file') return
+
+    const mappedProfileKey = mapLabelToProfileKey(label, fieldName)
+    const confidence = mappedProfileKey ? 'high' : 'low'
+    const isOpenEnded = fieldType === 'textarea' && !mappedProfileKey
+
+    fields.push({
+      selector,
+      fieldType,
+      label,
+      fieldName,
+      mappedProfileKey,
+      currentValue:
+        input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement
+          ? input.value
+          : undefined,
+      confidence,
+      isOpenEnded,
+    })
+  })
+
+  // Also catch the standard Lever named inputs directly
+  const knownSelectors: [string, string][] = [
+    ['input[name="name"]', 'Full Name'],
+    ['input[name="email"]', 'Email'],
+    ['input[name="phone"]', 'Phone'],
+    ['input[name="org"]', 'Current Company'],
+    ['input[name="urls[LinkedIn]"]', 'LinkedIn'],
+    ['input[name="urls[Portfolio]"]', 'Portfolio'],
+    ['input[name="location"]', 'Location'],
+    ['textarea[name="comments"]', 'Additional Information'],
+  ]
+
+  knownSelectors.forEach(([qs, fallbackLabel]) => {
+    const input = document.querySelector<HTMLElement>(qs)
+    if (!input) return
+    const selector = buildSelector(input)
+    if (seen.has(selector)) return
+    seen.add(selector)
+
+    const fieldName = input.getAttribute('name') ?? ''
+    const fieldType = getFieldType(input)
+    const label =
+      document.querySelector<HTMLElement>(`label[for="${input.getAttribute('id')}"]`)?.textContent?.trim() ??
+      fallbackLabel
+    const mappedProfileKey = mapLabelToProfileKey(label, fieldName)
+
+    fields.push({
+      selector,
+      fieldType,
+      label,
+      fieldName,
+      mappedProfileKey,
+      currentValue:
+        input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement
+          ? input.value
+          : undefined,
+      confidence: mappedProfileKey ? 'high' : 'medium',
+      isOpenEnded: fieldType === 'textarea' && !mappedProfileKey,
+    })
+  })
 
   return fields
 }
