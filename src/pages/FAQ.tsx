@@ -16,16 +16,16 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
       category: "Getting Started",
       questions: [
         {
-          q: "What is Nearly?",
-          a: "Nearly is a platform that connects clients with independent local workers for commissions and services. We facilitate discovery, messaging, and secure payment processing. Nearly does not employ workers, guarantee work quality, or control how services are performed."
+          q: "What is Launchpad?",
+          a: "Launchpad is a platform that connects clients with independent local workers for commissions and services. We facilitate discovery, messaging, and secure payment processing. Launchpad does not employ workers, guarantee work quality, or control how services are performed."
         },
         {
-          q: "How does Nearly work?",
-          a: "Clients post commissions describing what they need. Independent workers submit proposals with their budget and timeline. Clients review proposals and choose a worker. Payment is held in secure escrow and released per the terms agreed between client and worker. Nearly facilitates the connection and payment processing only."
+          q: "How does Launchpad work?",
+          a: "Clients post commissions describing what they need. Independent workers submit proposals with their budget and timeline. Clients review proposals and choose a worker. Payment is held in secure escrow and released per the terms agreed between client and worker. Launchpad facilitates the connection and payment processing only."
         },
         {
-          q: "Is Nearly free to use?",
-          a: "Browsing and posting commissions is free. Nearly charges a 10% platform fee on successful transactions to facilitate the connection and payment processing."
+          q: "Is Launchpad free to use?",
+          a: "Browsing and posting commissions is free. Launchpad charges a 10% platform fee on successful transactions to facilitate the connection and payment processing."
         },
         {
           q: "How do I create an account?",
@@ -42,11 +42,11 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
         },
         {
           q: "How do I choose a worker?",
-          a: "Review proposals from independent workers. Check their profiles, portfolios, and any reviews from other users. You are responsible for vetting workers and selecting the best fit for your needs. Nearly does not vet or endorse workers."
+          a: "Review proposals from independent workers. Check their profiles, portfolios, and any reviews from other users. You are responsible for vetting workers and selecting the best fit for your needs. Launchpad does not vet or endorse workers."
         },
         {
           q: "What is escrow and how does it work?",
-          a: "When you accept a proposal, payment is deposited into secure escrow. The funds are held safely until you approve the submitted work per your agreed terms with the worker. This protects both parties. Once you approve, payment is released to the worker. Nearly holds the funds but does not determine when work is complete - that's between you and the worker."
+          a: "When you accept a proposal, payment is deposited into secure escrow. The funds are held safely until you approve the submitted work per your agreed terms with the worker. This protects both parties. Once you approve, payment is released to the worker. Launchpad holds the funds but does not determine when work is complete - that's between you and the worker."
         },
         {
           q: "What if I'm not satisfied with the work?",
@@ -87,7 +87,7 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
         },
         {
           q: "How do I build my profile?",
-          a: "Add a professional photo, write a compelling bio, showcase your skills, and upload portfolio examples. Complete commissions and receive positive reviews to build your reputation. Remember: reviews and ratings come from other users, not Nearly."
+          a: "Add a professional photo, write a compelling bio, showcase your skills, and upload portfolio examples. Complete commissions and receive positive reviews to build your reputation. Remember: reviews and ratings come from other users, not Launchpad."
         }
       ]
     },
@@ -99,8 +99,8 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
           a: "We accept credit cards, debit cards, and bank account transfers (ACH). All payments are processed securely through our payment processor."
         },
         {
-          q: "How much does Nearly charge?",
-          a: "Nearly charges a 10% platform fee on the commission amount. This fee covers payment processing, escrow services, and platform maintenance. The fee is added to the commission total at checkout."
+          q: "How much does Launchpad charge?",
+          a: "Launchpad charges a 10% platform fee on the commission amount. This fee covers payment processing, escrow services, and platform maintenance. The fee is added to the commission total at checkout."
         },
         {
           q: "When am I charged?",
@@ -120,12 +120,12 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
       category: "Safety & Trust",
       questions: [
         {
-          q: "Does Nearly vet or verify workers?",
-          a: "Nearly offers optional identity verification where workers can verify their identity with a government-issued ID. A 'Profile Verified' badge indicates identity verification only - it does NOT mean Nearly has vetted their skills, quality, or reliability. You are responsible for reviewing portfolios, checking reviews from other users, and vetting workers yourself."
+          q: "Does Launchpad vet or verify workers?",
+          a: "Launchpad offers optional identity verification where workers can verify their identity with a government-issued ID. A 'Profile Verified' badge indicates identity verification only - it does NOT mean Launchpad has vetted their skills, quality, or reliability. You are responsible for reviewing portfolios, checking reviews from other users, and vetting workers yourself."
         },
         {
-          q: "Does Nearly guarantee work quality?",
-          a: "No. Nearly facilitates connections and payment processing only. We do not guarantee work quality, outcomes, timelines, or any other aspect of services. Independent workers operate independently. You are responsible for vetting workers, defining clear scope, and determining when work meets your agreed terms."
+          q: "Does Launchpad guarantee work quality?",
+          a: "No. Launchpad facilitates connections and payment processing only. We do not guarantee work quality, outcomes, timelines, or any other aspect of services. Independent workers operate independently. You are responsible for vetting workers, defining clear scope, and determining when work meets your agreed terms."
         },
         {
           q: "What if there's a dispute?",
@@ -133,15 +133,15 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
         },
         {
           q: "How do I report inappropriate behavior?",
-          a: "If you experience harassment, fraud, or inappropriate behavior, report it immediately using the 'Report' button on the user's profile or contact support@nearly.com. We take user safety seriously and will investigate all reports."
+          a: "If you experience harassment, fraud, or inappropriate behavior, report it immediately using the 'Report' button on the user's profile or contact support@launchpad.com. We take user safety seriously and will investigate all reports."
         },
         {
           q: "Is my payment information secure?",
-          a: "Yes. All payment information is encrypted and processed through our secure payment processor. Nearly never stores your full credit card or bank account details."
+          a: "Yes. All payment information is encrypted and processed through our secure payment processor. Launchpad never stores your full credit card or bank account details."
         },
         {
-          q: "Can I take payments outside of Nearly?",
-          a: "No. All payments must go through Nearly's platform for both parties' protection. Taking payments outside the platform violates our Terms of Service and may result in account termination. Escrow protects both clients and workers."
+          q: "Can I take payments outside of Launchpad?",
+          a: "No. All payments must go through Launchpad's platform for both parties' protection. Taking payments outside the platform violates our Terms of Service and may result in account termination. Escrow protects both clients and workers."
         }
       ]
     },
@@ -150,7 +150,7 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
       questions: [
         {
           q: "How do I change my account type?",
-          a: "Contact support@nearly.com to request an account type change. We'll help you switch between client and independent worker accounts."
+          a: "Contact support@launchpad.com to request an account type change. We'll help you switch between client and independent worker accounts."
         },
         {
           q: "How do I delete my account?",
@@ -162,7 +162,7 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
         },
         {
           q: "How do I contact support?",
-          a: "Email us at support@nearly.com or use the 'Contact Support' button in your dashboard. We typically respond within 24 hours on business days."
+          a: "Email us at support@launchpad.com or use the 'Contact Support' button in your dashboard. We typically respond within 24 hours on business days."
         }
       ]
     }
@@ -178,7 +178,7 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
               <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
-              <span className="font-bold text-slate-900 text-xl">Nearly</span>
+              <span className="font-bold text-slate-900 text-xl">Launchpad</span>
             </div>
             <div className="flex items-center gap-4">
               {user ? (
@@ -203,7 +203,7 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Help Center</h1>
-          <p className="text-xl text-slate-600">Find answers to common questions about Nearly</p>
+          <p className="text-xl text-slate-600">Find answers to common questions about Launchpad</p>
         </div>
 
         {/* Important Notice */}
@@ -211,9 +211,9 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
           <div className="flex gap-3">
             <span className="text-3xl">⚠️</span>
             <div className="flex-1">
-              <h3 className="font-bold text-lg text-slate-900 mb-2">Important: Nearly's Role</h3>
+              <h3 className="font-bold text-lg text-slate-900 mb-2">Important: Launchpad's Role</h3>
               <p className="text-slate-700 mb-2">
-                Nearly is a platform that <strong>facilitates connections and payment processing only</strong>. We do not:
+                Launchpad is a platform that <strong>facilitates connections and payment processing only</strong>. We do not:
               </p>
               <ul className="space-y-1 text-slate-700 text-sm">
                 <li>• Employ or vet workers beyond optional identity verification</li>
@@ -273,7 +273,7 @@ export default function FAQ({ user, onSignOut }: FAQProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="mailto:support@nearly.com"
+              href="mailto:support@launchpad.com"
               className="px-6 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition inline-block"
             >
               Email Support

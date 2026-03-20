@@ -133,7 +133,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                   <div className="flex-1">
                     <h4 className="font-bold text-slate-900 mb-2">Important Notice</h4>
                     <p className="text-sm text-slate-700 mb-2">
-                      <strong>Nearly facilitates payment processing only.</strong> We do not:
+                      <strong>Launchpad facilitates payment processing only.</strong> We do not:
                     </p>
                     <ul className="space-y-1 text-sm text-slate-700">
                       <li>• Employ or vet workers beyond optional identity verification</li>
@@ -157,7 +157,7 @@ export default function PaymentModal({ commission, onClose, onSuccess }: Payment
                   className="mt-1 w-5 h-5 rounded border-slate-300 text-orange-500 focus:ring-orange-600"
                 />
                 <span className="text-sm text-slate-700">
-                  I understand that Nearly facilitates connections and payment processing only. 
+                  I understand that Launchpad facilitates connections and payment processing only. 
                   Payment will be held in escrow and released per the terms I've agreed upon with 
                   the independent worker. I am responsible for vetting the worker and approving 
                   the submitted work.

@@ -22,30 +22,30 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
           {/* Scrollable Content */}
           <div className="flex-1 overflow-y-auto p-8">
             <div className="prose max-w-none">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Welcome to Nearly</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Welcome to Launchpad</h3>
               
               <p className="text-slate-600 mb-4">
-                By using Nearly, you agree to the following terms:
+                By using Launchpad, you agree to the following terms:
               </p>
 
               <h4 className="text-lg font-bold text-slate-900 mb-2">1. Platform Role</h4>
               <p className="text-slate-600 mb-4">
-                Nearly is a platform that connects clients with independent local workers. Nearly facilitates 
-                discovery, messaging, and payment processing only. Nearly does not employ workers, guarantee work 
+                Launchpad is a platform that connects clients with independent local workers. Launchpad facilitates 
+                discovery, messaging, and payment processing only. Launchpad does not employ workers, guarantee work 
                 quality, or control how services are performed. Clients and workers are responsible for defining 
                 scope, managing expectations, and ensuring work meets their agreed-upon terms.
               </p>
 
               <h4 className="text-lg font-bold text-slate-900 mb-2">2. User Conduct</h4>
               <p className="text-slate-600 mb-4">
-                You agree to use Nearly professionally and respectfully. Harassment, fraud, or misrepresentation 
+                You agree to use Launchpad professionally and respectfully. Harassment, fraud, or misrepresentation 
                 will result in account termination.
               </p>
 
               <h4 className="text-lg font-bold text-slate-900 mb-2">3. Payments & Escrow</h4>
               <p className="text-slate-600 mb-4">
                 All payments are held in escrow per agreed terms. Clients must approve work before payment 
-                is released to independent workers. Nearly charges a 10% platform fee on all transactions for 
+                is released to independent workers. Launchpad charges a 10% platform fee on all transactions for 
                 facilitating the connection and payment processing.
               </p>
 
@@ -57,7 +57,7 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
 
               <h4 className="text-lg font-bold text-slate-900 mb-2">5. No Guarantees</h4>
               <p className="text-slate-600 mb-4">
-                Nearly does not guarantee work quality, outcomes, timelines, or any other aspect of services provided 
+                Launchpad does not guarantee work quality, outcomes, timelines, or any other aspect of services provided 
                 by independent workers. All workers operate independently, and clients are responsible for vetting, 
                 communicating scope, and managing their own projects.
               </p>
@@ -85,7 +85,7 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
                 The following are strictly prohibited:
               </p>
               <ul className="list-disc pl-6 text-slate-600 mb-4">
-                <li>Taking payments outside of Nearly</li>
+                <li>Taking payments outside of Launchpad</li>
                 <li>Sharing contact information to bypass fees</li>
                 <li>Posting fake reviews or ratings</li>
                 <li>Harassing or threatening other users</li>
@@ -106,25 +106,25 @@ export default function TermsOfServiceModal({ onAccept }: TermsOfServiceModalPro
 
               <h4 className="text-lg font-bold text-slate-900 mb-2">11. Limitation of Liability</h4>
               <p className="text-slate-600 mb-4">
-                Nearly is not liable for any damages, losses, or disputes arising from services provided by 
+                Launchpad is not liable for any damages, losses, or disputes arising from services provided by 
                 independent workers. Clients and workers engage at their own risk and are responsible for their 
                 own agreements and outcomes.
               </p>
 
               <h4 className="text-lg font-bold text-slate-900 mb-2">12. Termination</h4>
               <p className="text-slate-600 mb-4">
-                Nearly reserves the right to suspend or terminate accounts that violate these terms.
+                Launchpad reserves the right to suspend or terminate accounts that violate these terms.
               </p>
 
               <h4 className="text-lg font-bold text-slate-900 mb-2">13. Changes to Terms</h4>
               <p className="text-slate-600 mb-4">
-                We may update these terms occasionally. Continued use of Nearly constitutes acceptance of 
+                We may update these terms occasionally. Continued use of Launchpad constitutes acceptance of 
                 updated terms.
               </p>
 
               <div className="bg-sky-50 border border-sky-200 rounded-xl p-4 mt-6">
                 <p className="text-sm text-sky-900">
-                  <strong>Questions?</strong> Contact us at support@nearly.com
+                  <strong>Questions?</strong> Contact us at support@launchpad.com
                 </p>
               </div>
             </div>

@@ -30,7 +30,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <div className="bg-sky-50 border border-sky-200 rounded-xl p-6 mb-6">
               <h3 className="text-xl font-bold text-slate-900 mb-3">Our Commitment to Your Privacy</h3>
               <p className="text-slate-700 mb-0">
-                Nearly ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy 
+                Launchpad ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy 
                 explains how we collect, use, disclose, and safeguard your information when you use our 
                 platform that connects clients with independent local workers for commissions and services.
               </p>
@@ -41,7 +41,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             
             <h4 className="text-lg font-bold text-slate-900 mb-2">Information You Provide to Us</h4>
             <p className="text-slate-600 mb-4">
-              We collect information you voluntarily provide when using Nearly:
+              We collect information you voluntarily provide when using Launchpad:
             </p>
             <ul className="list-disc pl-6 text-slate-600 mb-6 space-y-2">
               <li><strong>Account Information:</strong> Name, email address, phone number, profile photo, location (city/zip code), and account type (client or independent worker)</li>
@@ -54,7 +54,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">Information Collected Automatically</h4>
             <p className="text-slate-600 mb-4">
-              When you access Nearly, we automatically collect:
+              When you access Launchpad, we automatically collect:
             </p>
             <ul className="list-disc pl-6 text-slate-600 mb-6 space-y-2">
               <li><strong>Device Information:</strong> IP address, browser type, operating system, device identifiers, and mobile network information</li>
@@ -65,7 +65,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">Information from Third Parties</h4>
             <p className="text-slate-600 mb-6">
-              We may receive information from third-party services you connect to your Nearly account, 
+              We may receive information from third-party services you connect to your Launchpad account, 
               such as social media login providers (e.g., Google, Facebook) or payment processors. 
               We only receive information you authorize these services to share.
             </p>
@@ -74,7 +74,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">2. How We Use Your Information</h3>
             
             <p className="text-slate-600 mb-4">
-              Nearly uses your information to facilitate connections between clients and independent workers. 
+              Launchpad uses your information to facilitate connections between clients and independent workers. 
               Specifically, we use your information to:
             </p>
             <ul className="list-disc pl-6 text-slate-600 mb-6 space-y-2">
@@ -91,9 +91,9 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
 
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
               <p className="text-sm text-amber-900 mb-0">
-                <strong>Important:</strong> Nearly facilitates connections and payment processing only. We do not 
+                <strong>Important:</strong> Launchpad facilitates connections and payment processing only. We do not 
                 employ workers, guarantee work quality, control how services are performed, or vet workers beyond 
-                optional identity verification. Reviews and ratings are provided by other users, not Nearly.
+                optional identity verification. Reviews and ratings are provided by other users, not Launchpad.
               </p>
             </div>
 
@@ -114,7 +114,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">With Service Providers</h4>
             <p className="text-slate-600 mb-6">
-              We share information with trusted third-party service providers who help us operate Nearly, including:
+              We share information with trusted third-party service providers who help us operate Launchpad, including:
               payment processors, cloud hosting providers, email service providers, analytics services, and 
               customer support tools. These providers are contractually obligated to protect your information 
               and only use it to provide services to us.
@@ -128,13 +128,13 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
 
             <h4 className="text-lg font-bold text-slate-900 mb-2">Business Transfers</h4>
             <p className="text-slate-600 mb-6">
-              If Nearly is acquired, merged, or sells assets, your information may be transferred as part of 
+              If Launchpad is acquired, merged, or sells assets, your information may be transferred as part of 
               that transaction. We will notify you of any such change.
             </p>
 
             <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6">
               <p className="text-sm text-emerald-900 mb-0">
-                <strong>We Never Sell Your Personal Information:</strong> Nearly does not and will never sell your 
+                <strong>We Never Sell Your Personal Information:</strong> Launchpad does not and will never sell your 
                 personal information to third parties for their marketing purposes.
               </p>
             </div>
@@ -143,12 +143,12 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">4. Cookies and Tracking Technologies</h3>
             
             <p className="text-slate-600 mb-4">
-              Nearly uses cookies and similar technologies to improve your experience:
+              Launchpad uses cookies and similar technologies to improve your experience:
             </p>
             <ul className="list-disc pl-6 text-slate-600 mb-6 space-y-2">
               <li><strong>Essential Cookies:</strong> Required for the platform to function (login, security, session management)</li>
               <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
-              <li><strong>Analytics Cookies:</strong> Help us understand how users interact with Nearly</li>
+              <li><strong>Analytics Cookies:</strong> Help us understand how users interact with Launchpad</li>
               <li><strong>Advertising Cookies:</strong> Deliver relevant ads and measure campaign effectiveness</li>
             </ul>
             
@@ -174,7 +174,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             </ul>
 
             <p className="text-slate-600 mb-6">
-              To exercise these rights, contact us at <a href="mailto:privacy@nearly.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@nearly.com</a>. 
+              To exercise these rights, contact us at <a href="mailto:privacy@launchpad.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@launchpad.com</a>. 
               We will respond within 30 days.
             </p>
 
@@ -201,9 +201,9 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">8. Children's Privacy</h3>
             
             <p className="text-slate-600 mb-6">
-              Nearly is not intended for users under 18 years of age. We do not knowingly collect personal 
+              Launchpad is not intended for users under 18 years of age. We do not knowingly collect personal 
               information from children under 18. If you believe we have collected information from a child 
-              under 18, please contact us immediately at <a href="mailto:privacy@nearly.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@nearly.com</a>, 
+              under 18, please contact us immediately at <a href="mailto:privacy@launchpad.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@launchpad.com</a>, 
               and we will delete such information.
             </p>
 
@@ -211,9 +211,9 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">9. International Data Transfers</h3>
             
             <p className="text-slate-600 mb-6">
-              Nearly is based in the United States. If you access our platform from outside the U.S., your 
+              Launchpad is based in the United States. If you access our platform from outside the U.S., your 
               information may be transferred to, stored, and processed in the U.S. or other countries. By using 
-              Nearly, you consent to the transfer of your information to countries that may have different data 
+              Launchpad, you consent to the transfer of your information to countries that may have different data 
               protection laws than your country of residence.
             </p>
 
@@ -221,7 +221,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">10. Third-Party Links</h3>
             
             <p className="text-slate-600 mb-6">
-              Nearly may contain links to third-party websites or services. We are not responsible for the 
+              Launchpad may contain links to third-party websites or services. We are not responsible for the 
               privacy practices of these third parties. We encourage you to review their privacy policies before 
               providing any information to them.
             </p>
@@ -240,7 +240,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             </ul>
 
             <p className="text-slate-600 mb-6">
-              To exercise these rights, email us at <a href="mailto:privacy@nearly.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@nearly.com</a> with 
+              To exercise these rights, email us at <a href="mailto:privacy@launchpad.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@launchpad.com</a> with 
               "California Privacy Rights" in the subject line.
             </p>
 
@@ -264,7 +264,7 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <p className="text-slate-600 mb-6">
               We may update this Privacy Policy from time to time. When we make changes, we will update the 
               "Last updated" date at the top of this policy and notify you via email or a prominent notice on 
-              our platform. Your continued use of Nearly after changes become effective constitutes acceptance 
+              our platform. Your continued use of Launchpad after changes become effective constitutes acceptance 
               of the updated Privacy Policy.
             </p>
 
@@ -277,9 +277,9 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             </p>
             
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-6">
-              <p className="text-slate-900 mb-2"><strong>Nearly Privacy Team</strong></p>
-              <p className="text-slate-600 mb-1">Email: <a href="mailto:privacy@nearly.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@nearly.com</a></p>
-              <p className="text-slate-600 mb-1">Support: <a href="mailto:support@nearly.com" className="text-orange-500 hover:text-orange-600 font-semibold">support@nearly.com</a></p>
+              <p className="text-slate-900 mb-2"><strong>Launchpad Privacy Team</strong></p>
+              <p className="text-slate-600 mb-1">Email: <a href="mailto:privacy@launchpad.com" className="text-orange-500 hover:text-orange-600 font-semibold">privacy@launchpad.com</a></p>
+              <p className="text-slate-600 mb-1">Support: <a href="mailto:support@launchpad.com" className="text-orange-500 hover:text-orange-600 font-semibold">support@launchpad.com</a></p>
               <p className="text-slate-600">Mailing Address: [Your Company Address]</p>
             </div>
 
@@ -287,13 +287,13 @@ export default function PrivacyPolicyModal({ onClose }: PrivacyPolicyModalProps)
             <div className="bg-sky-50 border-2 border-orange-400 rounded-xl p-6 mt-8">
               <h4 className="text-lg font-bold text-slate-900 mb-3">Privacy in Plain English</h4>
               <ul className="space-y-2 text-sm text-slate-700 mb-0">
-                <li>✓ We collect information you provide and data about how you use Nearly</li>
+                <li>✓ We collect information you provide and data about how you use Launchpad</li>
                 <li>✓ We use your information to connect clients with independent workers and process payments</li>
                 <li>✓ We share information with other users when necessary (commissions, proposals, messages)</li>
                 <li>✓ We NEVER sell your personal information to third parties</li>
                 <li>✓ You can access, correct, or delete your information anytime</li>
                 <li>✓ We use industry-standard security to protect your data</li>
-                <li>✓ Contact us at privacy@nearly.com with any questions or concerns</li>
+                <li>✓ Contact us at privacy@launchpad.com with any questions or concerns</li>
               </ul>
             </div>
           </div>
