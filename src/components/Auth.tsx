@@ -152,7 +152,7 @@ export default function Auth() {
           <div className="h-12 w-12 rounded-xl bg-orange-500 flex items-center justify-center">
             <span className="text-white font-bold text-2xl">●</span>
           </div>
-          <span className="font-bold text-slate-900 text-2xl">Nearly</span>
+          <span className="font-bold text-slate-900 text-2xl">Launchpad</span>
         </div>
 
         <h2 className="text-3xl font-bold text-slate-900 mb-2 text-center">
@@ -160,7 +160,7 @@ export default function Auth() {
         </h2>
         <p className="text-slate-600 text-center mb-8">
           {isSignUp 
-            ? (showProDetails ? 'Tell us about your skills and experience' : 'Join the Nearly community')
+            ? (showProDetails ? 'Tell us about your skills and experience' : 'Join the Launchpad community')
             : 'Sign in to your account'
           }
         </p>

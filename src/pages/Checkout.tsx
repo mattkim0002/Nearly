@@ -59,7 +59,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
               <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
-              <span className="font-bold text-slate-900 text-xl">Nearly</span>
+              <span className="font-bold text-slate-900 text-xl">Launchpad</span>
             </div>
             <div className="flex items-center gap-4">
               {user && <ProfileDropdown user={user} onSignOut={onSignOut} />}
@@ -186,7 +186,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                     <div className="flex-1">
                       <h4 className="font-bold text-slate-900 mb-2">Platform Boundary Notice</h4>
                       <p className="text-sm text-slate-700 mb-2">
-                        <strong>Nearly facilitates connections and payment processing only.</strong> We do not:
+                        <strong>Launchpad facilitates connections and payment processing only.</strong> We do not:
                       </p>
                       <ul className="space-y-1 text-sm text-slate-700 mb-3">
                         <li>• Employ or vet workers beyond optional identity verification</li>
@@ -211,7 +211,7 @@ export default function Checkout({ user, onSignOut }: CheckoutProps) {
                     className="mt-1 w-5 h-5 rounded border-slate-300 text-orange-500 focus:ring-orange-600"
                   />
                   <span className="text-sm text-slate-700">
-                    I understand that Nearly facilitates connections and payment processing only. 
+                    I understand that Launchpad facilitates connections and payment processing only. 
                     Payment will be held in escrow and released per the terms I've agreed upon with 
                     the independent worker. I am responsible for vetting the worker, managing the 
                     commission, and approving the submitted work.

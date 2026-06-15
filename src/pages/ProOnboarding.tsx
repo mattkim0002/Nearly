@@ -102,7 +102,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                 <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-3xl">👋</span>
                 </div>
-                <h1 className="text-3xl font-bold text-slate-900 mb-3">Welcome to Nearly!</h1>
+                <h1 className="text-3xl font-bold text-slate-900 mb-3">Welcome to Launchpad!</h1>
                 <p className="text-lg text-slate-600">Let's get you set up to start finding commissions</p>
               </div>
 
@@ -111,26 +111,26 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                 <div className="flex gap-3">
                   <span className="text-3xl">⚠️</span>
                   <div className="flex-1">
-                    <h3 className="font-bold text-lg text-slate-900 mb-3">Important: Understand Nearly's Role</h3>
+                    <h3 className="font-bold text-lg text-slate-900 mb-3">Important: Understand Launchpad's Role</h3>
                     <p className="text-slate-700 mb-3">
-                      Nearly is a platform that <strong>facilitates connections and payment processing only</strong>. Here's what that means for you:
+                      Launchpad is a platform that <strong>facilitates connections and payment processing only</strong>. Here's what that means for you:
                     </p>
                     <ul className="space-y-2 text-sm text-slate-700">
                       <li className="flex items-start gap-2">
                         <span className="text-orange-500 mt-0.5">•</span>
-                        <span><strong>You are an independent worker</strong> - not an employee of Nearly. You control your own schedule, pricing, and how you perform services.</span>
+                        <span><strong>You are an independent worker</strong> - not an employee of Launchpad. You control your own schedule, pricing, and how you perform services.</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-orange-500 mt-0.5">•</span>
-                        <span><strong>Nearly does not guarantee outcomes</strong> - You are responsible for delivering quality work that meets the terms you agree to with clients.</span>
+                        <span><strong>Launchpad does not guarantee outcomes</strong> - You are responsible for delivering quality work that meets the terms you agree to with clients.</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-orange-500 mt-0.5">•</span>
-                        <span><strong>Payment is released per agreed terms</strong> - Clients approve work based on your agreement together. Nearly holds funds but doesn't determine completion.</span>
+                        <span><strong>Payment is released per agreed terms</strong> - Clients approve work based on your agreement together. Launchpad holds funds but doesn't determine completion.</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-orange-500 mt-0.5">•</span>
-                        <span><strong>Reviews come from users, not Nearly</strong> - Build your reputation by delivering great work to clients.</span>
+                        <span><strong>Reviews come from users, not Launchpad</strong> - Build your reputation by delivering great work to clients.</span>
                       </li>
                     </ul>
                   </div>
@@ -139,7 +139,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
 
               {/* How It Works */}
               <div className="bg-slate-50 rounded-xl p-6 mb-6">
-                <h3 className="font-bold text-slate-900 mb-4">How Nearly Works:</h3>
+                <h3 className="font-bold text-slate-900 mb-4">How Launchpad Works:</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex gap-3">
                     <span className="font-bold text-orange-500">1.</span>
@@ -173,7 +173,7 @@ export default function ProOnboarding({ user }: ProOnboardingProps) {
                   className="mt-1 w-5 h-5 rounded border-slate-300 text-orange-500 focus:ring-orange-600"
                 />
                 <span className="text-sm text-slate-700">
-                  I understand that I am an independent worker, not an employee of Nearly. I am responsible for delivering quality work that meets the terms I agree to with clients. Nearly facilitates connections and payment processing only and does not guarantee outcomes.
+                  I understand that I am an independent worker, not an employee of Launchpad. I am responsible for delivering quality work that meets the terms I agree to with clients. Launchpad facilitates connections and payment processing only and does not guarantee outcomes.
                 </span>
               </label>
 

@@ -24,7 +24,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
           <div className="h-10 w-10 rounded-xl bg-white shadow-md border border-sky-200 flex items-center justify-center">
             <span className="text-orange-500 font-bold text-xl">●</span>
           </div>
-          <span className="font-bold text-slate-900 text-xl">Nearly</span>
+          <span className="font-bold text-slate-900 text-xl">Launchpad</span>
         </div>
         
         <nav className="flex items-center gap-6">
@@ -262,7 +262,7 @@ export default function PricingPage({ user, onSignOut }: PricingPageProps) {
             <div className="bg-white rounded-2xl shadow-md p-6 border-2 border-slate-100">
               <h3 className="font-bold text-lg text-slate-900 mb-2">Is there a long-term commitment?</h3>
               <p className="text-slate-600">
-                No contracts, no commitments. You can stop using Nearly at any time, and you'll only pay for the jobs you've completed.
+                No contracts, no commitments. You can stop using Launchpad at any time, and you'll only pay for the jobs you've completed.
               </p>
             </div>
           </div>

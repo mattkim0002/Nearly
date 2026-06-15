@@ -218,7 +218,7 @@ export default function CategoryPage({ user, onSignOut }: CategoryPageProps) {
               <div className="h-10 w-10 rounded-xl bg-orange-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">●</span>
               </div>
-              <span className="font-bold text-slate-900 text-xl">nearly</span>
+              <span className="font-bold text-slate-900 text-xl">launchpad</span>
             </div>
 
             <div className="flex items-center gap-4">

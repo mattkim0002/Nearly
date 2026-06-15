@@ -1,4 +1,4 @@
-// Email Templates for Nearly Platform
+// Email Templates for Launchpad Platform
 // Location: src/lib/emailTemplates.ts
 // These are template strings that can be used with your email service (SendGrid, AWS SES, etc.)
 
@@ -6,7 +6,7 @@ export const emailTemplates = {
   
   // 1. WELCOME EMAIL - NEW CLIENT
   welcomeClient: (userName: string) => ({
-    subject: "Welcome to Nearly! 👋",
+    subject: "Welcome to Launchpad! 👋",
     html: `
       <!DOCTYPE html>
       <html>
@@ -25,13 +25,13 @@ export const emailTemplates = {
       <body>
         <div class="container">
           <div class="header">
-            <h1>Welcome to Nearly!</h1>
+            <h1>Welcome to Launchpad!</h1>
           </div>
           
           <div class="content">
             <p>Hi ${userName},</p>
             
-            <p>Thanks for joining Nearly! We're excited to help you connect with talented independent local workers for your commissions.</p>
+            <p>Thanks for joining Launchpad! We're excited to help you connect with talented independent local workers for your commissions.</p>
             
             <h3>Here's how to get started:</h3>
             <ol>
@@ -42,30 +42,30 @@ export const emailTemplates = {
             </ol>
             
             <div class="notice">
-              <strong>⚠️ Important: Nearly's Role</strong><br>
-              Nearly facilitates connections and payment processing only. We do not employ workers, guarantee work quality, or control how services are performed. You are responsible for vetting workers, defining clear terms, and managing your commissions.
+              <strong>⚠️ Important: Launchpad's Role</strong><br>
+              Launchpad facilitates connections and payment processing only. We do not employ workers, guarantee work quality, or control how services are performed. You are responsible for vetting workers, defining clear terms, and managing your commissions.
             </div>
             
-            <a href="https://nearly.com/post-job" class="button">Post Your First Commission</a>
+            <a href="https://launchpad.com/post-job" class="button">Post Your First Commission</a>
             
-            <p>Need help? Check out our <a href="https://nearly.com/faq">Help Center</a> or email us at support@nearly.com</p>
+            <p>Need help? Check out our <a href="https://launchpad.com/faq">Help Center</a> or email us at support@launchpad.com</p>
             
-            <p>Welcome aboard!<br>The Nearly Team</p>
+            <p>Welcome aboard!<br>The Launchpad Team</p>
           </div>
           
           <div class="footer">
-            <p>© 2026 Nearly. All rights reserved.<br>
-            <a href="https://nearly.com/privacy">Privacy Policy</a> | <a href="https://nearly.com/faq">Help Center</a></p>
+            <p>© 2026 Launchpad. All rights reserved.<br>
+            <a href="https://launchpad.com/privacy">Privacy Policy</a> | <a href="https://launchpad.com/faq">Help Center</a></p>
           </div>
         </div>
       </body>
       </html>
     `,
-    text: `Welcome to Nearly!
+    text: `Welcome to Launchpad!
 
 Hi ${userName},
 
-Thanks for joining Nearly! We're excited to help you connect with talented independent local workers for your commissions.
+Thanks for joining Launchpad! We're excited to help you connect with talented independent local workers for your commissions.
 
 Here's how to get started:
 1. Post a Commission: Describe what you need and set your budget
@@ -73,19 +73,19 @@ Here's how to get started:
 3. Choose Your Worker: Select the best fit for your needs
 4. Secure Payment: Payment is held in escrow per your agreed terms
 
-IMPORTANT: Nearly facilitates connections and payment processing only. We do not employ workers, guarantee work quality, or control how services are performed. You are responsible for vetting workers, defining clear terms, and managing your commissions.
+IMPORTANT: Launchpad facilitates connections and payment processing only. We do not employ workers, guarantee work quality, or control how services are performed. You are responsible for vetting workers, defining clear terms, and managing your commissions.
 
-Get started: https://nearly.com/post-job
+Get started: https://launchpad.com/post-job
 
-Need help? Check out our Help Center at https://nearly.com/faq or email support@nearly.com
+Need help? Check out our Help Center at https://launchpad.com/faq or email support@launchpad.com
 
 Welcome aboard!
-The Nearly Team`
+The Launchpad Team`
   }),
 
   // 2. WELCOME EMAIL - NEW WORKER
   welcomeWorker: (userName: string) => ({
-    subject: "Welcome to Nearly! Start Finding Commissions 🚀",
+    subject: "Welcome to Launchpad! Start Finding Commissions 🚀",
     html: `
       <!DOCTYPE html>
       <html>
@@ -104,13 +104,13 @@ The Nearly Team`
       <body>
         <div class="container">
           <div class="header">
-            <h1>Welcome to Nearly!</h1>
+            <h1>Welcome to Launchpad!</h1>
           </div>
           
           <div class="content">
             <p>Hi ${userName},</p>
             
-            <p>Welcome to Nearly! We're excited to help you connect with local clients looking for your skills.</p>
+            <p>Welcome to Launchpad! We're excited to help you connect with local clients looking for your skills.</p>
             
             <h3>Get Started in 3 Steps:</h3>
             <ol>
@@ -126,28 +126,28 @@ The Nearly Team`
             <h3>How You Get Paid:</h3>
             <p>When a client accepts your proposal, payment is deposited into secure escrow. Complete the work according to your agreed terms and submit it for review. Once the client approves, payment is released to your account.</p>
             
-            <p><em>Remember: You are responsible for delivering work that meets the terms you agreed to with the client. Nearly facilitates payment processing but does not determine when work is complete.</em></p>
+            <p><em>Remember: You are responsible for delivering work that meets the terms you agreed to with the client. Launchpad facilitates payment processing but does not determine when work is complete.</em></p>
             
-            <a href="https://nearly.com/profile" class="button">Complete Your Profile</a>
+            <a href="https://launchpad.com/profile" class="button">Complete Your Profile</a>
             
-            <p>Questions? Check our <a href="https://nearly.com/faq">Help Center</a> or email support@nearly.com</p>
+            <p>Questions? Check our <a href="https://launchpad.com/faq">Help Center</a> or email support@launchpad.com</p>
             
-            <p>Let's get to work!<br>The Nearly Team</p>
+            <p>Let's get to work!<br>The Launchpad Team</p>
           </div>
           
           <div class="footer">
-            <p>© 2026 Nearly. All rights reserved.<br>
-            <a href="https://nearly.com/privacy">Privacy Policy</a> | <a href="https://nearly.com/faq">Help Center</a></p>
+            <p>© 2026 Launchpad. All rights reserved.<br>
+            <a href="https://launchpad.com/privacy">Privacy Policy</a> | <a href="https://launchpad.com/faq">Help Center</a></p>
           </div>
         </div>
       </body>
       </html>
     `,
-    text: `Welcome to Nearly!
+    text: `Welcome to Launchpad!
 
 Hi ${userName},
 
-Welcome to Nearly! We're excited to help you connect with local clients looking for your skills.
+Welcome to Launchpad! We're excited to help you connect with local clients looking for your skills.
 
 Get Started in 3 Steps:
 1. Complete Your Profile: Add your bio, skills, portfolio, and pricing
@@ -159,14 +159,14 @@ Pro Tip: A complete profile with portfolio examples gets 3x more responses!
 How You Get Paid:
 When a client accepts your proposal, payment is deposited into secure escrow. Complete the work according to your agreed terms and submit it for review. Once the client approves, payment is released to your account.
 
-Remember: You are responsible for delivering work that meets the terms you agreed to with the client. Nearly facilitates payment processing but does not determine when work is complete.
+Remember: You are responsible for delivering work that meets the terms you agreed to with the client. Launchpad facilitates payment processing but does not determine when work is complete.
 
-Complete your profile: https://nearly.com/profile
+Complete your profile: https://launchpad.com/profile
 
-Questions? Help Center: https://nearly.com/faq or email support@nearly.com
+Questions? Help Center: https://launchpad.com/faq or email support@launchpad.com
 
 Let's get to work!
-The Nearly Team`
+The Launchpad Team`
   }),
 
   // 3. COMMISSION POSTED CONFIRMATION
@@ -207,15 +207,15 @@ The Nearly Team`
             
             <p><strong>Tip:</strong> Review worker profiles carefully. Check their portfolios, reviews from other users, and ask questions before accepting a proposal. You are responsible for vetting and selecting the right worker for your needs.</p>
             
-            <a href="https://nearly.com/commission/${commissionId}" class="button">View Your Commission</a>
+            <a href="https://launchpad.com/commission/${commissionId}" class="button">View Your Commission</a>
             
             <p>We'll notify you as soon as proposals start coming in!</p>
             
-            <p>Best,<br>The Nearly Team</p>
+            <p>Best,<br>The Launchpad Team</p>
           </div>
           
           <div class="footer">
-            <p>© 2026 Nearly. All rights reserved.</p>
+            <p>© 2026 Launchpad. All rights reserved.</p>
           </div>
         </div>
       </body>
@@ -235,10 +235,10 @@ What Happens Next:
 
 Tip: Review worker profiles carefully. Check their portfolios, reviews from other users, and ask questions before accepting a proposal.
 
-View your commission: https://nearly.com/commission/${commissionId}
+View your commission: https://launchpad.com/commission/${commissionId}
 
 Best,
-The Nearly Team`
+The Launchpad Team`
   }),
 
   // 4. PROPOSAL RECEIVED (to Client)
@@ -272,11 +272,11 @@ The Nearly Team`
               <li>Accept the proposal if they're the right fit</li>
             </ul>
             
-            <p><em>Remember: You are responsible for vetting workers and selecting the best fit. Reviews and ratings are from other users, not Nearly.</em></p>
+            <p><em>Remember: You are responsible for vetting workers and selecting the best fit. Reviews and ratings are from other users, not Launchpad.</em></p>
             
-            <a href="https://nearly.com/commission/${commissionId}" class="button">Review Proposal</a>
+            <a href="https://launchpad.com/commission/${commissionId}" class="button">Review Proposal</a>
             
-            <p>Best,<br>The Nearly Team</p>
+            <p>Best,<br>The Launchpad Team</p>
           </div>
         </div>
       </body>
@@ -296,10 +296,10 @@ Next Steps:
 
 Remember: You are responsible for vetting workers and selecting the best fit.
 
-Review proposal: https://nearly.com/commission/${commissionId}
+Review proposal: https://launchpad.com/commission/${commissionId}
 
 Best,
-The Nearly Team`
+The Launchpad Team`
   }),
 
   // 5. PAYMENT PROCESSED (Escrow Deposited)
@@ -333,12 +333,12 @@ The Nearly Team`
             </ul>
             
             <div class="notice">
-              <strong>Important:</strong> You are responsible for reviewing the submitted work and determining whether it meets your agreed terms. Nearly holds the funds but does not make decisions about work approval.
+              <strong>Important:</strong> You are responsible for reviewing the submitted work and determining whether it meets your agreed terms. Launchpad holds the funds but does not make decisions about work approval.
             </div>
             
             <p>You'll receive an email when ${workerName} submits the completed work for your review.</p>
             
-            <p>Best,<br>The Nearly Team</p>
+            <p>Best,<br>The Launchpad Team</p>
           </div>
         </div>
       </body>
@@ -360,7 +360,7 @@ Important: You are responsible for reviewing the submitted work and determining 
 You'll receive an email when ${workerName} submits the completed work.
 
 Best,
-The Nearly Team`
+The Launchpad Team`
   }),
 
   // 6. WORK SUBMITTED (to Client)
@@ -395,9 +395,9 @@ The Nearly Team`
             
             <p><em>Payment will be released per your agreed terms once you approve the work.</em></p>
             
-            <a href="https://nearly.com/commission/${commissionId}" class="button">Review Submitted Work</a>
+            <a href="https://launchpad.com/commission/${commissionId}" class="button">Review Submitted Work</a>
             
-            <p>Best,<br>The Nearly Team</p>
+            <p>Best,<br>The Launchpad Team</p>
           </div>
         </div>
       </body>
@@ -416,10 +416,10 @@ Please Review:
 
 Payment will be released per your agreed terms once you approve the work.
 
-Review work: https://nearly.com/commission/${commissionId}
+Review work: https://launchpad.com/commission/${commissionId}
 
 Best,
-The Nearly Team`
+The Launchpad Team`
   }),
 
   // 7. PAYMENT RELEASED (to Worker)
@@ -457,7 +457,7 @@ The Nearly Team`
             
             <p>Congratulations on completing another commission! Don't forget to leave a review for ${clientName}.</p>
             
-            <p>Keep up the great work!<br>The Nearly Team</p>
+            <p>Keep up the great work!<br>The Launchpad Team</p>
           </div>
         </div>
       </body>
@@ -477,7 +477,7 @@ Payment Details:
 Congratulations! Don't forget to leave a review for ${clientName}.
 
 Keep up the great work!
-The Nearly Team`
+The Launchpad Team`
   }),
 
   // 8. DISPUTE NOTIFICATION
@@ -513,7 +513,7 @@ The Nearly Team`
             
             <p><strong>Case ID:</strong> ${commissionId}</p>
             
-            <p>Thank you for your patience,<br>The Nearly Support Team</p>
+            <p>Thank you for your patience,<br>The Launchpad Support Team</p>
           </div>
         </div>
       </body>
@@ -535,7 +535,7 @@ A support team member will reach out within 1-2 business days.
 Case ID: ${commissionId}
 
 Thank you for your patience,
-The Nearly Support Team`
+The Launchpad Support Team`
   })
 };
 
@@ -555,7 +555,7 @@ export const sendEmail = async (
   
   await sgMail.send({
     to,
-    from: 'noreply@nearly.com',
+    from: 'noreply@launchpad.com',
     subject: template.subject,
     html: template.html,
     text: template.text
