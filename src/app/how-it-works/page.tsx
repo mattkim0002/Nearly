@@ -8,13 +8,13 @@ const clientSteps = [
     icon: Search,
     title: "Search for what you need",
     description:
-      "Browse by category or describe your project in the search bar. Nearly surfaces skilled local Pros — photographers, woodworkers, ceramicists, illustrators, interior designers, and more.",
+      "Browse by category or describe your project in the search bar. Makevo surfaces skilled local Pros — photographers, woodworkers, ceramicists, illustrators, interior designers, and more.",
   },
   {
     icon: Star,
     title: "Find the right Pro",
     description:
-      "Browse Pro profiles, view their work, and check their listed services. Every Pro on Nearly is a real craftsperson with specific skills — not a generic freelancer.",
+      "Browse Pro profiles, view their work, and check their listed services. Every Pro on Makevo is a real craftsperson with specific skills — not a generic freelancer.",
   },
   {
     icon: Send,
@@ -55,10 +55,10 @@ export default function HowItWorksPage() {
         <section className="bg-muted/40 border-b border-border py-20 px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
-              How Nearly works
+              How Makevo works
             </h1>
             <p className="text-muted-foreground text-lg">
-              Nearly connects people who have a project with skilled local
+              Makevo connects people who have a project with skilled local
               professionals who can bring it to life. Here's how it works for
               both sides.
             </p>
@@ -79,7 +79,7 @@ export default function HowItWorksPage() {
               <p className="text-muted-foreground mt-2 max-w-xl">
                 Whether you're a cafe owner wanting custom ceramics, someone
                 redesigning their interior, or a musician needing album art —
-                Nearly helps you find a trusted local Pro.
+                Makevo helps you find a trusted local Pro.
               </p>
             </div>
 
@@ -125,7 +125,7 @@ export default function HowItWorksPage() {
                 Reach clients who value your craft
               </h2>
               <p className="text-muted-foreground mt-2 max-w-xl">
-                Nearly is built for skilled creatives — not gig workers. List
+                Makevo is built for skilled creatives — not gig workers. List
                 what you make and what you do, and let the right clients come
                 to you.
               </p>

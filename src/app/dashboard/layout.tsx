@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { DEMO_PRO } from "@/lib/demo"; // REMOVE in Sprint 2
 import {
@@ -35,8 +34,7 @@ export default function DashboardLayout({
         {/* Brand */}
         <div className="px-5 py-5 border-b border-border">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/nearly-logo.png" alt="Nearly" width={28} height={28} className="size-7" />
-            <span className="font-bold text-lg tracking-tight">Nearly</span>
+            <span className="font-bold text-lg tracking-tight">Makevo</span>
           </Link>
         </div>
 
@@ -96,8 +94,7 @@ export default function DashboardLayout({
       {/* Mobile top bar */}
       <div className="lg:hidden fixed top-0 inset-x-0 z-50 bg-card border-b border-border px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/nearly-logo.png" alt="Nearly" width={24} height={24} className="size-6" />
-          <span className="font-bold tracking-tight">Nearly</span>
+          <span className="font-bold tracking-tight">Makevo</span>
         </Link>
         <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full">
           Pro Dashboard

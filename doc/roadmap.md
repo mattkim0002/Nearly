@@ -108,6 +108,6 @@ Goal: deploy to production with confidence.
 Before Sprint 2 is locked:
 
 1. **Pro onboarding model** — self-sign-up open to anyone, or invite-only v1?
-2. **Inquiry ownership** — does the client↔pro thread live in Nearly, or hand off to email after first message?
+2. **Inquiry ownership** — does the client↔pro thread live in Makevo, or hand off to email after first message?
 3. **Monetization model** — platform fee, pro subscription, or freemium?
 4. **Who are the first 10 Pros?** — people we know personally or cold outreach?

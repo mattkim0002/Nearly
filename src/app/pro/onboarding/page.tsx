@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronRight, ImagePlus, ArrowRight } from "lucide-react";
 
@@ -235,8 +234,7 @@ export default function OnboardingPage() {
       {/* Top bar */}
       <header className="px-6 py-5 flex items-center gap-2 border-b border-border bg-card">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/nearly-logo.png" alt="Nearly" width={28} height={28} className="size-7" />
-          <span className="font-bold text-lg tracking-tight">Nearly</span>
+          <span className="font-bold text-lg tracking-tight">Makevo</span>
         </Link>
       </header>
 

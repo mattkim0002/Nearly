@@ -1,5 +1,5 @@
 -- ============================================
--- Nearly: Initial Schema Migration
+-- Makevo: Initial Schema Migration
 -- Tables: categories, profiles, services
 -- ============================================
 

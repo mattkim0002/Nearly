@@ -137,7 +137,7 @@ export default async function ServiceDetailPage({
                   <div>
                     <h3 className="font-bold">Verified Professional</h3>
                     <p className="text-muted-foreground text-sm">
-                      Nearly has verified this pro&apos;s identity and credentials.
+                      Makevo has verified this pro&apos;s identity and credentials.
                     </p>
                   </div>
                 </div>
