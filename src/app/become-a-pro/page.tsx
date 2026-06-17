@@ -53,10 +53,10 @@ export default function BecomeAProPage() {
               href="#"
               className="inline-block bg-primary text-white font-bold px-8 py-3 rounded-full text-sm hover:opacity-90 transition-opacity"
             >
-              Apply to join — it's free
+              Apply to join — it&apos;s free
             </Link>
             <p className="text-xs text-muted-foreground mt-3">
-              Sign-up coming soon. Leave your details and we'll reach out.
+              Sign-up coming soon. Leave your details and we&apos;ll reach out.
             </p>
           </div>
         </section>
@@ -116,7 +116,7 @@ export default function BecomeAProPage() {
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
               Pro sign-up is launching soon. In the meantime, let us know
-              you're interested and we'll be in touch.
+              you&apos;re interested and we&apos;ll be in touch.
             </p>
             <Link
               href="/#"

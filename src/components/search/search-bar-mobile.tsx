@@ -30,7 +30,6 @@ export function SearchBarMobile({ values, onChange, onSearch }: SearchBarMobileP
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
       document.body.style.overflow = "hidden";
-      setActiveField("where");
     }
     return () => {
       document.removeEventListener("keydown", handleEscape);
@@ -53,7 +52,10 @@ export function SearchBarMobile({ values, onChange, onSearch }: SearchBarMobileP
     <>
       {/* Collapsed Pill */}
       <button
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setActiveField("where");
+          setIsOpen(true);
+        }}
         className="w-full max-w-[400px] bg-card rounded-full shadow-2xl p-4 flex items-center gap-3 border border-border hover:shadow-lg transition-shadow"
       >
         <Search className="size-5 text-muted-foreground" />

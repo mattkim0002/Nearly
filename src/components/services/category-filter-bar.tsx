@@ -123,10 +123,6 @@ export function CategoryFilterBar({
     setLocationSearch("");
   }
 
-  function clearLocation() {
-    router.push(buildUrl({ location: undefined }));
-  }
-
   function handleCategory(slug: string) {
     router.push(buildUrl({ category: slug || undefined }));
     setCategoryOpen(false);

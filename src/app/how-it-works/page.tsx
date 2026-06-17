@@ -59,7 +59,7 @@ export default function HowItWorksPage() {
             </h1>
             <p className="text-muted-foreground text-lg">
               Makevo connects people who have a project with skilled local
-              professionals who can bring it to life. Here's how it works for
+              professionals who can bring it to life. Here&apos;s how it works for
               both sides.
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function HowItWorksPage() {
                 Find the right Pro for your project
               </h2>
               <p className="text-muted-foreground mt-2 max-w-xl">
-                Whether you're a cafe owner wanting custom ceramics, someone
+                Whether you&apos;re a cafe owner wanting custom ceramics, someone
                 redesigning their interior, or a musician needing album art —
                 Makevo helps you find a trusted local Pro.
               </p>
