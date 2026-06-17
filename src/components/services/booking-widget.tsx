@@ -70,7 +70,7 @@ function WidgetContent({ service, onCta }: { service: BookingWidgetProps["servic
             <span>{formatPrice(service.price_starting)}</span>
           </div>
           <div className="flex justify-between">
-            <span className="underline text-muted-foreground">Nearly service fee</span>
+            <span className="underline text-muted-foreground">Makevo service fee</span>
             <span>{formatPrice(fee)}</span>
           </div>
           <div className="flex justify-between font-bold text-base pt-2">

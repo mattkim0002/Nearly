@@ -1,10 +1,10 @@
 # Product
 
-## What is Nearly?
+## What is Makevo?
 
-Nearly is a marketplace that connects clients with skilled creative professionals — woodworkers, ceramicists, photographers, illustrators, interior designers, and more. The focus is on local-first discovery: clients find Pros who can contribute to their specific project, not just browse generic services.
+Makevo is a marketplace that connects clients with skilled creative professionals — woodworkers, ceramicists, photographers, illustrators, interior designers, and more. The focus is on local-first discovery: clients find Pros who can contribute to their specific project, not just browse generic services.
 
-Pros on Nearly sell their work and expertise (a custom chair, a ceramic set, a photo shoot, an illustration) rather than generic "experiences." Clients come with a project goal in mind and need someone with the right craft to help them achieve it.
+Pros on Makevo sell their work and expertise (a custom chair, a ceramic set, a photo shoot, an illustration) rather than generic "experiences." Clients come with a project goal in mind and need someone with the right craft to help them achieve it.
 
 ## Target Users
 
@@ -46,4 +46,4 @@ That loop is the product. Everything else is acquisition (before) or retention/m
 ## Categories
 
 Initial list: Photography, Woodworking, Ceramics, Illustration, Interior Design.
-Nearly is not limited to the above 5 cateogires. Nearly should be built in a way adding a new category to the platform is simple and straightforward.
+Makevo is not limited to the above 5 cateogires. Makevo should be built in a way adding a new category to the platform is simple and straightforward.

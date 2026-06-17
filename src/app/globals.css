@@ -49,7 +49,7 @@
 
 :root {
   --radius: 0.5rem;
-  /* Nearly Light Theme */
+  /* Makevo Light Theme */
   --background: #f6f8f7;
   --foreground: #111814;
   --card: #ffffff;
@@ -84,7 +84,7 @@
 }
 
 .dark {
-  /* Nearly Dark Theme */
+  /* Makevo Dark Theme */
   --background: #102219;
   --foreground: #ffffff;
   --card: #1a3328;

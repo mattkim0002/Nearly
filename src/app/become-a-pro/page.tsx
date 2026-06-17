@@ -15,7 +15,7 @@ const reasons = [
   {
     title: "Clients who mean it",
     description:
-      "People on Nearly come with a real project in mind. They're not browsing for fun — they're looking for the right person to work with.",
+      "People on Makevo come with a real project in mind. They're not browsing for fun — they're looking for the right person to work with.",
   },
   {
     title: "Your craft, your terms",
@@ -25,7 +25,7 @@ const reasons = [
   {
     title: "Direct connections",
     description:
-      "Inquiries go straight to your inbox. You decide who to work with and how. Nearly gets out of the way.",
+      "Inquiries go straight to your inbox. You decide who to work with and how. Makevo gets out of the way.",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function BecomeAProPage() {
               Turn your craft into clients
             </h1>
             <p className="text-muted-foreground text-lg mb-8">
-              Nearly is a marketplace for skilled creative professionals. List
+              Makevo is a marketplace for skilled creative professionals. List
               your services, get discovered by people with real projects, and
               build your local clientele.
             </p>
@@ -53,10 +53,10 @@ export default function BecomeAProPage() {
               href="#"
               className="inline-block bg-primary text-white font-bold px-8 py-3 rounded-full text-sm hover:opacity-90 transition-opacity"
             >
-              Apply to join — it's free
+              Apply to join — it&apos;s free
             </Link>
             <p className="text-xs text-muted-foreground mt-3">
-              Sign-up coming soon. Leave your details and we'll reach out.
+              Sign-up coming soon. Leave your details and we&apos;ll reach out.
             </p>
           </div>
         </section>
@@ -66,10 +66,10 @@ export default function BecomeAProPage() {
           {/* Who it's for */}
           <section className="text-center">
             <h2 className="text-2xl font-black tracking-tight mb-2">
-              Who is a Nearly Pro?
+              Who is a Makevo Pro?
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto mb-10">
-              Nearly is for skilled craftspeople who produce real, tangible
+              Makevo is for skilled craftspeople who produce real, tangible
               work — not generic freelancers. If you work with your hands or
               your eye, you belong here.
             </p>
@@ -89,10 +89,10 @@ export default function BecomeAProPage() {
             </p>
           </section>
 
-          {/* Why Nearly */}
+          {/* Why Makevo */}
           <section>
             <h2 className="text-2xl font-black tracking-tight mb-10 text-center">
-              Why list on Nearly?
+              Why list on Makevo?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {reasons.map((reason) => (
@@ -116,7 +116,7 @@ export default function BecomeAProPage() {
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
               Pro sign-up is launching soon. In the meantime, let us know
-              you're interested and we'll be in touch.
+              you&apos;re interested and we&apos;ll be in touch.
             </p>
             <Link
               href="/#"

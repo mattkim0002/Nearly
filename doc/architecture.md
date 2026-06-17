@@ -36,7 +36,7 @@ All pages are server components by default. Client components (`"use client"`) a
 ## Key Components
 
 ### Layout
-- `src/components/layout/header.tsx` — site header; `useAuthMock` hook reads `localStorage.nearlyMockAuth` to toggle between logged-out (Log in / Sign up) and logged-in (avatar pill + dropdown with Dashboard, My profile, Sign out) states; Sprint 2 will swap the hook for a real Supabase session
+- `src/components/layout/header.tsx` — site header; `useAuthMock` hook reads `localStorage.makevoMockAuth` to toggle between logged-out (Log in / Sign up) and logged-in (avatar pill + dropdown with Dashboard, My profile, Sign out) states; Sprint 2 will swap the hook for a real Supabase session
 - `src/components/layout/footer.tsx` — site footer
 
 ### Search
@@ -104,7 +104,7 @@ Used to resolve the user's current location label from coordinates. Free, no API
 The home page hero uses no background image. A client component cycles through profession labels (`Woodworker`, `Ceramicist`, etc.) with a CSS opacity fade every 2.8 s — conveying the breadth of the marketplace without a photo. This keeps the hero lightweight (no large image fetch) and avoids the generic stock-photo look. The warm off-white background (`#faf8f5`) maintains visual warmth without needing imagery.
 
 ### localStorage mock auth flag for Sprint 1
-The header and auth pages use `localStorage.nearlyMockAuth = "true"` as a stand-in for a real session during Sprint 1. Setting the flag (via `/login`, `/signup`, or the dashboard demo shortcut) switches the header to its logged-in state. Clearing it (Sign out) reverts it. In Sprint 2, `useAuthMock` in `header.tsx` is replaced with a `useSession` hook from Supabase — no other component changes required.
+The header and auth pages use `localStorage.makevoMockAuth = "true"` as a stand-in for a real session during Sprint 1. Setting the flag (via `/login`, `/signup`, or the dashboard demo shortcut) switches the header to its logged-in state. Clearing it (Sign out) reverts it. In Sprint 2, `useAuthMock` in `header.tsx` is replaced with a `useSession` hook from Supabase — no other component changes required.
 
 ### Schema designed for Stripe Connect from day one
 `profiles` will include `stripe_account_id` (nullable) and `bookings` will include `platform_fee` + `payout_amount` even before payments ship. Retrofitting Stripe Connect onto an unprepared schema is significant tech debt.

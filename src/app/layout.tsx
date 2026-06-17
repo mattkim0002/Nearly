@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nearly - Service Marketplace",
+  title: "Makevo - Service Marketplace",
   description:
     "Find the expert for your next masterpiece. Discover hand-picked professionals for your unique projects.",
 };

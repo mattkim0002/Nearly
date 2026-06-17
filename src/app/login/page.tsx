@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
@@ -18,7 +17,7 @@ export default function LoginPage() {
   };
 
   const handleMockLogin = () => {
-    localStorage.setItem("nearlyMockAuth", "true");
+    localStorage.setItem("makevoMockAuth", "true");
     router.push("/dashboard");
   };
 
@@ -27,15 +26,14 @@ export default function LoginPage() {
       {/* Top bar */}
       <header className="px-6 py-5 border-b border-border bg-card">
         <Link href="/" className="flex items-center gap-2 w-fit">
-          <Image src="/nearly-logo.png" alt="Nearly" width={28} height={28} className="size-7" />
-          <span className="font-bold text-lg tracking-tight">Nearly</span>
+          <span className="font-bold text-lg tracking-tight">Makevo</span>
         </Link>
       </header>
 
       <div className="flex-1 flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-[400px]">
           <h1 className="text-3xl font-extrabold tracking-tight mb-1">Welcome back</h1>
-          <p className="text-muted-foreground mb-8">Sign in to your Nearly account.</p>
+          <p className="text-muted-foreground mb-8">Sign in to your Makevo account.</p>
 
           {!sent ? (
             <>

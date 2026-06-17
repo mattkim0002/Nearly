@@ -1,11 +1,11 @@
-# Nearly
+# Makevo
 
 ## Mission Statement
-Nearly’s mission is to connect Pros all over to clients all over the globe. Nearly connects trusted professionals with clients through simple, local-first experiences -- making it easy to discover, book, and collaborate with skilled creators anywhere in the world.
+Makevo’s mission is to connect Pros all over to clients all over the globe. Makevo connects trusted professionals with clients through simple, local-first experiences -- making it easy to discover, book, and collaborate with skilled creators anywhere in the world.
 
 ## Target Customers
 1. Professionals such as Woodworkers, ceramicists, photographers, etc. These professions are able to contribute to customer's project or products. These professions do not sell "experiences" necessarily, but rather they sell their products, such as cermics, chairs, paintings, or even music beats. We connect customers who want to get their project done with artists, hand-workers, or musicians.
-2. Customers who need local Pros for specific product or job that can contribute to their project of interest. These customers are not expert at any of the profession such as woodworking, illustration, or ceramics, for example. But they have a need of those expertise in order to achieve their goals such as improving interior design of a cafe, building custom ceramic plates, or creating an illustration for their album. These customers could use Nearly to look for Pros that carry the target expertise and also locally reachable.
+2. Customers who need local Pros for specific product or job that can contribute to their project of interest. These customers are not expert at any of the profession such as woodworking, illustration, or ceramics, for example. But they have a need of those expertise in order to achieve their goals such as improving interior design of a cafe, building custom ceramic plates, or creating an illustration for their album. These customers could use Makevo to look for Pros that carry the target expertise and also locally reachable.
 
 
 ## Core Features
@@ -29,7 +29,7 @@ Nearly’s mission is to connect Pros all over to clients all over the globe. Ne
 Project documentation lives in `/doc` in this repo. Keep it up to date as the project evolves.
 
 **Structure:**
-- `doc/product.md` — What Nearly is, who it's for, what's in/out of MLP scope
+- `doc/product.md` — What Makevo is, who it's for, what's in/out of MLP scope
 - `doc/architecture.md` — App structure, routes, components, key technical decisions
 - `doc/schema.md` — Database schema reference (source of truth)
 - `doc/onboarding.md` — How to run the project locally

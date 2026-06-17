@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { LayoutDashboard, User, LogOut, ChevronDown } from "lucide-react";
@@ -13,14 +12,14 @@ function useAuthMock() {
 
   useEffect(() => {
     const check = () =>
-      setLoggedIn(localStorage.getItem("nearlyMockAuth") === "true");
+      setLoggedIn(localStorage.getItem("makevoMockAuth") === "true");
     check();
     window.addEventListener("storage", check);
     return () => window.removeEventListener("storage", check);
   }, []);
 
   const signOut = () => {
-    localStorage.removeItem("nearlyMockAuth");
+    localStorage.removeItem("makevoMockAuth");
     setLoggedIn(false);
   };
 
@@ -55,14 +54,7 @@ export function Header() {
       <div className="max-w-[1280px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/nearly-logo.png"
-            alt="Nearly logo"
-            width={32}
-            height={32}
-            className="size-8"
-          />
-          <h1 className="text-xl font-bold tracking-tight">Nearly</h1>
+          <h1 className="text-xl font-bold tracking-tight">Makevo</h1>
         </Link>
 
         {/* Navigation Links */}
